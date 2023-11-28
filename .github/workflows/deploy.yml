@@ -14,6 +14,7 @@ jobs:
 
         -   name: Deploy to EC2
             run: |
-                ssh -i "${{secrets.SSH_KEY}}" ubuntu@ec2-13-53-187-164.eu-north-1.compute.amazonaws.com
-
+                echo "${{secrets.SSH_KEY }}" > ~/.ssh/key.pem
+                ssh -i "~/.ssh/key.pem" ubuntu@ec2-13-53-187-164.eu-north-1.compute.amazonaws.com
+                
             
