@@ -25,3 +25,4 @@ jobs:
                 ls / 
                 cd /var/www/vhosts/tumbleweedandtwang.com
                 git pull
+                php artisan migrate:fresh --seed

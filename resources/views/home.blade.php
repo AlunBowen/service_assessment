@@ -5,8 +5,17 @@
     <title>Home Page</title>
 </head>
 <body>
-    <h1>Home</h1>
+    <h1>Assessment</h1>
 
+
+    @php
+        $assessments = App\Models\Assessment::all();
+    @endphp
+
+    @foreach($assessments as $assessment)
+        <p>{{ $assessment->name }}</p>
+        <p>{{ $assessment->description }}</p>
+    @endforeach
     <ul>
         <li>1</li>
         <li>2</li>
