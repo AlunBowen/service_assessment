@@ -5,6 +5,7 @@
     <title>Home Page</title>
 </head>
 <body>
+<x-nav />
     <h1>Services</h1>
 
 
