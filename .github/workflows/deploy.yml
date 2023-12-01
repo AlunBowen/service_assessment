@@ -24,6 +24,6 @@ jobs:
                 echo "Nice Job!!!"
                 ls / 
                 cd /var/www/vhosts/tumbleweedandtwang.com
-                git reset --hard
+                git clean  -d  -f
                 git pull
                 php artisan migrate:fresh --seed
