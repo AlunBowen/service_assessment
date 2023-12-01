@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
-    <script src="{{ asset('build/assets/app-a83ed21d.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('build/assets/app-4c3504b5.css') }}">
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div>
