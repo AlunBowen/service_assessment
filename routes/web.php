@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cookie;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,11 @@ Route::get('/services', function () {
 Route::get('/resources', function () {
     return view('resources');
 });
+
+Route::put('/set-lang', function (Illuminate\Http\Request $request) {
+    Cookie::queue(Cookie::make('lang', $request->get('lang'), 360));
+    error_log( $request->get('lang'));
+
+    return back();
+})->name('set-lang');     
+

@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home Page</title>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-</head>
-<body>
-    <div>
-<x-nav />
-    </div>
+@extends('layouts.app')
+
+@section('head', 'Assessment')
+    
+@section('content')
     <h1>Assessment</h1>
 
 
@@ -27,7 +21,14 @@
         <li>4</li>
     </ul>
 
-<button type="button" class="btn btn-primary">Primary</button>
-</body>
-</html>
+
+    <form action="{{ route('set-lang') }}" method="POST">
+                  @csrf
+                  
+                  <input type="hidden" name="_method" value="PUT">
+                    <input type="hidden" name="lang" value="en">
+                  <button type="submit" class="btn btn-danger">Set lang</button>
+                </form>
+
+@endsection
 
