@@ -31,7 +31,7 @@ Route::put('/set-lang', function (Illuminate\Http\Request $request) {
     $currentLang = session('lang');
 
     // Toggle between 'en' and 'cym'
-    $newLang = ($currentLang == 'en') ? 'cym' : 'en';
+    $newLang = ($currentLang == 'en'|| $currentLang == null) ? 'cym' : 'en';
 
     // Set the new language in the session
     session(['lang' => $newLang]);

@@ -15,8 +15,18 @@
     @endphp
 
     @foreach($assessments as $assessment)
-        <p>{{ $assessment->name }}</p>
-        <p>{{ $assessment->description }}</p>
+
+    //card component
+    <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <p>{{ $assessment->name_en }}</p>
+        <p>{{ $assessment->description_en }}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    </div>
+
+
     @endforeach
     <ul>
         <li>1</li>

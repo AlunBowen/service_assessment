@@ -6,7 +6,7 @@
     
 
     
-    <h1>{{(Cookie::get('lang') == 'en') ? 'Assessment' : 'Welsh'}}</h1>
+    <h1>{{(Cookie::get('lang') == 'en' || Cookie::get('lang') == null) ? 'Assessment' : 'Assesun'}}</h1>
        
 
 
@@ -16,7 +16,7 @@
     
         
     @foreach($assessments as $assessment)
-    @if (Cookie::get('lang') == 'en')
+    @if (Cookie::get('lang') == 'en' || Cookie::get('lang') == null)
         <p>{{ $assessment->name_en }}</p>
         <p>{{ $assessment->description_en }}</p>
     @else
