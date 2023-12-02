@@ -25,7 +25,7 @@
         <li>4</li>
     </ul>
 
-
+    <p>Lang: {{ Cookie::get('lang') }}</p>
 </body>
 </html>
 

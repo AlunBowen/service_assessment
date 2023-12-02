@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('assessments', function (Blueprint $table) {
-            $table->id();
+            $table->id(); 
             $table->timestamps();  
-            $table->string('name');
-            $table->string('description');
-        });
+            $table->string('name_en');
+            $table->string('name_cym');
+            $table->string('description_en');
+            $table->string('description_cym');
+        }); // This closing brace was missing
     }
 
     /**

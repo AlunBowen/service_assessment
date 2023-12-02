@@ -14,8 +14,10 @@ class AssessmentsSeeder extends Seeder
     public function run(): void
     {
         $a = new Assessment();
-        $a->name = "Assessment 1";
-        $a->description = "This is the first assessment";
+        $a->name_en = "Assessment 1";
+        $a->name_cym = "Asesun 1";
+        $a->description_en = "This is the first assessment";
+        $a->description_cym = "Dyma asesun cyntaf";
         $a->save();
     }
 }

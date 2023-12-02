@@ -3,16 +3,26 @@
 @section('head', 'Assessment')
     
 @section('content')
-    <h1>Assessment</h1>
+    
+
+    
+    <h1>{{(Cookie::get('lang') == 'en') ? 'Assessment' : 'Welsh'}}</h1>
+       
 
 
     @php
         $assessments = App\Models\Assessment::all();
     @endphp
-
+    
+        
     @foreach($assessments as $assessment)
-        <p>{{ $assessment->name }}</p>
-        <p>{{ $assessment->description }}</p>
+    @if (Cookie::get('lang') == 'en')
+        <p>{{ $assessment->name_en }}</p>
+        <p>{{ $assessment->description_en }}</p>
+    @else
+        <p>{{ $assessment->name_cym }}</p>
+        <p>{{ $assessment->description_cym }}</p>
+    @endif
     @endforeach
     <ul>
         <li>1</li>
@@ -29,6 +39,9 @@
                     <input type="hidden" name="lang" value="en">
                   <button type="submit" class="btn btn-danger">Set lang</button>
                 </form>
+
+
+    <p>Lang: {{ Cookie::get('lang') }}</p>
 
 @endsection
 

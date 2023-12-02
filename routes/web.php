@@ -26,10 +26,26 @@ Route::get('/resources', function () {
     return view('resources');
 });
 
-Route::put('/set-lang', function (Illuminate\Http\Request $request) {
-    Cookie::queue(Cookie::make('lang', $request->get('lang'), 360));
-    error_log( $request->get('lang'));
+Route::put('/set-lang', function (Illuminate\Http\Request $request) {   
+    // Get the current language from the session
+    $currentLang = session('lang');
+
+    // Toggle between 'en' and 'cym'
+    $newLang = ($currentLang == 'en') ? 'cym' : 'en';
+
+    // Set the new language in the session
+    session(['lang' => $newLang]);
+
+    // Set the cookie with the new language
+    Cookie::queue(Cookie::make('lang', $newLang, 360));
 
     return back();
-})->name('set-lang');     
+})->name('set-lang');
+
+
+
+    // Cookie::queue(Cookie::make('lang', $request->get('lang'), 360));
+    // error_log( $request->get('lang'));
+
+        
 
