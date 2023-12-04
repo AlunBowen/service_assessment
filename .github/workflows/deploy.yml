@@ -25,5 +25,5 @@ jobs:
                 ls / 
                 cd /var/www/vhosts/tumbleweedandtwang.com
                 git clean  -d  -f
-                git pull
+                git reset --hard origin/main
                 php artisan migrate:fresh --seed
