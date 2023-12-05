@@ -30,6 +30,11 @@ export default defineConfig({
     build: {
         manifest: true,
     },  
+    server: {
+        proxy: {
+          '/api': 'http://tumbleweedandtwang.com'
+        }
+        }
 });
 
 
