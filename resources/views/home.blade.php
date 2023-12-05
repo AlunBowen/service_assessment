@@ -35,7 +35,7 @@
     <form action="{{ route('set-lang') }}" method="POST">
                   @csrf
                   
-                  <input type="hidden" name="_method" value="PUT">
+                  @method('PUT')
                     <input type="hidden" name="lang" value="en">
                   <button type="submit" class="btn btn-danger">Set lang</button>
                 </form>
