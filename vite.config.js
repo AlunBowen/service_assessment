@@ -30,6 +30,7 @@ export default defineConfig({
     build: {
         manifest: true,
     },  
+    base: '/var/www/vhosts/tumbleweedandtwang.com',
     
 });
 
