@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cookie;
+use App\Http\Controllers\AssessmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +18,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+
+
+//route that returns all the assessments in the database and returns as JSON
+
+Route::get('/assessments', [App\Http\Controllers\AssessmentController::class,'getAssessments'])->name('assessments.getAssessments');
+
+
+Route::get('/lang', function (Request $request) { 
+
+    if ($request->cookie('lang') == 'en') {
+        $lang = 'en';
+       
+    } 
+    
+    if ($request->cookie('lang') == 'cym')
+    {
+        $lang = 'cym';
+    }
+    
+    error_log($request->cookie('lang'));
+    return $lang;
 });

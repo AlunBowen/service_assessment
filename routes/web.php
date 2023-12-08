@@ -37,15 +37,21 @@ Route::put('/set-lang', function (Illuminate\Http\Request $request) {
     session(['lang' => $newLang]);
 
     // Set the cookie with the new language
-    Cookie::queue(Cookie::make('lang', $newLang, 360));
+    Cookie::queue(Cookie::make('lang', $newLang, 360, null, null, true, false, false, 'None'));
+    
+    $lang = 'Welsh';
 
-    return back();
+    $cookie = Cookie::make('lang', $lang, 60, null, null, true, false, false, 'None');
+    Cookie::queue($cookie);
+
+    return response('Language set');
 })->name('set-lang');
 
 
 
-    // Cookie::queue(Cookie::make('lang', $request->get('lang'), 360));
-    // error_log( $request->get('lang'));
+Route::post('/user', [App\Http\Controllers\UserController::class,'store'])->name('user.store');
 
-        
+Route::get('/user', [App\Http\Controllers\UserController::class,'index'])->name('user.index');
+
+Route::get('/user/create', [App\Http\Controllers\UserController::class,'create'])->name('user.create'); 
 

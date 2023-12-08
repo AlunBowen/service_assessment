@@ -42,7 +42,14 @@
                 </form>
     <p>Lang: {{ Cookie::get('lang') }}</p>
     <div id="app">
-    <ResourcesContainer></ResourcesContainer>
+
+    
+        <ResourcesContainer />
+    
+
+  
+   
+   
     </div>
 @endsection
 

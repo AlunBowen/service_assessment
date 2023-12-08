@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Assessment;
-class AssessmentControler extends Controller
+use App\Actions\Fortify\CreateNewUser;
+use App\Models\User;
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        User::all();
+        return view("users.index");
     }
 
     /**
@@ -19,7 +22,7 @@ class AssessmentControler extends Controller
      */
     public function create()
     {
-        //
+        return view("user.create");
     }
 
     /**
@@ -27,7 +30,12 @@ class AssessmentControler extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $createUser = new CreateNewUser();
+        $createUser->create($data);
+
+        return redirect()->route("user.create")->with("success","User created successfully");
     }
 
     /**
