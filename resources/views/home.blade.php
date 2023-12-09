@@ -43,5 +43,9 @@
 
     <p>Lang: {{ Cookie::get('lang') }}</p>
 
+    @auth
+        <p>You are logged in!</p>
+    @endauth
+
 @endsection
 

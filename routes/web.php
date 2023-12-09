@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Cookie;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,11 +28,10 @@ Route::get('/resources', function () {
 
 Route::put('/set-lang', [App\Http\Controllers\SetLangController::class,'setLang'])->name('setLang');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-
-Route::post('/user', [App\Http\Controllers\UserController::class,'store'])->name('user.store');
-
-Route::get('/user', [App\Http\Controllers\UserController::class,'index'])->name('user.index');
-
-Route::get('/user/create', [App\Http\Controllers\UserController::class,'create'])->name('user.create'); 
-
+require __DIR__.'/auth.php';
