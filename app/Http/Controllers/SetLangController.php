@@ -9,13 +9,24 @@ class SetLangController extends Controller
 {
     public function setLang()
     {
-        // $lang = $request->lang;
-        // $cookie = cookie('lang', $lang, 60*24*365);
-        // return redirect()->back()->cookie($cookie);
+         // Get the current language from the session
+    $currentLang = session('lang');
 
-        $cookieValue = 'Welsh';
+    // Toggle between 'en' and 'cym'
+    $newLang = ($currentLang == 'en'|| $currentLang == null) ? 'cym' : 'en';
 
-        return response('Cookie set')->cookie('language', $cookieValue, 3600);
+    // Set the new language in the session
+    session(['lang' => $newLang]);
+
+    // Set the cookie with the new language
+    Cookie::queue(Cookie::make('lang', $newLang, 360, null, null, true, false, false, 'None'));
+    
+  
+
+    $cookie = Cookie::make('lang', $newLang, 60, null, null, true, false, false, 'None');
+    Cookie::queue($cookie);
+
+    return back();
 }
     
 }

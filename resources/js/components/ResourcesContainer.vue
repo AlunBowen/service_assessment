@@ -1,79 +1,88 @@
 <script>
-import axios from 'axios';
-import VueCookies from 'vue3-cookies';
-
+import axios from "axios";
+import VueCookies from "vue3-cookies";
 
 export default {
-    props: {
-        
-
-        
+  props: {
+    lang: {
+      type: String,
+      default: "en",
     },
-   
-    data() {
-        return {
-            count: 0,
-            assessments: [],
-            lang: null,
+  },
 
-        
+  data() {
+    return {
+      count: 0,
+      assessments: [],
+        searchTerm: "",
     };
-},
+  },
 
+  //a function to get the data from the API
 
-//a function to get the data from the API
-
-
-mounted() {
-   
-    console.log(this.lang);
+  mounted() {
     // get all assessments and assign to a variable
-    axios.get('/api/assessments')
-        .then((response) => {
-            this.assessments = response.data;
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+    axios
+      .get("/api/assessments")
+      .then((response) => {
+        this.assessments = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     //get the session lang and assign to a variable
-    
-    
-   
-         
-},
+    console.log(this.lang);
+  },
 
-
-methods: {
-        getCookieValue() {
-            // Replace 'your_cookie_name' with the actual name you used in Laravel
-            const cookieValue = this.$cookies.get("language");
-
-            if (cookieValue) {
-                console.log('Cookie Value:', cookieValue);
-            } else {
-                console.log('Cookie not found');
-            }
-        }
-    }
+  computed: {
+    // Use a computed property to filter assessments based on the search term
+    filteredAssessments() {
+      const lowerCaseSearchTerm = this.searchTerm.toLowerCase();
+      return this.assessments.filter((assessment) => {
+        // Modify the condition based on the properties you want to search
+        return (
+          assessment.name_en.toLowerCase().includes(lowerCaseSearchTerm) ||
+          assessment.name_cym.toLowerCase().includes(lowerCaseSearchTerm)
+        );
+      });
+    },
+  },
 };
 </script>
 
 <template>
-    <div>
-
-        <button @click="getCookieValue">Get Cookie Value</button>
-        lang: {{ this.lang }}
-
-        </div>
-        <div v-for="(assessment, index) in assessments" :key="index">
-
-          
-            <div v-if= "lang == 'cym'">
-                {{ assessment.name_cym }}
+    <div class="container">
+        <div class="mb-3">
+      <!-- Add a search input field -->
+      <input
+        v-model="searchTerm"
+        type="text"
+        class="form-control"
+        placeholder="Search by name..."
+      />
+    </div>
+      <div class="row">
+        <div v-for="(assessment, index) in filteredAssessments" :key="index" class="col-xl-3 col-lg-4 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img
+              src="https://www.ringcentral.com/us/en/blog/wp-content/uploads/2020/07/Effective-teamwork.png.webp"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <div v-if="lang == 'cym'">
+                {{ assessment.name_cym }} <br>
+                {{ assessment.description_cym  }}
+              </div>
+              <div v-else>
+                {{ assessment.name_en }}<br>
+                {{ assessment.description_en  }}
+              </div>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-            <div v-else>
-            {{ assessment.name_en }}
-            </div>
+          </div>
         </div>
-    
-</template>
+      </div>
+    </div>
+  </template>
+  

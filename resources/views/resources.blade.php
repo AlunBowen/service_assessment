@@ -9,9 +9,9 @@
 
     @php
         $assessments = App\Models\Assessment::all();
-        
+        $lang = Cookie::get('lang');
     @endphp
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
             @foreach($assessments as $assessment)
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4">
@@ -26,14 +26,9 @@
                 </div>
             @endforeach
         </div>
-    </div>
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-    </ul>
-    <form action="{{ route('set-lang') }}" method="POST">
+    </div> -->
+   
+    <form action="{{ route('setLang') }}" method="POST">
                   @csrf
                   
                   <input type="hidden" name="_method" value="PUT">
@@ -43,11 +38,10 @@
     <p>Lang: {{ Cookie::get('lang') }}</p>
     <div id="app">
 
-    
-        <ResourcesContainer />
-    
 
-  
+        <ResourcesContainer lang={{$lang}} />
+    
+        
    
    
     </div>

@@ -32,7 +32,7 @@
     </ul>
 
 
-    <form action="{{ route('set-lang') }}" method="POST">
+    <form action="{{ route('setLang') }}" method="POST">
                   @csrf
                   
                   @method('PUT')
