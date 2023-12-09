@@ -19,7 +19,7 @@ class SetLangController extends Controller
     session(['lang' => $newLang]);
 
     // Set the cookie with the new language
-    Cookie::queue(Cookie::make('lang', $newLang, 360, null, null, false, false, false, 'None'));
+    Cookie::queue(Cookie::make('lang', $newLang, 360, null, null, false, false, false, 'Lax'));
     
   
 
