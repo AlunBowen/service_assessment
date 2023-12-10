@@ -9,7 +9,7 @@
 
 //set font family for body
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
     
 };
 
@@ -17,5 +17,10 @@ body {
     box-shadow: $--bs-card-box-shadow;
     border-color: $--bs-card-border-color;
 
-}
+};
 
+.btn{
+   
+    margin: 10px;
+    border-radius: 0px;
+};

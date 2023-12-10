@@ -14,16 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
-Route::get('/services', function () {
-    return view('services');
-});
 
-Route::get('/resources', function () {
-    return view('resources');
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/', function () {
+        return view('home');
+    });
+    
+    Route::get('/services', function () {
+        return view('services');
+    });
+
+    Route::get('/resources', function () {
+        return view('resources');
+    });
 });
 
 Route::put('/set-lang', [App\Http\Controllers\SetLangController::class,'setLang'])->name('setLang');

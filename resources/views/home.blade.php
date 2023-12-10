@@ -24,21 +24,10 @@
         <p>{{ $assessment->description_cym }}</p>
     @endif
     @endforeach
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-    </ul>
+ 
 
 
-    <form action="{{ route('setLang') }}" method="POST">
-                  @csrf
-                  
-                  @method('PUT')
-                    <input type="hidden" name="lang" value="en">
-                  <button type="submit" class="btn btn-danger">Set lang</button>
-                </form>
+  
 
 
     <p>Lang: {{ Cookie::get('lang') }}</p>

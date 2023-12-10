@@ -1,6 +1,5 @@
 <script>
 import axios from "axios";
-import VueCookies from "vue3-cookies";
 
 export default {
   props: {
