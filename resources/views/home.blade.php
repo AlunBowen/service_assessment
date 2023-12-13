@@ -36,5 +36,19 @@
         <p>You are logged in!</p>
     @endauth
 
+   
+    @php
+        $user = Auth::user();
+        $organisation = App\Models\Organisation::find($user->organisation_id);
+        //get all the services for the organisation
+        $services = App\Models\Service::where('organisation_id', $organisation->id)->get();
+    @endphp
+    @foreach($services as $service)
+        <p>{{ $service->name }}</p>
+        <p>{{ $service->description }}</p>
+    @endforeach
+
+    
+
 @endsection
 

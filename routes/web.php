@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('home');
     });
-    
+
     Route::get('/services', function () {
         return view('services');
     });
@@ -30,14 +30,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/resources', function () {
         return view('resources');
     });
+
+    Route::get('/organisations', [App\Http\Controllers\OrganisationController::class, 'index'])->name('organisations.index');
+
 });
 
-Route::put('/set-lang', [App\Http\Controllers\SetLangController::class,'setLang'])->name('setLang');
+Route::get('/set-lang', [App\Http\Controllers\SetLangController::class,'setLang'])->name('setLang');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
 
 require __DIR__.'/auth.php';

@@ -6,6 +6,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+<x-topBar />
 <x-nav />  
 <div class="container">
     <div class="row">

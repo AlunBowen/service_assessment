@@ -50,7 +50,8 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    
+    <h2>Search for resources</h2>
         <div class="mb-3">
       <!-- Add a search input field -->
       <input
@@ -82,6 +83,6 @@ export default {
           </div>
         </div>
       </div>
-    </div>
+   
   </template>
   

@@ -28,6 +28,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/assessments', [App\Http\Controllers\AssessmentController::class,'getAssessments'])->name('assessments.getAssessments');
 
 
+Route::get('/organisations', [App\Http\Controllers\OrganisationController::class, 'index'])->name('organisations.index');
+
+
 Route::get('/lang', function (Request $request) { 
 
     if ($request->cookie('lang') == 'en') {
