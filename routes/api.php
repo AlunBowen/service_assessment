@@ -46,3 +46,5 @@ Route::get('/lang', function (Request $request) {
     error_log($request->cookie('lang'));
     return $lang;
 });
+
+Route::get('/organisationusers/{id}', [App\Http\Controllers\UserController::class, 'apiIndex'])->name('organisationusers.apiIndex');

@@ -34,7 +34,7 @@
 
     @auth
         <p>You are logged in!</p>
-    @endauth
+    
 
    
     @php
@@ -48,7 +48,7 @@
         <p>{{ $service->description }}</p>
     @endforeach
 
-    
+    @endauth
 
 @endsection
 

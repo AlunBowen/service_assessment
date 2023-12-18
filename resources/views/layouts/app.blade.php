@@ -7,8 +7,10 @@
 </head>
 <body>
 <x-topBar />
+@auth
 <x-nav />  
-<div class="container">
+@endauth
+<div class="container mt-4">
     <div class="row">
     
         <div class="col-md-1" ></div>

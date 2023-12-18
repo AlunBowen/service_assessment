@@ -7,6 +7,8 @@ import VueCookies from 'vue3-cookies';
 import ResourcesContainer from "./components/ResourcesContainer.vue";
 import ServicesList from "./components/ServicesList.vue";
 import OrganisationsList from "./components/OrganisationsList.vue";
+import UserList from "./components/UserList.vue";
+
 
 
 const app = createApp({});
@@ -16,4 +18,5 @@ app.config.globalProperties.$axios = axios;
 app.component("resourcescontainer", ResourcesContainer);
 app.component("serviceslist", ServicesList);
 app.component('organisationslist', OrganisationsList);
+app.component('userlist', UserList);
 const mountedApp = app.mount("#app"); 

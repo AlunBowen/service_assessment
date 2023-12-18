@@ -8,6 +8,12 @@ use Illuminate\Auth\Access\Response;
 
 class ServicePolicy
 {
+    public function before(User $user)
+    {
+        if ($user->hasRole('super-admin')) {
+            return true;
+        }
+    }
     /**
      * Determine whether the user can view any models.
      */
@@ -21,7 +27,10 @@ class ServicePolicy
      */
     public function view(User $user, Service $service): bool
     {
-        //
+        if($user->organisation==$service->organisation || $user->hasRole('cdps-admin')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -29,7 +38,10 @@ class ServicePolicy
      */
     public function create(User $user): bool
     {
-        //
+        if ($user->hasRole('cdps-admin')) {
+            return true;
+        }
+        return false; 
     }
 
     /**
@@ -37,7 +49,9 @@ class ServicePolicy
      */
     public function update(User $user, Service $service): bool
     {
-        //
+        if ($user->organisation==$service->organisation || $user->hasRole('cdps-admin')) {
+            return true;
+        }
     }
 
     /**
@@ -45,22 +59,25 @@ class ServicePolicy
      */
     public function delete(User $user, Service $service): bool
     {
-        //
+        if ($user->organisation==$service->organisation || $user->hasRole('cdps-admin')) {
+            return true;
+        }
+        return false;
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Service $service): bool
-    {
-        //
-    }
+    // public function restore(User $user, Service $service): bool
+    // {
+    //     //
+    // }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Service $service): bool
-    {
-        //
-    }
+    // /**
+    //  * Determine whether the user can permanently delete the model.
+    //  */
+    // public function forceDelete(User $user, Service $service): bool
+    // {
+    //     //
+    // }
 }

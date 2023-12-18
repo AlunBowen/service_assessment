@@ -1,9 +1,10 @@
 
     
 <nav class="navbar navbar-expand-lg bg-body-tertiary p-1" data-bs-theme="dark" style="padding: 0;">
-  <div class="container-fluid col-md-10"  >
-    <a class="navbar-brand text-white" href="/" >Service Assessment Tool</a>
-  
+  <div class="container-fluid col-md-8"  >
+    @if(auth()->user())
+    <a class="navbar-brand text-white" href="/" >{{ auth()->user()->getRoleNames() }}</a>
+    @endif
       
       <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
         
@@ -21,7 +22,7 @@
 
 
 
-                <a href="{{ route('setLang', ['redirect' => Request::path()]) }}" class="btn btn-primary">Set lang</a>
+                <a href="{{ route('setLang', ['redirect' => Request::path()]) }}" class="btn btn-dark">Set lang</a>
 
         
 

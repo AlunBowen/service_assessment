@@ -13,7 +13,14 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        if (auth()->user()->can('viewAny', Service::class) ) {
+            return view('services.index', [
+                'services' => Service::all(),
+            ]);
+
+        } else {
+           return redirect()->route('home');
+        }
     }
 
     /**
@@ -21,7 +28,12 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        if (auth()->user()->can('create', Service::class) ) {
+            return view('services.create');
+
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**
@@ -29,7 +41,14 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        //
+        if (auth()->user()->can('create', Service::class) ) {
+            $validated = $request->validated();
+            $service = Service::create($validated);
+            return redirect()->route('services.index')->with('success', 'Service created successfully.');
+
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**
@@ -37,7 +56,14 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        if (auth()->user()->can('view', $service) ) {
+            return view('services.show', [
+                'service' => $service,
+            ]);
+
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**

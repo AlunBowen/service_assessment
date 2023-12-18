@@ -8,13 +8,22 @@ use Illuminate\Auth\Access\Response;
 
 class OrganisationPolicy
 {
+
+    public function before(User $user)
+    {
+        if ($user->hasRole('super-admin')) {
+            return true;
+        }
+    }
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny(User $user): bool
     {
-        error_log("viewAny");
-        return true;
+        if ($user->hasRole('cdps-admin')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -22,9 +31,11 @@ class OrganisationPolicy
      */
     public function view(User $user, Organisation $organisation): bool
     {
-        return $user->name === "Alun";
-            // ? Response::allow()
-            // : Response::deny('You do not own this organisation.');
+        if ($user->organisation==$organisation || $user->hasRole('cdps-admin')) {
+            return true;
+        }
+        return false;
+            
     }
 
     /**
@@ -32,7 +43,8 @@ class OrganisationPolicy
      */
     public function create(User $user): bool
     {
-        //
+       
+        return $user->hasRole('cdps-admin');
     }
 
     /**
@@ -40,7 +52,10 @@ class OrganisationPolicy
      */
     public function update(User $user, Organisation $organisation): bool
     {
-        //
+        if ($user->organisation==$organisation || $user->hasRole('cdps-admin')) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -48,22 +63,25 @@ class OrganisationPolicy
      */
     public function delete(User $user, Organisation $organisation): bool
     {
-        //
+        if ($user->organisation==$organisation || $user->hasRole('cdps-admin')) {
+            return true;
+        }
+        return false;
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Organisation $organisation): bool
-    {
-        //
-    }
+    // public function restore(User $user, Organisation $organisation): bool
+    // {
+    //     //
+    // }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Organisation $organisation): bool
-    {
-        //
-    }
+    // /**
+    //  * Determine whether the user can permanently delete the model.
+    //  */
+    // public function forceDelete(User $user, Organisation $organisation): bool
+    // {
+    //     //
+    // }
 }

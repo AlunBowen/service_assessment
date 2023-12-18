@@ -20,7 +20,7 @@ class UsersSeeder extends Seeder
         
         $user->organisation()->associate(Organisation::find(1));
         $user->save();
-
+        $user->assignRole('super-admin');
         
         $user = new \App\Models\User();
         $user->name = 'Bowen';
@@ -29,5 +29,6 @@ class UsersSeeder extends Seeder
        
         $user->organisation()->associate(Organisation::find(2));
         $user->save();
+        $user->assignRole('org-admin');
     }
 }

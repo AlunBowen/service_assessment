@@ -32,10 +32,24 @@ class UserController extends Controller
     {
         $data = $request->all();
 
-        $createUser = new CreateNewUser();
-        $createUser->create($data);
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique:users,email',
+            'organisation_id' => 'required|exists:organisations,id',
+            'password' => 'required|confirmed|min:8',
+        ]);
 
-        return redirect()->route("user.create")->with("success","User created successfully");
+        $user = (new CreateNewUser())->create($data);
+        $user->name = $validatedData['name'];
+        $user->organisation_id = $validatedData['organisation_id'];
+        $user->email = $validatedData['email'];
+        $user->password = bcrypt($validatedData['password']);
+        $user->save();
+
+
+
+        return redirect()->back()->with('success', 'User created successfully');
+
     }
 
     /**
@@ -68,5 +82,13 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function apiIndex($id)
+    {
+
+       error_log($id);
+        $organisations = User::where('organisation_id', $id)->get();
+        return response()->json($organisations);
     }
 }

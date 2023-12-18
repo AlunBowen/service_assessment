@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreOrganisationRequest;
-use App\Http\Requests\UpdateOrganisationRequest;
+
 use App\Models\Organisation;
 use App\Models\User;
 use Illuminate\Http\Request;
+
+use function Laravel\Prompts\error;
+use function Symfony\Component\String\b;
 
 class OrganisationController extends Controller
 {
@@ -21,7 +23,7 @@ class OrganisationController extends Controller
             ]);
 
         } else {
-            abort(403);
+           return redirect()->route('home');
         }
     }
 
@@ -35,15 +37,37 @@ class OrganisationController extends Controller
      */
     public function create()
     {
-        //
+        
+        if (auth()->user()->can('create', Organisation::class) ) {
+            return view('organisations.create');
+
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOrganisationRequest $request)
+    public function store(Request $request)
     {
-        //
+        error_log('in store');
+        if (auth()->user()->can('create', Organisation::class) ) {
+            
+            $validateData = $request->validate([
+                'name' => 'required|unique:organisations|max:100',
+                'description' => 'required|max:300',
+
+            ]);
+            $organisation = Organisation::create([
+                'name' => $validateData['name'],
+                'description' => $validateData['description'],
+            ]);
+
+            return redirect()->route('organisations.show', $organisation);
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**
@@ -72,7 +96,7 @@ class OrganisationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOrganisationRequest $request, Organisation $organisation)
+    public function update(Request $request, Organisation $organisation)
     {
         //
     }
@@ -84,4 +108,6 @@ class OrganisationController extends Controller
     {
         //
     }
+
+    
 }

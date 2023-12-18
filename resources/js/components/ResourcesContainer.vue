@@ -62,7 +62,7 @@ export default {
       />
     </div>
       <div class="row">
-        <div v-for="(assessment, index) in filteredAssessments" :key="index" class="col-xl-3 col-lg-4 col-md-12 mb-4">
+        <div v-for="(assessment, index) in filteredAssessments" :key="index" class="col-xl-3 col-lg-4 col-md-6 mb-4">
           <div class="card">
             <img
               src="https://www.ringcentral.com/us/en/blog/wp-content/uploads/2020/07/Effective-teamwork.png.webp"

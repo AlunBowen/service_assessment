@@ -13,6 +13,9 @@
 @php
     $lang = Cookie::get('lang'); 
 @endphp
+
+
+<a href="{{ route('organisations.create') }}" class="btn btn-primary">Create Organisation</a>
 <div id="app">
 <OrganisationsList :organisations="{{ json_encode($organisations) }}" lang="{{ $lang }}" />
 </div>

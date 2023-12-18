@@ -1,7 +1,7 @@
 
     
-<nav class="navbar navbar-expand-lg  p-3 mb-4 bg-custom"  style="padding: 0; ">
-  <div class="container-fluid col-md-10"  >
+<nav class="navbar navbar-expand-lg  p-1 bg-custom"  style="padding: 0; ">
+  <div class="container-fluid col-md-8"  >
     
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class= "navbar-toggler-icon "></span>
@@ -29,6 +29,15 @@
         @endif
         </li>
         
+        @role('cdps-admin|super-admin')
+        <li class="nav-item">
+        @if (request()->is('manage*')) 
+            <a class="nav-link active" aria-current="page" href="/manage">Manage</a>
+        @else
+        <a class="nav-link " href="/manage/">Manage</a>
+        @endif
+        </li>
+        @endrole
         @endauth
       </ul>
       
