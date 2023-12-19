@@ -18,12 +18,13 @@ use Spatie\Permission\Models\Permission;
 */
 
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+
 
 Route::middleware('auth')->group(function () {
-
+  
+    Route::get('/', function () {
+        return view('home');
+    })->name('home');
 
     //Pages
     //Management Dashboard

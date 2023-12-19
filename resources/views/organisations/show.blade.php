@@ -66,7 +66,7 @@
 
 
 
-<UserList organisation_id={{$org}}/>
+<UserList :organisation_id="{{(int)$org}}" />
 </div>
 </div>
     </div>

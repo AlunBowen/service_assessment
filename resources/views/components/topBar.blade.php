@@ -13,16 +13,16 @@
       @auth
         <form action="{{ route('logout') }}" method="POST">
           @csrf
-          <button type="submit" class="btn btn-danger">Logout</button>
+          <button type="submit" class="btn btn-danger">{{ __('messages.logout')}}</button>
         </form>
      
       @else
-        <a href="/login" class="btn btn-primary">Login</a>
+        <a href="/login" class="btn btn-primary">{{ __('messages.login')}}</a>
       @endauth
 
 
 
-                <a href="{{ route('setLang', ['redirect' => Request::path()]) }}" class="btn btn-dark">Set lang</a>
+                <a href="{{ route('setLang', ['redirect' => Request::path()]) }}" class="btn btn-dark">{{ __('messages.language')}}</a>
 
         
 

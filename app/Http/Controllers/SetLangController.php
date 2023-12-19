@@ -27,7 +27,7 @@ class SetLangController extends Controller
 
     // Set the cookie with the new language
     Cookie::queue(Cookie::make('lang', $newLang, 360, null, null, false, false, false, 'Lax'));
-
+        app()->setLocale('cym');
     $redirectRoute = $request->input('redirect', '/');
         return redirect($redirectRoute);
     }
