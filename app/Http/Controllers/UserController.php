@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Actions\Fortify\CreateNewUser;
 use App\Models\User;
-
+use App\Models\Organisation;
+use App\Actions\Fortify\PasswordValidationRules;
 class UserController extends Controller
 {
     /**
@@ -30,23 +31,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+       
+        // $validatedData = $request->validate([
+        //     'name' => 'required|max:255',
+        //     'email' => 'required|email|unique:users,email',
+        //     'organisation_id' => 'required|exists:organisations,id',
+        //     'password' => ['required', 'string', 'min:8', 'confirmed'], 
+        // ]);
+        
+        $user = new CreateNewUser();
+        $user->create($request->all());
+        // $user->name = $validatedData['name'];
+      
+        // $user->email = $validatedData['email'];
+        // $user->password = bcrypt($validatedData['password']);
+        // $user->organisation()->associate(Organisation::find($validatedData['organisation_id']));
+        // $user->save();
 
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users,email',
-            'organisation_id' => 'required|exists:organisations,id',
-            'password' => 'required|confirmed|min:8',
-        ]);
-
-        $user = (new CreateNewUser())->create($data);
-        $user->name = $validatedData['name'];
-        $user->organisation_id = $validatedData['organisation_id'];
-        $user->email = $validatedData['email'];
-        $user->password = bcrypt($validatedData['password']);
-        $user->save();
-
-
+        
 
         return redirect()->back()->with('success', 'User created successfully');
 

@@ -9,9 +9,10 @@
     $lang = Cookie::get('lang');
 @endphp
 
-    
-
-    <h1>Login</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+    <h1>{{__('messages.login')}}</h1>
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="form-group">
@@ -23,8 +24,14 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="{{ __('messages.password')}}" required>
             </div>
             <br>
-            <button type="submit" class="btn btn-primary">Login</button>
+            @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>    
+            @enderror
+            <br>
+            <button type="submit" class="btn btn-primary">{{__('messages.login')}}</button>
         </form>
-
+</div>
+</div>
+</div>
 
 @endsection

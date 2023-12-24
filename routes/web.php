@@ -23,7 +23,7 @@ use Spatie\Permission\Models\Permission;
 Route::middleware('auth')->group(function () {
   
     Route::get('/', function () {
-        return view('home');
+        return view('pages.home');
     })->name('home');
 
     //Pages
@@ -33,7 +33,9 @@ Route::middleware('auth')->group(function () {
         if(auth()->user()->hasRole('super-admin') ) {
             return view('pages.manage');
         } else {
-            return redirect()->route('home');
+            return redirect()->route('<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">pages.home');
         }
     });
 
@@ -48,8 +50,8 @@ Route::middleware('auth')->group(function () {
     //Resources
 
     Route::get('/resources', function () {
-        return view('resources');
-    });
+        return view('pages.resources');
+    })->name('resources');
 
     //Organisations
 

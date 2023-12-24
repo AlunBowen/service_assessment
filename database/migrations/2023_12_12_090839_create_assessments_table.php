@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('name_cym');
             $table->string('description_en');
             $table->string('description_cym');
+            $table->unsignedBigInteger('service_id')->unique();
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('organisation_id');
+            $table->foreign('organisation_id')->references('id')->on('organisations')->onDelete('cascade')->onUpdate('cascade');
+            
         }); // This closing brace was missing
     }
 

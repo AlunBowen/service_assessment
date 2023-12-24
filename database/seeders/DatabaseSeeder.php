@@ -46,10 +46,11 @@ class DatabaseSeeder extends Seeder
         //Organisation staff
         $orgStaff = Role::create(['name'=> 'org-staff']);
 
-        $this->call(AssessmentsSeeder::class);
+       
         
         $this->call(OrganisationSeeder::class);
         $this->call(UsersSeeder::class);
         $this->call(ServiceSeeder::class);
+        $this->call(AssessmentsSeeder::class);
     }
 }

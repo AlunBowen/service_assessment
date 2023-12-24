@@ -20,5 +20,21 @@ class OrganisationSeeder extends Seeder
         $organisation->name = 'Welsh Government';
         $organisation->description = 'The Welsh Government';
         $organisation->save();
+        $organisation = new \App\Models\Organisation();
+        $organisation->name = 'Cardiff Council';
+        $organisation->description = 'Cardiff Council';
+        $organisation->save();
+        $organisation = new \App\Models\Organisation();
+        $organisation->name = 'Swansea Council';
+        $organisation->description = 'Swansea Council';
+        $organisation->save();
+        $organisation = new \App\Models\Organisation();
+        $organisation->name = 'Neath Port Talbot Council';
+        $organisation->description = 'Neath Port Talbot Council';
+        $organisation->save();
+        $organisation = new \App\Models\Organisation();
+        $organisation->name = 'Bridgend Council';
+        $organisation->description = 'Bridgend Council';
+        $organisation->save();
     }
 }

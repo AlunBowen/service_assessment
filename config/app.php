@@ -169,6 +169,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
+        Laravel\Sanctum\SanctumServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
     ])->toArray(),
 

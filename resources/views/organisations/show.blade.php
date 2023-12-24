@@ -32,13 +32,17 @@
         <h2>Create a new user</h2>
       </button>
     </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#createUserAccordion">
+    <div id="flush-collapseOne" class="accordion-collapse collapse  {{ $errors->any() ? 'show' : '' }}" data-bs-parent="#createUserAccordion">
       <div class="accordion-body">
       <x-createUser :organisation="$organisation" />
       </div>
     </div>
   </div>
-
+@if (session('error'))
+    <div class="alert alert-danger" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
 
 
 @if (session('success'))

@@ -7,6 +7,8 @@ return[
     'language' => 'Cymraeg',
     'login' => 'Login',
     'logout' => 'Logout',
+    'assessmentdashboard' => 'Assessment Dashboard',
+    'resourcehub' => 'Resource Hub',
     ];
 
     ?>

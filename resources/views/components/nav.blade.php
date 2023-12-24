@@ -13,9 +13,9 @@
 
         @auth
         @if (request()->is('/')) 
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" href="/">{{__('messages.assessmentdashboard')}}</a>
         @else 
-            <a class="nav-link " href="/" >Home</a>
+            <a class="nav-link " href="/" >{{__('messages.assessmentdashboard')}}</a>
         @endif
 
           
@@ -23,9 +23,9 @@
 
         <li class="nav-item">
         @if (request()->is('resources*')) 
-            <a class="nav-link active " aria-current="page" href="/resources">Resources</a>  
+            <a class="nav-link active " aria-current="page" href="/resources">{{__('messages.resourcehub')}}</a>  
         @else
-          <a class="nav-link " href="/resources/">Resources</a>
+          <a class="nav-link " href="/resources/">{{__('messages.resourcehub')}}</a>
         @endif
         </li>
         

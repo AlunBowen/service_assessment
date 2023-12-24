@@ -6,11 +6,17 @@
         <input class="form-control" type="text" name="name" id="name" value="{{old('name')}}">
        
     </div>
+    @error('name')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
     <div class="form-group">
         <label for="email">Email</label>
         <input class="form-control" type="email" name="email" id="email" value="{{old('email')}}">
        
     </div>
+    @error('email')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
     <div class="form-group">
         <label for="password">Password</label>
         <input class="form-control" type="password" name="password" id="password">

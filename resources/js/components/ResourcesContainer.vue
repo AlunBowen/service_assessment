@@ -51,13 +51,14 @@ export default {
 
 <template>
     
-    <h2>Search for resources</h2>
-        <div class="mb-3">
+    
+        <div class="mb-3 p-2 rounded bg-custom" >
+          <h2>Search for resources</h2>
       <!-- Add a search input field -->
       <input
         v-model="searchTerm"
         type="text"
-        class="form-control"
+        class="form-control" 
         placeholder="Search by name..."
       />
     </div>

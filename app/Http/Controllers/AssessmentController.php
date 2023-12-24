@@ -18,12 +18,11 @@ class AssessmentController extends Controller
     public function getAssessments()
     {
 
-
+        error_log('in getAssessments');
         $assessments = Assessment::all();
-
-        
         return response()->json($assessments);
     }
+       
 
     /**
      * Show the form for creating a new resource.

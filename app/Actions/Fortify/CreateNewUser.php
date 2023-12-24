@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use App\Models\Organisation;
+
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -29,12 +31,22 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => $this->passwordRules(),
+            'organisation_id' => ['required', 'integer'],
+            
         ])->validate();
-
-        return User::create([
+            
+        $user = new User([
             'name' => $input['name'],
-            'email' => $input['email'],
+            'email' => $input['email'], 
             'password' => Hash::make($input['password']),
+            'organisation_id' => null,
+           
         ]);
+        $org = Organisation::find($input['organisation_id']);
+        error_log(json_encode($org));
+        $user->organisation()->associate(Organisation::find($input['organisation_id']));
+        $user->save();
+        return $user;
+        
     }
 }

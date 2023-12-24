@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\OrganisationScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 
 class Organisation extends Model
 {
@@ -14,6 +16,11 @@ class Organisation extends Model
         'description',
     ];
 
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new OrganisationScope);
+    }
+
     public function users()
     {
         return $this->hasMany(User::class);
@@ -23,4 +30,9 @@ class Organisation extends Model
     {
         return $this->hasMany(Service::class);
     }
+    public function assessments()
+    {
+        return $this->hasMany(Assessment::class);
+    }
+
 }

@@ -8,6 +8,9 @@ return[
     'language' => 'English',
     'login' => 'Mewngofnodi',
     'logout' => 'Allgofnodi',
+    'assessmentdashboard' => 'Dangosydd Asesiadau',
+    'resourcehub' => 'Hub Adnoddau',
+    
     ];
 
     ?>
