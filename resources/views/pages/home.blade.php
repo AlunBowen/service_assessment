@@ -20,10 +20,25 @@
 @php
         $lang = Cookie::get('lang');
     @endphp 
-   
     <div id="app">
-  
-    <ServicesList lang="{{$lang}}"/> 
-    </div>
-@endsection
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6" >
+            
+        <h3>All services</h3>
+        <chartcomponent :data="[]"></chartcomponent></div>
+       <div class="col-md-6" >
+       <h3>All services</h3>
+        <chartcomponent :data="[]"></chartcomponent>
+<br>
 
+            </div>
+            
+        </div>
+    </div>
+    
+        <serviceslist :lang="'{{$lang}}'"></serviceslist>
+       
+    </div>
+   
+@endsection
