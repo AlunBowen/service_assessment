@@ -33,9 +33,7 @@ Route::middleware('auth')->group(function () {
         if(auth()->user()->hasRole('super-admin') ) {
             return view('pages.manage');
         } else {
-            return redirect()->route('<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6">pages.home');
+            return redirect()->route('pages.home');
         }
     });
 
@@ -59,6 +57,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/organisations/create', [App\Http\Controllers\OrganisationController::class, 'create'])->name('organisations.create');
     Route::post('/organisations', [App\Http\Controllers\OrganisationController::class, 'store'])->name('organisations.store');
     Route::get('/organisations/{organisation}', [App\Http\Controllers\OrganisationController::class, 'show'])->name('organisations.show');
+    Route::get('/organisations/{organisation}/edit', [App\Http\Controllers\OrganisationController::class, 'edit'])->name('organisations.edit');
+    Route::patch('/organisations/{organisation}', [App\Http\Controllers\OrganisationController::class, 'update'])->name('organisations.update');
+    Route::delete('/organisations/{organisation}', [App\Http\Controllers\OrganisationController::class, 'destroy'])->name('organisations.destroy'); 
 
     //Users
     Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');

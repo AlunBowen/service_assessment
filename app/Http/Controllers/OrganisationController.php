@@ -17,7 +17,7 @@ class OrganisationController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->can('viewAny', Organisation::class) ) {
+        if (auth()->user()->hasPermissionTo('manage organisations')) {
             return view('organisations.index', [
                 'organisations' => Organisation::all(),
             ]);
@@ -26,19 +26,14 @@ class OrganisationController extends Controller
            return redirect()->route('home');
         }
     }
-
-    public function getOrganisations()
-    {
-        $organisations = Organisation::all();
-        return response()->json($organisations);
-    }
+  
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         
-        if (auth()->user()->can('create', Organisation::class) ) {
+        if (auth()->user()->hasPermissionTo('manage organisations')) {
             return view('organisations.create');
 
         } else {
@@ -51,8 +46,8 @@ class OrganisationController extends Controller
      */
     public function store(Request $request)
     {
-        error_log('in store');
-        if (auth()->user()->can('create', Organisation::class) ) {
+        
+        if (auth()->user()->hasPermissionTo('manage organisations')) {
             
             $validateData = $request->validate([
                 'name' => 'required|unique:organisations|max:100',
@@ -75,7 +70,7 @@ class OrganisationController extends Controller
      */
     public function show(Organisation $organisation)
     {
-        if (auth()->user()->can('view', $organisation) ) {
+        if (auth()->user()->hasPermissionTo('manage organisations') || auth()->user()->organisation==$organisation) {
             return view('organisations.show', [
                 'organisation' => $organisation,
             ]);
@@ -90,7 +85,14 @@ class OrganisationController extends Controller
      */
     public function edit(Organisation $organisation)
     {
-        //
+        if (auth()->user()->hasPermissionTo('manage organisations')|| auth()->user()->hasPermissionTo('manage own organisation')) {
+            return view('organisations.edit', [
+                'organisation' => $organisation,
+            ]);
+
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**
@@ -98,7 +100,19 @@ class OrganisationController extends Controller
      */
     public function update(Request $request, Organisation $organisation)
     {
-        //
+        if (auth()->user()->hasPermissionTo('manage organisations')|| auth()->user()->hasPermissionTo('manage own organisation')) {
+            $validateData = $request->validate([
+                'name' => 'required|max:100',
+                'description' => 'required|max:300',
+            ]);
+            $organisation->name = $validateData['name'];
+            $organisation->description = $validateData['description'];
+            $organisation->save();
+
+            return redirect()->route('organisations.show', $organisation);
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**
@@ -106,7 +120,12 @@ class OrganisationController extends Controller
      */
     public function destroy(Organisation $organisation)
     {
-        //
+        if (auth()->user()->hasPermissionTo('delete organisations')) {
+            $organisation->delete();
+            return redirect()->route('organisations.index');
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     

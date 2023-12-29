@@ -3,7 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Faker\Factory as FakerFactory; // Add this line to import the Faker\Factory class
+ 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Organisation>
  */
@@ -16,8 +17,12 @@ class OrganisationFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = FakerFactory::create(); // Add this line to create the $faker variable
+
         return [
-            //
+            'name' => $faker->unique()->company(),
+            'description' => $faker->unique()->paragraph(),
         ];
     }
 }
+          

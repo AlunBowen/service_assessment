@@ -15,12 +15,13 @@ class OrganisationScope implements Scope
     {
         if (auth()->check()) {
 
-            if (auth()->user()->hasRole('super-admin')){
+            if (auth()->user()->hasPermissionTo('manage organisations')){
                 $builder;
                 
             } 
             else{
                 $builder->where('id', auth()->user()->organisation_id);
+               
             }
             
         }

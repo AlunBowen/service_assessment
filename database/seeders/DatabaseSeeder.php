@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
         $manageAssessments = Permission::create(['name' => 'manage assessments']);
         $manageUsers= Permission::create(['name' => 'manage users']);
         $viewAllResults = Permission::create(['name' => 'view all results']);
-        
+        $manageOrganisations= Permission::create(['name' => 'manage organisations']);
+        $deleteOrganisations= Permission::create(['name' => 'delete organisations']);
 
 
 
@@ -35,6 +36,8 @@ class DatabaseSeeder extends Seeder
         //CDPS admin
         $cdpsAdmin = Role::create(['name'=> 'cdps-admin']);
         $cdpsAdmin->givePermissionTo($manageAssessments);
+        $cdpsAdmin->givePermissionTo($manageUsers);
+        $cdpsAdmin->givePermissionTo($manageOrganisations);
 
         //CDPS staff
         $cdpsStaff = Role::create(['name'=> 'cdps-staff']);
