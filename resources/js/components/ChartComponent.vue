@@ -2,17 +2,20 @@
     <div class="card" >
         <Chart type="bar" :data="chartData" :options="chartOptions" />
         <input type="range" min="1" max="4" v-model="selectedQuarter" @input="updateChartData" />
+        
     </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from "vue";
 
-let selectedQuarter = ref(1);
+let selectedQuarter = ref(4);
+
 
 onMounted(() => {
     chartData.value = setChartData();
     chartOptions.value = setChartOptions();
+    
 });
 
 watch(selectedQuarter, () => {

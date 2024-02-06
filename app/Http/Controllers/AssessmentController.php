@@ -11,7 +11,14 @@ class AssessmentController extends Controller
      */
     public function index()
     {
-        //
+        if (auth()->user()->hasPermissionTo('manage assessments')) {
+            return view('assessments.index', [
+                'assessments' => Assessment::all(),
+            ]);
+
+        } else {
+            return redirect()->route('home');
+        }
     }
 
   //a function that returns all the assessments in the database and returns as JSON
@@ -43,9 +50,16 @@ class AssessmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Assessment $assessment)
     {
-        //
+        if (auth()->user()->hasPermissionTo('manage organisations') || auth()->user()->organisation==$assessment->service->organisation) {
+            return view('assessments.show', [
+                'assessment' => $assessment,
+            ]);
+
+        } else {
+            abort(403);
+        }
     }
 
     /**

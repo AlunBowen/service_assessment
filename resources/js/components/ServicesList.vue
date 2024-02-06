@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       count: 0,
-      assessments: [],
+      services: [],
         searchTerm: "",
     };
   },
@@ -20,11 +20,13 @@ export default {
   //a function to get the data from the API
 
   mounted() {
-    // get all assessments and assign to a variable
+    // get all services and assign to a variable
     axios
-      .get("/api/assessments")
+      .get("/api/services")
+      
       .then((response) => {
-        this.assessments = response.data;
+        this.services = response.data;
+        
       })
       .catch((error) => {
         console.error(error);
@@ -37,13 +39,13 @@ export default {
 
   computed: {
     // Use a computed property to filter assessments based on the search term
-    filteredAssessments() {
+    filteredServices() {
       const lowerCaseSearchTerm = this.searchTerm.toLowerCase();
-      return this.assessments.filter((assessment) => {
+      return this.services.filter((services) => {
         // Modify the condition based on the properties you want to search
         return (
-          assessment.name_en.toLowerCase().includes(lowerCaseSearchTerm) ||
-          assessment.name_cym.toLowerCase().includes(lowerCaseSearchTerm)
+          services.name.toLowerCase().includes(lowerCaseSearchTerm) ||
+          services.name.toLowerCase().includes(lowerCaseSearchTerm)
         );
       });
     },
@@ -54,7 +56,7 @@ export default {
 <template>
 
 <div class="mb-3 p-2 rounded bg-custom" >
-          <h2>Search for resources</h2>
+          <h2>Search for services</h2>
       <!-- Add a search input field -->
       <input
         v-model="searchTerm"
@@ -63,27 +65,26 @@ export default {
         placeholder="Search by name..."
       />
     </div>
-  <div v-for="(assessment, index) in filteredAssessments" :key="index">
-    <ol class="list-group list-group-numbered">
-      <li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="container">
+    <ul class="list-group list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-start" v-for="(services, index) in filteredServices" :key="index">
         <div class="ms-2 me-auto">
           <div v-if="lang == 'cym'">
-                {{ assessment.name_cym }} <br>
-                {{ assessment.description_cym  }}
-              </div>
-              <div v-else>
-                {{ assessment.name_en }}<br>
-                {{ assessment.description_en  }}
-              </div>
+            <b>{{ services.name }}</b> <br>
+            {{ services.description  }}
+            {{ services.department }}
+          </div>
+          <div v-else>
+            <b>{{ services.name }}</b><br>
+            {{ services.description}}<br>
+            {{ services.department ? services.department.name : '' }}
+          </div>
           <div class="justify-content-end">
-            <a :href="'/assessments/' + assessment.id">View</a>
+            <a :href="'/services/' + services.id">View</a>
           </div>
         </div>
       </li>
-  
-
-
-</ol>
+    </ul>
 </div>
   </template>
   

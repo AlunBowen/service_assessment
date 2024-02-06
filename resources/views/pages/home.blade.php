@@ -23,14 +23,14 @@
     <div id="app">
     <div class="container mt-4">
         <div class="row">
-            <div class="col-md-6" >
+            <div class="col-md-6 p-0 pb-4" >
             
         <h3>All services</h3>
         <chartcomponent :data="[]"></chartcomponent></div>
-       <div class="col-md-6" >
-       <h3>All services</h3>
+       <div class="col-md-6 p-0 pb-4" >
+        <h3>All services</h3>
         <chartcomponent :data="[]"></chartcomponent>
-<br>
+
 
             </div>
             

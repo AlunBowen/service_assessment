@@ -6,6 +6,8 @@ use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Service;
 
+use function Laravel\Prompts\error;
+
 class ServiceController extends Controller
 {
     /**
@@ -56,7 +58,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        if (auth()->user()->can('view', $service) ) {
+        if (auth()->user()->organisation==$service->organisation)  {
             return view('services.show', [
                 'service' => $service,
             ]);
@@ -88,5 +90,16 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         //
+    }
+
+    public function getServices()
+    {
+        
+       //get all services for the organisation
+        $services = Service::where('organisation_id', auth()->user()->organisation_id)->with('department')->get();
+        error_log($services);
+        return response()->json($services);
+        
+        
     }
 }

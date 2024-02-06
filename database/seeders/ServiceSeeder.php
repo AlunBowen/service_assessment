@@ -16,6 +16,7 @@ class ServiceSeeder extends Seeder
         $service->name = 'Service 1';
         $service->description = 'Service 1 description';
         $service->organisation()->associate(\App\Models\Organisation::find(1));
+        $service->department()->associate(\App\Models\Department::find(1));
         $service->save();
 
         $service = new \App\Models\Service();

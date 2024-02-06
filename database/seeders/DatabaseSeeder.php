@@ -53,7 +53,12 @@ class DatabaseSeeder extends Seeder
         
         $this->call(OrganisationSeeder::class);
         $this->call(UsersSeeder::class);
+        $this->call(DepartmentSeeder::class);
         $this->call(ServiceSeeder::class);
-        $this->call(AssessmentsSeeder::class);
+       
+        $this->call(AssessmentSeeder::class);
+        $this->call(AssessmentSectionSeeder::class);
+        $this->call(QuestionSeeder::class);
+        $this->call(AttemptSeeder::class);
     }
 }

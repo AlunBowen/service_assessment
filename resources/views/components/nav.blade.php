@@ -1,7 +1,7 @@
 
     
 <nav class="navbar navbar-expand-lg  p-1 bg-custom"  style="padding: 0; ">
-  <div class="container-fluid col-md-8"  >
+  <div class="container-fluid col-md-10"  >
     
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class= "navbar-toggler-icon "></span>

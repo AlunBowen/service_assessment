@@ -11,15 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assessments', function (Blueprint $table) {
-            $table->id(); 
-            $table->timestamps();  
+        Schema::create('assessment_sections', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+         
             $table->string('name_en');
             $table->string('name_cym');
             $table->string('description_en');
             $table->string('description_cym');
+            $table->unsignedBigInteger('assessment_id');
+            $table->foreign('assessment_id')->references('id')->on('assessments');
             
-        }); // This closing brace was missing
+
+        });
     }
 
     /**
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assessments');
+        Schema::dropIfExists('assessment_sections');
     }
 };

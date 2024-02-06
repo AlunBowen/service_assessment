@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Cookie;
 use App\Http\Controllers\AssessmentController;
-
+use App\Http\Controllers\AssessmentSectionController;
+use App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/assessments', [App\Http\Controllers\AssessmentController::class,'getAssessments'])->name('assessments.getAssessments');
+
+    //Assessment section routes
+   
+    Route::get('/assessmentsection/{id}', [App\Http\Controllers\AssessmentSectionController::class,'getAssessmentSections'])->name('assessmentsections.getAssessmentSections');
+    Route::delete('/assessmentsection/{id}', [App\Http\Controllers\AssessmentSectionController::class,'destroy'])->name('assessmentsections.destroy');
+    Route::post('/assessmentsection', [App\Http\Controllers\AssessmentSectionController::class,'store'])->name('assessmentsections.store');
+
+    Route::get('/question/{id}', [App\Http\Controllers\QuestionController::class,'getQuesionsForSection'])->name('assessmentsections.getQuesionsForSection');
+    Route::get('/services', [App\Http\Controllers\ServiceController::class,'getServices'])->name('services.getServices');
+
+    Route::post('/question', [App\Http\Controllers\QuestionController::class,'store'])->name('questions.store');
+    Route::delete('/question/{id}', [App\Http\Controllers\QuestionController::class,'destroy'])->name('questions.destroy');
 });
 
 

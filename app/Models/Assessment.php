@@ -16,12 +16,14 @@ class Assessment extends Model
     {
         static::addGlobalScope(new AssessmentScope);
     }
-    public function service(): BelongsTo
+   
+    public function attempts()
     {
-        return $this->belongsTo(Service::class);
+        return $this->hasMany(Attempt::class);
     }
-    public function organisation(): BelongsTo
+
+    public function sections()
     {
-        return $this->belongsTo(Organisation::class);
+        return $this->hasMany(AssessmentSection::class);
     }
 }

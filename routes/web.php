@@ -66,7 +66,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
     Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
     Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('users.show');
+
+    //Attempt
+    Route::get('/attempts', [App\Http\Controllers\AttemptController::class, 'index'])->name('attempts.index');
+    Route::get('/attempts/create', [App\Http\Controllers\AttemptController::class, 'create'])->name('attempts.create');
+    Route::post('/attempts', [App\Http\Controllers\AttemptController::class, 'store'])->name('attempts.store');
+    Route::get('/attempts/{attempt}', [App\Http\Controllers\AttemptController::class, 'show'])->name('attempts.show');
     
+    //Assessments
+    Route::get('/assessments', [App\Http\Controllers\AssessmentController::class, 'index'])->name('assessments.index');
+    Route::get('/assessments/create', [App\Http\Controllers\AssessmentController::class, 'create'])->name('assessments.create');
+    Route::get('/assessments/{assessment}', [App\Http\Controllers\AssessmentController::class, 'show'])->name('assessments.show');
+    Route::get('/assessmentsection/{id}/questions', [App\Http\Controllers\QuestionController::class,'getQuestionsForSection'])->name('getQuestionsForSection');
+
 });
 
 Route::get('/set-lang', [App\Http\Controllers\SetLangController::class, 'setLang'])->name('setLang');

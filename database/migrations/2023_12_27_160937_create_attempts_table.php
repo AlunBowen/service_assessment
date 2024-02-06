@@ -14,6 +14,15 @@ return new class extends Migration
         Schema::create('attempts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name_en');
+            $table->string('name_cym');
+            $table->string('description_en');
+            $table->string('description_cym');
+            $table->unsignedBigInteger('assessment_id');
+            $table->foreign('assessment_id')->references('id')->on('assessments')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('service_id');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade')->onUpdate('cascade');
+
         });
     }
 
