@@ -1,7 +1,7 @@
 
 
 <script>
-import AddQuestionComponent from './AddQuestionComponent.vue';
+import AddQuestionComponent from '../AddQuestionComponent.vue';
 
 export default {
     emits: ['section-added', 'section-deleted'],
@@ -63,7 +63,7 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col">
-                <h2>{{ section.name_en }}</h2>
+                <h3>{{ section.name_en }}</h3>
             </div>
             <div class="col text-center">
                 <button class="btn btn-danger" @click="deleteSection">Delete Section</button>

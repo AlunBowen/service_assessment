@@ -22,11 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-
-
 //route that returns all the assessments in the database and returns as JSON
-
 
 // routes/api.php
 
@@ -44,20 +40,17 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::post('/question', [App\Http\Controllers\QuestionController::class,'store'])->name('questions.store');
     Route::delete('/question/{id}', [App\Http\Controllers\QuestionController::class,'destroy'])->name('questions.destroy');
+
+    Route::get('/answers/{id}/{service_id}/{section}', [App\Http\Controllers\AnswerController::class,'getAnswersForAssessment'])->name('answers.getAnswers');
 });
 
 
-
-
-
 Route::get('/organisations', [App\Http\Controllers\OrganisationController::class, 'index'])->name('organisations.index');
-
 
 Route::get('/lang', function (Request $request) { 
 
     if ($request->cookie('lang') == 'en') {
         $lang = 'en';
-       
     } 
     
     if ($request->cookie('lang') == 'cym')

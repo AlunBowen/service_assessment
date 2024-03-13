@@ -19,4 +19,9 @@ class AssessmentSection extends Model
         return $this->belongsTo(Assessment::class);
     }
 
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
 }

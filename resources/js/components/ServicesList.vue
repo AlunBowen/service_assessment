@@ -80,7 +80,7 @@ export default {
             {{ services.department ? services.department.name : '' }}
           </div>
           <div class="justify-content-end">
-            <a :href="'/services/' + services.id">View</a>
+            <a class="btn btn-primary" :href="'/services/' + services.id">View</a>
           </div>
         </div>
       </li>

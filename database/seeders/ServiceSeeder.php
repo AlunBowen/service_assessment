@@ -13,15 +13,15 @@ class ServiceSeeder extends Seeder
     public function run(): void
     {
         $service = new \App\Models\Service();
-        $service->name = 'Service 1';
-        $service->description = 'Service 1 description';
+        $service->name = 'Connect with other digital professionals';
+        $service->description = 'Our communities of practice bring people together to meet regularly, share knowledge and experience, discuss ideas and form networks to support professional development.';
         $service->organisation()->associate(\App\Models\Organisation::find(1));
         $service->department()->associate(\App\Models\Department::find(1));
         $service->save();
 
         $service = new \App\Models\Service();
-        $service->name = 'Service 2';
-        $service->description = 'Service 2 description';
+        $service->name = 'Learn digital skills';
+        $service->description = 'Training courses for teams and leaders who deliver public services devolved to Wales.';
         $service->organisation()->associate(\App\Models\Organisation::find(1));
         $service->save();
 

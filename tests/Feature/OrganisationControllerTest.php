@@ -15,9 +15,6 @@ class OrganisationControllerTest extends TestCase
 {
     use RefreshDatabase;
     
-    
-
-  
 
     /** @test */
     public function it_displays_organisations_index_when_user_has_permission()

@@ -31,6 +31,10 @@ class Service extends Model
     {
         return $this->hasOne(Attempt::class, 'service_id');
     }
-
+    
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 
 }

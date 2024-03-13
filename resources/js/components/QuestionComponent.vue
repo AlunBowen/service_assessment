@@ -60,7 +60,7 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col">
-                <p>{{ question.question_en }}</p>
+                <h3>{{ question.question_en }}</h3>
             </div>
             <div class="col text-right">
                 <button class="btn btn-danger" @click="deleteSection">Delete Section</button>

@@ -16,11 +16,15 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('assessment_id');
             $table->foreign('assessment_id')->references('id')->on('assessments')->onDelete('cascade')->onUpdate('cascade');
-            // $table->unsignedBigInteger('question_id');
-            // $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade')->onUpdate('cascade');
-            // $table->unsignedBigInteger('attempt_id');
-            // $table->foreign('attempt_id')->references('id')->on('attempts')->onDelete('cascade')->onUpdate('cascade');
-            // $table->string('answer');
+            $table->unsignedBigInteger('question_id');
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('service_id');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('section_id');
+            $table->foreign('section_id')->references('id')->on('assessment_sections')->onDelete('cascade')->onUpdate('cascade');
+            $table->text('answer');
+            
+
 
         });
     }

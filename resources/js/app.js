@@ -10,12 +10,15 @@ import ServicesList from "./components/ServicesList.vue";
 import OrganisationsList from "./components/OrganisationsList.vue";
 import UserList from "./components/UserList.vue";
 import ChartComponent from "./components/ChartComponent.vue";
-import AssessmentSectionsComponent from "./components/AssessmentSectionsComponent.vue";
-import AssessmentSingleSectionComponent from "./components/AssessmentSingleSectionComponent.vue";
-import AddAsessmentSectionComponent from "./components/AddAsessmentSectionComponent.vue";
-import AssessmentSectionQuestionsComponent from "./components/AssessmentSectionQuestionsComponent.vue";
+import AssessmentSectionsComponent from "./components/sections/SectionsListComponent.vue";
+import AssessmentSingleSectionComponent from "./components/sections/SectionComponent.vue";
+import AddAsessmentSectionComponent from "./components/sections/AddSectionComponent.vue";
+import AssessmentSectionQuestionsComponent from "./components/sections/SectionQuestionsComponent.vue";
 import AddQuestionComponent from "./components/AddQuestionComponent.vue";
 import QuestionComponent from "./components/QuestionComponent.vue";
+import ResultsContainerComponent from "./components/results/ResultsContainerComponent.vue";
+import SectionResultsComponent from "./components/results/SectionResultsComponent.vue"; 
+import TakeAssessmentComponenet from "./components/takeassessment/TakeAssessmentComponenet.vue";
 
 import PrimeVue from 'primevue/config';
 import Chart from 'primevue/chart';
@@ -44,6 +47,9 @@ app.component("resourcescontainer", ResourcesContainer)
 .component('assessmentsectionquestions', AssessmentSectionQuestionsComponent)
 .component("font-awesome-icon", FontAwesomeIcon)
 .component('question', QuestionComponent)
+.component('resultscontainer', ResultsContainerComponent)
+.component('sectionresults', SectionResultsComponent)
+.component('takeassessment', TakeAssessmentComponenet)
 .component('addquestion', AddQuestionComponent);
 
 const mountedApp = app.mount("#app"); 

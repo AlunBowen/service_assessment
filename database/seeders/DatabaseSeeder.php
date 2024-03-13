@@ -28,8 +28,7 @@ class DatabaseSeeder extends Seeder
         $manageOrganisations= Permission::create(['name' => 'manage organisations']);
         $deleteOrganisations= Permission::create(['name' => 'delete organisations']);
 
-
-
+        //Super admin
         $superAdmin = Role::create(['name' => 'super-admin']);
         $superAdmin->givePermissionTo(Permission::all());
        
@@ -60,5 +59,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AssessmentSectionSeeder::class);
         $this->call(QuestionSeeder::class);
         $this->call(AttemptSeeder::class);
+        $this->call(AnswersSeeder::class);
     }
 }

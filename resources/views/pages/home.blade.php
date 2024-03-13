@@ -13,9 +13,9 @@
     
    
        
-    <h1>Assessment Dashboard<h1>
+    <h1>Assessment Dashboard: {{ $user->organisation->name }}<h1>
 
-    <h2> {{ $user->organisation->name }}</h2>
+    <h2> </h2>
 
 @php
         $lang = Cookie::get('lang');

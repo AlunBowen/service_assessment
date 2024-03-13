@@ -16,7 +16,7 @@
 {{$service->name_en}}
 <br />
 {{$service->description}}
-
-
-
+<div id="app">
+<resultscontainer :assessment=1 :service="{{$service->id}}" ></resultscontainer>
+</div>
 @endsection
