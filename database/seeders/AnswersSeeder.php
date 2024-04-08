@@ -19,6 +19,7 @@ class AnswersSeeder extends Seeder
         $a->assessment()->associate(\App\Models\Assessment::find(1));
         $a->service()->associate(\App\Models\Service::find(1));
         $a->section()->associate(\App\Models\AssessmentSection::find(1));
+        $a->user()->associate(\App\Models\User::find(1));
         $a->save();
         $a = new Answer();
         $a->answer = "No";
@@ -26,6 +27,7 @@ class AnswersSeeder extends Seeder
         $a->assessment()->associate(\App\Models\Assessment::find(1));
         $a->service()->associate(\App\Models\Service::find(1));
         $a->section()->associate(\App\Models\AssessmentSection::find(1));
+        $a->user()->associate(\App\Models\User::find(1));
         $a->save();
 
     }

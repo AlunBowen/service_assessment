@@ -23,6 +23,8 @@ return new class extends Migration
             $table->unsignedBigInteger('section_id');
             $table->foreign('section_id')->references('id')->on('assessment_sections')->onDelete('cascade')->onUpdate('cascade');
             $table->text('answer');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             
 
 

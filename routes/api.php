@@ -42,6 +42,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::delete('/question/{id}', [App\Http\Controllers\QuestionController::class,'destroy'])->name('questions.destroy');
 
     Route::get('/answers/{id}/{service_id}/{section}', [App\Http\Controllers\AnswerController::class,'getAnswersForAssessment'])->name('answers.getAnswers');
+    Route::post('/answer/{assessment}/{service}/{section}/{question}/{answer}', [App\Http\Controllers\AnswerController::class,'store'])->name('answers.store');
 });
 
 

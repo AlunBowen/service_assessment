@@ -1,23 +1,30 @@
 <template>
     <div>
-        <h2>Add Section to {{ section.name_en }}</h2>
+        <h2>Add Question to {{ section.name_en }}</h2>
         <form @submit.prevent="addSection">
-            <input type="hidden" name="_token" :value="csrf"> <!-- CSRF token -->
+            <input type="hidden" name="_token" :value="csrf"> 
            
 
             <div class="form-group">
-                <label for="name_en">Section Name (English)</label>
+                <label for="name_en">Question (English)</label>
                 <input type="text" id="name_en" v-model="question.question_en" class="form-control">
             </div>
 
             <div class="form-group">
-                <label for="name_cym">Section Name (Welsh)</label>
+                <label for="name_cym">Question Name (Welsh)</label>
                 <input type="text" id="name_cym" v-model="question.question_cym" class="form-control">
             </div>
 
-            
+            <div class="form-group">
+                <label for="level">Question Level</label>
+                <select id="level" v-model="question.level" class="form-control">
+                    <option value="1">Must</option>
+                    <option value="2">Should</option>
+                    <option value="3">Could</option>
+</select>
+            </div>
 
-            <button type="submit" class="btn btn-primary">Add Section</button>
+            <button type="submit" class="btn btn-primary">Add Question</button>
         </form>
     </div>
 </template>
@@ -40,6 +47,7 @@ export default {
             question: {
                 question_en: '',
                 question_cym: '',
+                level: '',
                 
                 assessment_section_id: this.section.id
             }
@@ -47,7 +55,7 @@ export default {
     },
     methods: {
         addSection() {
-            // Replace this with your actual API call
+            
             fetch(`/api/question`, {
                 method: 'POST',
                 headers: {
@@ -64,7 +72,7 @@ export default {
                 this.question = {
                     question_en: '',
                     question_cym: '',
-                    
+                    level: '',
                     assessment_section_id: this.section.id
                 }
                 

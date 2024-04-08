@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('question_en');
             $table->string('question_cym');
+            $table->bigInteger('level');
             $table->unsignedBigInteger('assessment_section_id');
             $table->foreign('assessment_section_id')->references('id')->on('assessment_sections');
 

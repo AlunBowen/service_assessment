@@ -4,6 +4,13 @@
   <div class="container-fluid col-md-10"  >
     @if(auth()->user())
     <a class="navbar-brand text-white" href="/" >{{ auth()->user()->getRoleNames() }}</a>
+  
+    @endif
+    @if (Cookie::get('lang') == 'en')
+    <a class="navbar-brand text-white" href="/" >{{ __('messages.english')}}</a>
+    @endif
+    @if (Cookie::get('lang') == 'cym')
+    <a class="navbar-brand text-white" href="/" >{{ __('messages.welsh')}}</a>
     @endif
       
       <ul class="navbar-nav me-auto mb-2 mb-lg-0" >

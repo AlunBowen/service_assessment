@@ -11,7 +11,7 @@ class SetLangController extends Controller
 {
     public function setLang( Request $request)
     {
-    
+        error_log('setLang');
         
         try {
             $currentLang = Cookie::get('lang');
@@ -20,14 +20,14 @@ class SetLangController extends Controller
         }
         
     // Toggle between 'en' and 'cym'
-    $newLang = ($currentLang == 'en'|| $currentLang == null) ? 'cym' : 'en';
+    $newLang = ($currentLang == 'en') ? 'cym' : 'en';
 
     // Set the new language in the session
     session(['lang' => $newLang]);
 
     // Set the cookie with the new language
     Cookie::queue(Cookie::make('lang', $newLang, 360, null, null, false, false, false, 'Lax'));
-        app()->setLocale('cym');
+        app()->setLocale($newLang);
     $redirectRoute = $request->input('redirect', '/');
         return redirect($redirectRoute);
     }

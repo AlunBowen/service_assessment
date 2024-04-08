@@ -4,10 +4,11 @@
             <div class="col-md-6" v-for="section in sections" :key="section.id">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-text">{{ section.name_en }}</p>
-                        <sectionresults :section="section.id" :service="service" :assessment="assessment"></sectionresults>
+                        <h2 class="card-text">{{ section.name_en }}</h2>
+                        <sectionresults :section="section" :service="service" :assessment="assessment"></sectionresults>
                     </div>
                 </div>
+                <br />
             </div>
         </div>
     </div>

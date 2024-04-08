@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use App\Models\Section;
 use App\Models\Service;
+use App\Models\AssessmentSection;
 
 use function Laravel\Prompts\error;
 
@@ -101,5 +103,24 @@ class ServiceController extends Controller
         return response()->json($services);
         
         
+    }
+
+    public function answerSection(Service $service, AssessmentSection $section)
+    {
+        if (auth()->user()->organisation==$service->organisation)  {
+
+            
+            
+            
+
+            return view('services.answerSection', [
+                'service' => $service,
+                'section' => $section,
+            ]);
+           
+
+        } else {
+            return redirect()->route('home');
+        }
     }
 }

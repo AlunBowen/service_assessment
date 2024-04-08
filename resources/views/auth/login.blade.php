@@ -6,7 +6,7 @@
 @section('content')
 
 @php
-    $lang = Cookie::get('lang');
+    $lang = Cookie::get('lang', 'en');
 @endphp
 
 <div class="container">

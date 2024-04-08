@@ -13,10 +13,6 @@
 
 
 
-
-
-
-
     <div id="app">
     <assessmentsections :assessment="{{$assessment}}" ></assessmentsections>
     

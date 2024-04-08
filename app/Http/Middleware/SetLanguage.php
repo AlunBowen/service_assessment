@@ -1,8 +1,11 @@
 <?php
 namespace App\Http\Middleware;
 
+
 use Closure;
 use Illuminate\Http\Request;
+use App\Http\Controllers\SetLangController;
+use Illuminate\Support\Facades\Cookie;
 
 class SetLanguage
 {
@@ -15,6 +18,10 @@ class SetLanguage
             app()->setLocale('cym');
         } else {
             app()->setLocale($language);
+        }
+        if (!Cookie::get('lang')) {
+            $setLangController = new SetLangController;
+            $setLangController->setLang($request);
         }
 
         return $next($request);

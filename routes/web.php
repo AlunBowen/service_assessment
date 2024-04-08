@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/services/create', [App\Http\Controllers\ServiceController::class, 'create'])->name('services.create');
     Route::post('/services', [App\Http\Controllers\ServiceController::class, 'store'])->name('services.store');
     Route::get('/services/{service}', [App\Http\Controllers\ServiceController::class, 'show'])->name('services.show');
-
+    Route::get('/services/{service}/{section}', [App\Http\Controllers\ServiceController::class, 'answerSection'])->name('services.answerSection');
     //Resources
 
     Route::get('/resources', function () {

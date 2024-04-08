@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Answer;
 use App\Models\Assessment;
+use App\Models\Question;
 use App\Models\Service;
-
+use App\Models\Section;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use function Laravel\Prompts\error;
 
 class AnswerController extends Controller
@@ -30,10 +33,32 @@ class AnswerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store( $assessment,  $service,  $section,  $question, $answer)
     {
-        //
+
+        
+        
+        if ((auth()->user()->hasPermissionTo('complete assessments'))){
+
+        
+        $a = new Answer();
+        $a->answer = $answer;
+        $a->question()->associate(\App\Models\Question::find($question));
+        $a->assessment()->associate(\App\Models\Assessment::find($assessment));
+        $a->service()->associate(\App\Models\Service::find($service));
+        $a->section()->associate(\App\Models\AssessmentSection::find($section));
+        $a->user()->associate(\App\Models\User::find(auth()->user()->id));
+        $a->save();
+
+            return response()->json($answer);
+        } else {
+            return redirect()->route('home');
+        }
     }
+    
+            
+          
+    
 
     /**
      * Display the specified resource.
@@ -69,17 +94,21 @@ class AnswerController extends Controller
 
     public function getAnswersForAssessment($id, $service_id, $section)
     {
-        // error_log($service_id);
+        $subQuery = Answer::select('question_id', DB::raw('MAX(id) as max_id'))
+            ->where('assessment_id', $id)
+            ->where('service_id', $service_id)
+            ->where('section_id', $section)
+            ->groupBy('question_id');
 
-        // $ser = Service::where('id', $service_id)->first();
-        // $s = $ser->id;
-        // $query = Answer::where('service_id',  $s)->get();
-        
-        $query = Answer::where('assessment_id', $id)->where('service_id', $service_id)->where('section_id', $section)->get();
+        $query = Answer::joinSub($subQuery, 'latest_answers', function ($join) {
+            $join->on('answers.id', '=', 'latest_answers.max_id');
+        })->get();
+
         //get the questions for the answer and add to response 
         foreach ($query as $answer) {
             $answer->question;
         }
+
         return response()->json($query);
     }
 }
