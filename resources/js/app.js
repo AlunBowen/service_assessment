@@ -5,6 +5,8 @@ import { createApp } from 'vue/dist/vue.esm-bundler';
 import VueCookies from 'vue3-cookies';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+
+
 import ResourcesContainer from "./components/ResourcesContainer.vue";
 import ServicesList from "./components/ServicesList.vue";
 import OrganisationsList from "./components/OrganisationsList.vue";

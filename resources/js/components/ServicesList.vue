@@ -5,7 +5,7 @@ export default {
   props: {
     lang: {
       type: String,
-      default: "en",
+      
     },
   },
 
@@ -73,6 +73,7 @@ export default {
             <b>{{ services.name }}</b> <br>
             {{ services.description  }}
             {{ services.department }}
+            <p>Here</p>
           </div>
           <div v-else>
             <b>{{ services.name }}</b><br>

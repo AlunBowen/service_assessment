@@ -22,6 +22,6 @@
 <br />
 <br />
 <div id="app">
-<takeassessment :section="{{$section}}" :service="{{$service}}" ></takeassessment>
+<takeassessment :section="{{$section}}" :service="{{$service}}" :lang="'{{$lang}}'" ></takeassessment>
 </div>
 @endsection

@@ -1,8 +1,12 @@
 <template>
+   
     
     <div class="d-flex justify-content-center align-items-center" >
-        <h1>{{ questions[currentQuestionIndex] && questions[currentQuestionIndex].question_en }}</h1>
+        
+        <h1>{{ questions[currentQuestionIndex] && questions[currentQuestionIndex]['question_' + lang] }}</h1>
         <p>{{ currentAnswer }}</p>
+        
+        
 
         
         </div>
@@ -20,7 +24,7 @@
             </div>
         </div>
        
-        
+        <p>{{ this.lang }}</p>
     </div>
     <div v-else>
         <p>No questions found</p>
@@ -31,6 +35,7 @@
 
 <script>
 import axios from 'axios';
+import VueCookies from 'vue-cookies';
 
 export default {
     props: {
@@ -40,6 +45,10 @@ export default {
         },
         service: {
             type: Object,
+            required: true,
+        },
+        lang: {
+            type: String,
             required: true,
         },
     },
@@ -94,6 +103,7 @@ export default {
             const answer = this.answers.find(answer => answer.question_id === question.id);
             return answer ? answer.answer : 'No answer found';
         },
+        
     },
 };
 </script>

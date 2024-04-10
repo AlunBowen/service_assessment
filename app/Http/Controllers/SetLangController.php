@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Exception;
+use Illuminate\Support\Facades\Crypt;
 
 
 class SetLangController extends Controller
@@ -31,5 +32,6 @@ class SetLangController extends Controller
     $redirectRoute = $request->input('redirect', '/');
         return redirect($redirectRoute);
     }
+    
     
 }
