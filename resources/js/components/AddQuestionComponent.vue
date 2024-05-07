@@ -24,6 +24,10 @@
 </select>
             </div>
 
+            
+            <input type="hidden" name="assessment_section_id" :value="section.assessment_id">
+
+
             <button type="submit" class="btn btn-primary">Add Question</button>
         </form>
     </div>
@@ -48,8 +52,8 @@ export default {
                 question_en: '',
                 question_cym: '',
                 level: '',
-                
-                assessment_section_id: this.section.id
+                assessment_section_id: this.section.id,
+                assessment_id: this.section.assessment_id,
             }
         };
     },
@@ -62,7 +66,9 @@ export default {
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': this.csrf
                 },
-                body: JSON.stringify(this.question)
+                body: JSON.stringify(this.question),
+
+                
             })
             .then(response => response.json())
             
@@ -73,10 +79,12 @@ export default {
                     question_en: '',
                     question_cym: '',
                     level: '',
-                    assessment_section_id: this.section.id
+                    assessment_section_id: this.section.id,
+                    assessment_id: this.section.assessment_id, 
                 }
                 
             });
+            console.log(this.question);
         }
     }
 };

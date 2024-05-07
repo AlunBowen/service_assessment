@@ -9,36 +9,26 @@
         $organisation = App\Models\Organisation::find($user->organisation_id);
         //get all the services for the organisation
         $services = App\Models\Service::where('organisation_id', $organisation->id)->get();
+        $localization = json_encode(__('messages'));
     @endphp
     
    
        
-    <h1>Assessment Dashboard: {{ $user->organisation->name }}<h1>
+    <h5 class="text-secondary">Assessment Dashboard: {{ $user->organisation->name }}<h5>
 
     <h2> </h2>
-
+    
 @php
         $lang = Cookie::get('lang');
+       
     @endphp 
     <div id="app">
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-6 p-0 pb-4" >
-            
-        <h3>All services</h3>
-        <chartcomponent :data="[]"></chartcomponent></div>
-       <div class="col-md-6 p-0 pb-4" >
-        <h3>All services</h3>
-        <chartcomponent :data="[]"></chartcomponent>
-
-
-            </div>
-            
-        </div>
-    </div>
-    
-        <serviceslist :lang="'{{$lang}}'"></serviceslist>
+  
+        <serviceslist :lang="'{{$lang}}'" :localization="'{{$localization}}'"  ></serviceslist>
+   
        
+       
+ 
     </div>
    
 @endsection

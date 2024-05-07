@@ -1,26 +1,50 @@
 <template>
     <div>
-        <div>
+
         
+        <div>
+            <p>Must</p>
+        <div class="progress">
+            
+            <div class="progress-bar bg-success" role="progressbar" :style="{ width: `${levelOnePercentage.toFixed(2)}%` }" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                {{ levelOnePercentage.toFixed() }}%
+            </div>
+        </div>
+
         <p>Should</p>
         <div class="progress">
             
-            <div class="progress-bar" role="progressbar" :style="{ width: `${levelTwoPercentage.toFixed(2)}%` }" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-info" role="progressbar" :style="{ width: `${levelTwoPercentage.toFixed(2)}%` }" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                 {{ levelTwoPercentage.toFixed() }}%
             </div>
         </div>
 
 
-        <p>Overall</p>
+        <p>Could</p>
         <div class="progress">
             
-            <div class="progress-bar" role="progressbar" :style="{ width: `${yesAnswersPercentage.toFixed(2)}%` }" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                {{ yesAnswersPercentage.toFixed() }}%
+            <div class="progress-bar" role="progressbar" :style="{ width: `${levelThreePercentage.toFixed(2)}%` }" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                {{ levelThreePercentage.toFixed() }}%
             </div>
         </div>
         
     </div>
    <br>
+<!-- Button to complete section -->
+<a :href="`/services/${this.service}/${section.id}`" class="btn btn-primary">
+    Complete section
+</a>
+
+   <div class="accordion" :id="accordionId">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Answers
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        
         <div v-for="question in questions" :key="question.id">
             <div class="row">
                 <div class="col-md-10">
@@ -33,22 +57,14 @@
                         </p>
                         <p class="bg-secondary text-center" v-else>X</p>
                     
-                </div>
-
-             
-            </div>
-            
+                </div>     
+            </div>            
         </div> 
-        
 
-       
-        
-        
-<!-- Button to complete section -->
-<a :href="`/services/${this.service}/${section.id}`" class="btn btn-primary">
-    Complete section
-</a>
-
+      </div>
+    </div>
+  </div>
+</div>
 
         </div>
     
@@ -56,8 +72,6 @@
 
 <script>
 import axios from 'axios';
-
-
 
 export default {
     components: {
@@ -71,6 +85,7 @@ export default {
             questions: [],
             showModal: false,
             sectionNumber: this.section.id,
+            accordionId: 'accordionExample' + Date.now()*11,
         };
     },
     created() {
@@ -110,13 +125,45 @@ export default {
 
          levelTwoPercentage() {
             const levelTwoAnswers = this.answers.filter(answer => answer.question.level === 2);
+            const levelOneQuestions = this.questions.filter(question => question.level === 2);
             const levelTwoYesAnswersCount = levelTwoAnswers.filter(answer => answer.answer === 'Yes');
 
 
             if (levelTwoAnswers.length === 0) {
                 return 0;
             }
-            return (levelTwoYesAnswersCount.length / levelTwoAnswers.length) * 100;
+            return (levelTwoYesAnswersCount.length / levelOneQuestions.length) * 100;
+         },
+
+
+
+
+         levelOnePercentage() {
+            const levelOneAnswers = this.answers.filter(answer => answer.question.level === 1);
+            const levelOneQuestions = this.questions.filter(question => question.level === 1);
+            const levelOneYesAnswersCount = levelOneAnswers.filter(answer => answer.answer === 'Yes');
+
+
+            if (levelOneAnswers.length === 0) {
+                return 0;
+            }
+
+            
+            return (levelOneYesAnswersCount.length / levelOneQuestions.length) * 100;
+         },
+
+         levelThreePercentage() {
+            const levelThreeAnswers = this.answers.filter(answer => answer.question.level === 3);
+            const levelThreeQuestions = this.questions.filter(question => question.level === 3);
+            const levelThreeYesAnswersCount = levelThreeAnswers.filter(answer => answer.answer === 'Yes');
+
+
+            if (levelThreeAnswers.length === 0) {
+                return 0;
+            }
+
+            
+            return (levelThreeYesAnswersCount.length / levelThreeQuestions.length) * 100;
          },
 
         

@@ -1,20 +1,27 @@
 <template>
    
     
-    <div class="d-flex justify-content-center align-items-center" >
+    <div class="d-flex justify-content-center align-items-center pb-3" >
+        <h2>{{ section.name }}</h2>
+        <h2>Question {{ currentQuestionIndex+1 }} / {{ questions.length }} </h2>
+    </div>
+    <div class="d-flex justify-content-center align-items-center pb-3" >
+        <h3>{{ questions[currentQuestionIndex] && questions[currentQuestionIndex]['question_' + lang] }}</h3> 
         
-        <h1>{{ questions[currentQuestionIndex] && questions[currentQuestionIndex]['question_' + lang] }}</h1>
-        <p>{{ currentAnswer }}</p>
-        
-        
-
-        
-        </div>
-        <div class="justify-content-center align-items-center" v-if="questions && questions[currentQuestionIndex]">
-            <div class="row">
+    </div>
+        <div class="justify-content-center align-items-center " v-if="questions && questions[currentQuestionIndex]">
+            <div class="row pb-3">
             <div class="col-12 d-flex justify-content-center align-items-center">
-                <button class="btn btn-success btn-lg" @click="addAnswer('Yes')">Yes</button>
-                <button class="btn btn-danger btn-lg" @click="addAnswer('No')">No</button>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="form-check-label pe-2">
+                        <input type="radio" name="options" id="option1" autocomplete="off" @change="addAnswer('Yes')" > Yes
+                    </label>
+                    <label class="form-check-label ps-2">
+                        <input type="radio" name="options" id="option2" autocomplete="off" @change="addAnswer('No')"> No
+                    </label>
+                </div>
+                
+
             </div>
         </div>
         <div class="row">
@@ -24,7 +31,7 @@
             </div>
         </div>
        
-        <p>{{ this.lang }}</p>
+        
     </div>
     <div v-else>
         <p>No questions found</p>
@@ -35,7 +42,6 @@
 
 <script>
 import axios from 'axios';
-import VueCookies from 'vue-cookies';
 
 export default {
     props: {
@@ -91,6 +97,7 @@ export default {
                 this.currentQuestionIndex++;
             }
         },
+        
     },
     created() {
         this.getQuestions();

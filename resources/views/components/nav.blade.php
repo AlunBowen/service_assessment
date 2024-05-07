@@ -13,13 +13,29 @@
 
         @auth
         @if (request()->is('/')) 
-            <a class="nav-link active" aria-current="page" href="/">{{__('messages.assessmentdashboard')}}</a>
+            <a class="nav-link active" aria-current="page" href="/">{{__('messages.homepage')}}</a>
         @else 
-            <a class="nav-link " href="/" >{{__('messages.assessmentdashboard')}}</a>
+            <a class="nav-link " href="/" >{{__('messages.homepage')}}</a>
         @endif
 
           
         </li>
+
+        <li class="nav-item">
+
+       
+        @if (request()->is('dashboard*')) 
+            <a class="nav-link active" aria-current="page" href="/dashboard">{{__('messages.dashboard')}}</a>
+        @else 
+            <a class="nav-link " href="/dashboard" >{{__('messages.dashboard')}}</a>
+        @endif
+
+          
+        </li>
+
+
+
+
 
         <li class="nav-item">
         @if (request()->is('resources*')) 

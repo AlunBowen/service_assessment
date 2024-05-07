@@ -18,4 +18,9 @@ class Question extends Model
     {
         return $this->hasMany(Answer::class);
     }
+
+    public function assessment()
+    {
+        return $this->belongsTo(Assessment::class);
+    }
 }

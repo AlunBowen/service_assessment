@@ -24,6 +24,10 @@ Route::middleware('auth')->group(function () {
         return view('pages.home');
     })->name('home');
 
+    Route::get('/dashboard', function () {
+        return view('pages.orgDashboard');
+    })->name('pages.orgDashboard');
+
     //Pages
     //Management Dashboard
     Route::get('/manage', function () {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AssessmentSection;
 use App\Models\Question;
-
+use App\Models\Assessment;
 use function Laravel\Prompts\error;
 
 class QuestionController extends Controller
@@ -33,27 +33,30 @@ class QuestionController extends Controller
     {
         
         if (auth()->user()->hasPermissionTo('manage assessments')) {
-            error_log($request);   
+            
             $request->validate([
                 'question_en' => 'required',
                 'question_cym' => 'required',
                 'level' => 'required', 
                 'assessment_section_id' => 'required',
+                'assessment_id' => 'required',
                 
             ]);
-
+            
             //create a new question
             $question = new Question();
             $question->question_en = $request->question_en;
             $question->question_cym = $request->question_cym;
             $question->level = $request->level;
             $question->assessmentSection()->associate(AssessmentSection::find($request->assessment_section_id));
-            
+            $question->assessment()->associate(Assessment::find($request->assessment_id));
             $question->save();
             
             return response()->json($question);
 
         } else {
+
+            
             return redirect()->route('home');
         }
     }

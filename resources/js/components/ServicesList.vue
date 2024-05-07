@@ -7,6 +7,9 @@ export default {
       type: String,
       
     },
+    localization: {
+      
+    },
   },
 
   data() {
@@ -14,6 +17,7 @@ export default {
       count: 0,
       services: [],
         searchTerm: "",
+      localizationData: {},
     };
   },
 
@@ -33,8 +37,12 @@ export default {
       });
     //get the session lang and assign to a variable
    
-
+      console.log(this.localization);
     
+  },
+
+  created() {
+    this.localizationData = JSON.parse(this.localization);
   },
 
   computed: {
@@ -54,9 +62,9 @@ export default {
 </script>
 
 <template>
-
+<div class="container">
 <div class="mb-3 p-2 rounded bg-custom" >
-          <h2>Search for services</h2>
+          <h2>{{localizationData.findServices}}</h2>
       <!-- Add a search input field -->
       <input
         v-model="searchTerm"
@@ -65,23 +73,24 @@ export default {
         placeholder="Search by name..."
       />
     </div>
-<div class="container">
+    
     <ul class="list-group list-group">
       <li class="list-group-item d-flex justify-content-between align-items-start" v-for="(services, index) in filteredServices" :key="index">
         <div class="ms-2 me-auto">
           <div v-if="lang == 'cym'">
-            <b>{{ services.name }}</b> <br>
+            <h2>{{ services.name }}</h2> 
             {{ services.description  }}
-            {{ services.department }}
-            <p>Here</p>
+           
+            
           </div>
           <div v-else>
-            <b>{{ services.name }}</b><br>
+            <h2>{{ services.name }}</h2> 
             {{ services.description}}<br>
-            {{ services.department ? services.department.name : '' }}
+            
           </div>
+          
           <div class="justify-content-end">
-            <a class="btn btn-primary" :href="'/services/' + services.id">View</a>
+            <a class="btn btn-primary" :href="'/services/' + services.id">{{ localizationData.assessTheService }}</a>
           </div>
         </div>
       </li>

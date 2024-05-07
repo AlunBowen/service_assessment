@@ -1,7 +1,7 @@
 <template>
-    <div  >
-        <Chart type="pie" :data="chartData" :options="chartOptions" />
-        <!-- <input type="range" min="1" max="4" v-model="selectedQuarter" @input="updateChartData" /> -->
+    <div class="card" >
+        <Chart type="bar" :data="chartData" :options="chartOptions" />
+        <input type="range" min="1" max="4" v-model="selectedQuarter" @input="updateChartData" />
         
     </div>
 </template>
@@ -27,11 +27,11 @@ const chartOptions = ref();
 
 const setChartData = () => {
     return {
-        labels: ['Yes', 'No', 'Not ansered'].slice(0, selectedQuarter.value),
+        labels: ['Q1', 'Q2', 'Q3', 'Q4'].slice(0, selectedQuarter.value),
         datasets: [
             {
                 label: 'Sales',
-                data: [540, 325, 702],
+                data: [540, 325, 702, 620].slice(0, selectedQuarter.value),
                 backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'].slice(0, selectedQuarter.value),
                 borderColor: ['rgb(255, 159, 64)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)'].slice(0, selectedQuarter.value),
                 borderWidth: 1
@@ -55,7 +55,25 @@ const setChartOptions = () => {
                 }
             }
         },
-    
+        scales: {
+            x: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            },
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            }
+        }
     };
 }
 </script>

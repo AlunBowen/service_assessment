@@ -27,14 +27,7 @@ export default {
         this.fetchSections();
     },
     methods: {
-        // fetchAnswers() {
-
-        //     axios.get(`/api/answers/${this.assessment}/${this.service}`)
-        //         .then(response => {
-        //             this.answers = response.data;
-        //             console.log(response.data);
-        //         });
-        // },
+     
 
         fetchSections() {
             

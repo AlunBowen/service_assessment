@@ -17,8 +17,8 @@ return new class extends Migration
          
             $table->string('name_en');
             $table->string('name_cym');
-            $table->string('description_en');
-            $table->string('description_cym');
+            $table->text('description_en');
+            $table->text('description_cym');
             $table->unsignedBigInteger('assessment_id');
             $table->foreign('assessment_id')->references('id')->on('assessments');
             

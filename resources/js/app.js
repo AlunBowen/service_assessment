@@ -21,7 +21,8 @@ import QuestionComponent from "./components/QuestionComponent.vue";
 import ResultsContainerComponent from "./components/results/ResultsContainerComponent.vue";
 import SectionResultsComponent from "./components/results/SectionResultsComponent.vue"; 
 import TakeAssessmentComponenet from "./components/takeassessment/TakeAssessmentComponenet.vue";
-
+import OverallResultsComponent from "./components/results/OverallResultsComponent.vue";
+import StatsComponent from "./components/results/StatsComponent.vue";
 import PrimeVue from 'primevue/config';
 import Chart from 'primevue/chart';
 import Slider from 'primevue/slider';
@@ -40,6 +41,7 @@ app.config.globalProperties.$axios = axios;
 
 app.component("resourcescontainer", ResourcesContainer)
 .component("serviceslist", ServicesList)
+.component('statscomponent', StatsComponent)
 .component('organisationslist', OrganisationsList)
 .component('userlist', UserList)
 .component('chartcomponent', ChartComponent)
@@ -52,6 +54,8 @@ app.component("resourcescontainer", ResourcesContainer)
 .component('resultscontainer', ResultsContainerComponent)
 .component('sectionresults', SectionResultsComponent)
 .component('takeassessment', TakeAssessmentComponenet)
-.component('addquestion', AddQuestionComponent);
+.component('addquestion', AddQuestionComponent)
+.component('overallresults', OverallResultsComponent);
+
 
 const mountedApp = app.mount("#app"); 

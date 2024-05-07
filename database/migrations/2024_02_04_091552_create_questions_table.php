@@ -19,6 +19,8 @@ return new class extends Migration
             $table->bigInteger('level');
             $table->unsignedBigInteger('assessment_section_id');
             $table->foreign('assessment_section_id')->references('id')->on('assessment_sections');
+            $table->unsignedBigInteger('assessment_id')->default(0);
+            $table->foreign('assessment_id')->references('id')->on('assessments');
 
         });
     }
