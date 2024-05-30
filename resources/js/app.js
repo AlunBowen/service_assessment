@@ -6,7 +6,7 @@ import VueCookies from 'vue3-cookies';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 
-
+import TimeBasedChart from "./components/TimeBasedChart.vue";
 import ResourcesContainer from "./components/ResourcesContainer.vue";
 import ServicesList from "./components/ServicesList.vue";
 import OrganisationsList from "./components/OrganisationsList.vue";
@@ -27,6 +27,7 @@ import PrimeVue from 'primevue/config';
 import Chart from 'primevue/chart';
 import Slider from 'primevue/slider';
 import Card from 'primevue/card';
+import UpdateQuestionComponent from "./components/UpdateQuestionComponent.vue";
 
 
 const app = createApp({});
@@ -55,7 +56,8 @@ app.component("resourcescontainer", ResourcesContainer)
 .component('sectionresults', SectionResultsComponent)
 .component('takeassessment', TakeAssessmentComponenet)
 .component('addquestion', AddQuestionComponent)
-.component('overallresults', OverallResultsComponent);
-
+.component('overallresults', OverallResultsComponent)
+.component('timebasedchart', TimeBasedChart)
+.component('updatequestion', UpdateQuestionComponent);
 
 const mountedApp = app.mount("#app"); 

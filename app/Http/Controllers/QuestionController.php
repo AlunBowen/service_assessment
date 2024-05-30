@@ -82,7 +82,27 @@ class QuestionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        error_log('in update');
+        if (auth()->user()->hasPermissionTo('manage assessments')) {
+            $request->validate([
+                'question_en' => 'required',
+                'question_cym' => 'required',
+                'level' => 'required',
+                'assessment_section_id' => 'required',
+                'assessment_id' => 'required',
+            ]);
+            $question = Question::find($id);
+            $question->question_en = $request->question_en;
+            $question->question_cym = $request->question_cym;
+            $question->level = $request->level;
+            $question->assessmentSection()->associate(AssessmentSection::find($request->assessment_section_id));
+            $question->assessment()->associate(Assessment::find($request->assessment_id));
+            $question->save();
+            return response()->json($question);
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**

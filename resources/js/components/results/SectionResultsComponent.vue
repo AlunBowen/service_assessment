@@ -38,12 +38,12 @@
    <div class="accordion" :id="accordionId">
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse' + sectionNumber" aria-expanded="false" :aria-controls="'collapse' + sectionNumber">
         Answers
-      </button>
+    </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
+    <div :id="'collapse' + sectionNumber" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
         
         <div v-for="question in questions" :key="question.id">
             <div class="row">

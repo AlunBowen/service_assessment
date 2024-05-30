@@ -22,29 +22,38 @@ class AssessmentController extends Controller
     }
 
   //a function that returns all the assessments in the database and returns as JSON
-    public function getAssessments()
-    {
-
-        error_log('in getAssessments');
-        $assessments = Assessment::all();
-        return response()->json($assessments);
-    }
-       
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    // public function getAssessments()
+    // {
+    //     //if use it authenticated
+    //     if (auth()->user()) {
+    //         $assessments = Assessment::all();
+    //         return response()->json($assessments);
+    //     } else {
+    //         return redirect()->route('home');
+    //     }
+        
+    // }
+ 
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        if (auth()->user()->hasPermissionTo('manage assessments')) {
+            $assessment = new Assessment();
+            $assessment->name_en = $request->name_en;
+            $assessment->name_cym = $request->name_cym;
+            $assessment->description_en = $request->description_en;
+            $assessment->description_cym = $request->description_cym;
+            $assessment->service_id = $request->service_id;
+            $assessment->save();
+
+            return redirect()->route('assessments.index');
+
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**
@@ -62,27 +71,5 @@ class AssessmentController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+    
 }

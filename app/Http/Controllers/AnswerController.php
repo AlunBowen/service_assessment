@@ -12,24 +12,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use function Laravel\Prompts\error;
 use App\Models\AssessmentSection;
+use Carbon\Carbon;
 
 class AnswerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -37,7 +24,6 @@ class AnswerController extends Controller
     public function store( $assessment,  $service,  $section,  $question, $answer)
     {
 
-        
         
         if ((auth()->user()->hasPermissionTo('complete assessments'))){
 
@@ -58,40 +44,7 @@ class AnswerController extends Controller
     }
     
             
-          
     
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 
     public function getAnswersForAssessment($id, $service_id, $section)
     {
@@ -122,7 +75,7 @@ class AnswerController extends Controller
     }
     }
 
-    public function getAllAnswers($id, $assessment)
+    public function getAllAnswers($id, $assessment, $date = null)
     {
     if ((auth()->user()->hasPermissionTo('complete assessments'))){
 
@@ -147,8 +100,11 @@ class AnswerController extends Controller
         //get the laters answer for each question for the service
         $subQuery = Answer::select('question_id', DB::raw('MAX(id) as max_id'))
             ->where('service_id', $service->id)
-            ->where('assessment_id', $assessment)
-            ->groupBy('question_id');
+            ->where('assessment_id', $assessment);
+            if ($date !== null) {
+                $subQuery->where('created_at', '<', $date);
+            }
+            $subQuery->groupBy('question_id');
         
         $query = Answer::joinSub($subQuery, 'latest_answers', function ($join) {
             $join->on('answers.id', '=', 'latest_answers.max_id');
@@ -239,6 +195,39 @@ public function completionRate($id, $assessment){
 
     return response()->json($completionRate);
 
+}
+
+public function getTimeBasedResults($id, $assessment){
+
+    //An array to hold the results
+    $must = [];
+    $should = [];
+    $could = [];
+    //todays month using carbon
+    $today = Carbon::now();
+    
+
+    for ($i = 0; $i < 12; $i++) {
+        
+        $answerController = new AnswerController();
+        $ansers = $answerController->getAllAnswers($id, $assessment, $today)->getData(true);
+        $countOfServices = count($ansers['services']);
+        $mustPercentage = ($ansers['must'] / $ansers['mustLength'] * 100) / $countOfServices;
+        $shouldPercentage = ($ansers['should'] / $ansers['shouldLength'] * 100) / $countOfServices;
+        $couldPercentage = ($ansers['could'] / $ansers['couldLength'] * 100) / $countOfServices;
+
+        array_push($must, $mustPercentage);
+        array_push($should, $shouldPercentage);
+        array_push($could, $couldPercentage);
+        $today = Carbon::now()->subMonth($i);
+    }
+//    
+    
+
+    $response['must'] = $must;
+    $response['should'] = $should;
+    $response['could'] = $could;
+    return response()->json($response);
 }
 
 

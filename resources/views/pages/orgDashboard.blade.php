@@ -25,17 +25,21 @@
     <div id="app">
     <div class="container mt-4">
         <div class="row">
-            <div class="col-md-6 p-4 pb-4" >
             
-        <h3>All services</h3>
-        <chartcomponent  ></chartcomponent></div>
+            
+        
        <div class="col-md-6 p-4 pb-4" >
-        <h3></h3>
+        
         <h5> This is the overall results for all services</h5>
         <overallresults :lang="'{{$lang}}'" :organisation="{{$user->organisation_id}}" :assessment="1"></overallresults>
+        </div>
+        <div class="col-md-6 p-4 pb-4" >
         
+        
+        <h5> Your progress over time</h5>
+        <timebasedchart :lang="'{{$lang}}'" :organisation="{{$user->organisation_id}}" :assessment="1"></timebasedchart>
 
-            </div>
+        </div>
             
         </div>
         <statscomponent :lang="'{{$lang}}'" :localization="'{{$localization}}'" :organisation="{{$user->organisation_id}}" :assessment="1"></statscomponent>

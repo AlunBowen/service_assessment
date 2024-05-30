@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Add Section to {{ assessment.name }}</h2>
+        <h2>{{ assessment.name_en }}</h2>
         <form @submit.prevent="addSection">
             <input type="hidden" name="_token" :value="csrf"> <!-- CSRF token -->
            

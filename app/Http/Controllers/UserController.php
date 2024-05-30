@@ -14,8 +14,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        User::all();
-        return view("users.index");
+        if (auth()->user()->can('viewAny', User::class) ) {
+            return view('users.index', [
+                'users' => User::all(),
+            ]);
+
+        } else {
+           return redirect()->route('home');
+        }
+        
     }
 
     /**
@@ -89,7 +96,6 @@ class UserController extends Controller
     public function apiIndex($id)
     {
 
-       error_log($id);
         $organisations = User::where('organisation_id', $id)->get();
         return response()->json($organisations);
     }

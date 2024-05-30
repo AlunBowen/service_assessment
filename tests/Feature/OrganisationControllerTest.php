@@ -20,7 +20,7 @@ class OrganisationControllerTest extends TestCase
     public function it_displays_organisations_index_when_user_has_permission()
     {
         Permission::create(['name' => 'manage organisations']);
-       $organisation = Organisation::factory()->create();
+        $organisation = Organisation::factory()->create();
         $user = User::factory()->create(['organisation_id' => $organisation]);
         $user->givePermissionTo('manage organisations'); 
 

@@ -4,7 +4,8 @@
 
 @section('content')
 
-<h1>Service dashboard: {{ $section->name }}</h1>
+<h1>Assessment dashboard - Section: </h1>
+    <h4>{{ $section->name }}</h4>
 @php
     $lang = Cookie::get('lang'); 
    

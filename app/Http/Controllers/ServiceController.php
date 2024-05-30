@@ -109,10 +109,6 @@ class ServiceController extends Controller
     {
         if (auth()->user()->organisation==$service->organisation)  {
 
-            
-            
-            
-
             return view('services.answerSection', [
                 'service' => $service,
                 'section' => $section,

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h2>Add Question to {{ section.name_en }}</h2>
+    <div> 
+        <h3>{{ section.name_en }}</h3>
         <form @submit.prevent="addSection">
             <input type="hidden" name="_token" :value="csrf"> 
            
@@ -17,7 +17,7 @@
 
             <div class="form-group">
                 <label for="level">Question Level</label>
-                <select id="level" v-model="question.level" class="form-control">
+                <select id="level" v-model="question.level" class="form-select">
                     <option value="1">Must</option>
                     <option value="2">Should</option>
                     <option value="3">Could</option>
