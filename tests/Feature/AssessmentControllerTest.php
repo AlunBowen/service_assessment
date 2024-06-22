@@ -20,7 +20,7 @@ class AssessmentControllerTest extends TestCase
 
     /** @test */
 
-    public function view_all_assessments()
+    public function index()
     {
 
 
@@ -35,25 +35,7 @@ class AssessmentControllerTest extends TestCase
     }
 
 
-    /** @test */
-    // public function create_assessment()
-    // {
-
-    //     Permission::create(['name' => 'create assessment']);
-
-    //     $organisation = Organisation::factory()->create();
-    //     $user = User::factory()->create(['organisation_id' => $organisation]);
-    //     $user->givePermissionTo('create assessment');
-
-    //     $response = $this->actingAs($user)->get('/assessments/create', [
-    //         'name_en' => 'Test Assessment',
-    //         'name_cym' => 'Asesiad Test',
-    //         'description_en' => 'This is a test assessment',
-    //         'description_cym' => 'Dyma asesiad prawf',
-    //     ]);
-
-    //     $response->assertStatus(200);
-    // }
+   
 
     /** @test */
     public function show_assessment()
@@ -67,5 +49,25 @@ class AssessmentControllerTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertViewIs('assessments.show');
+    }
+
+    /** @test */
+    public function store()
+    {
+        $this->seed(DatabaseSeeder::class);
+
+        $user = User::find(1);
+
+        $response = $this->actingAs($user)->post('/assessments', [
+            'name_en' => 'Test Assessment',
+            'name_cym' => 'Asesiad Test',
+            'description_en' => 'This is a test assessment',
+            'description_cym' => 'Dyma asesiad prawf',
+            
+        ]);
+
+        $response->assertStatus(302);
+        
+        $response->assertRedirect(route('assessments.index'));
     }
 }

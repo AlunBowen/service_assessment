@@ -2,35 +2,40 @@
 <template>
     <div class="container">
         <div class="row">
-        <div class="col-md-4">
-            <Card>
-                <template #title><h2>Completion rate</h2></template>
+        <div class="col-md-4 ">
+            <Card class="card p-2 ">
+                <template #title><h2 class="text-center">Completion rate</h2><hr /></template>
+                
                 <template #content>
-                <p class="m-0">
-                    The completion rate is the percentage of services that have been completed.
+                <p class="m-0 fs-6 text-center">
+                    The completion rate is the percentage of services that have completed the whole assessment.
                 </p>
-                <p>{{ completionRate }}</p>
+                <hr />
+                <h1 class="fs-1 text-center"><p>{{ completionRate }}%</p></h1>
                 </template>
             </Card>
         </div>  
         <div class="col-md-4">
-            <Card>
-                <template #title><h2>Latest update</h2></template>
+            <Card class="card p-2">
+                <template #title><h2 class="text-center">Latest update</h2><hr /></template>
                 <template #content>
-                <p class="m-0">
+                <p class="m-0 fs-6 text-center">
                     The completion rate is the percentage of services that have been completed.
                 </p>
+                <hr />
+                <h1 class="fs-1 text-center"><p>{{ dateOfLastUpdate }}</p></h1>
                 </template>
             </Card>
         </div>  
         <div class="col-md-4">
-            <Card>
-                <template #title><h2>Service count</h2></template>
+            <Card class="card p-2">
+                <template #title><h2 class="text-center">Service count</h2><hr /></template>
                 <template #content>
-                <p class="m-0">
+                <p class="m-0 fs-6 text-center">
                     The completion rate is the percentage of services that have been completed.
                 </p>
-               
+                <hr />
+                <h1 class="fs-1 text-center"><p>{{ countOfServices }}</p></h1>
                 </template>
             </Card>
         </div>  
@@ -65,6 +70,8 @@ export default {
             searchTerm: "",
             localizationData: {},
             completionRate: 0,
+            dateOfLastUpdate: "",
+            countOfServices: 0,
         };
     },
     mounted() {
@@ -77,6 +84,28 @@ export default {
                 .catch((error) => {
                     console.error(error);
                 });
+
+        axios
+                .get(`/api/results/lastupdate/${this.organisation}/${this.assessment}`)
+                .then((response) => {
+                    this.dateOfLastUpdate = response.data;
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+
+        axios
+                .get(`/api/countofservices/${this.organisation}`)
+                .then((response) => {
+                    this.countOfServices = response.data;
+                    console.log(this.countOfServices);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+                console.log(this.countOfServices);
+
+                
         },
     
     created() {

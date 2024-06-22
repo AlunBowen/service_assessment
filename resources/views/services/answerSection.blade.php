@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h4>{{ $service->name }}</h4>
+<h5>Service: {{ $service->name }}</h5>
 @php
     $lang = Cookie::get('lang'); 
    
@@ -12,15 +12,13 @@
 @endphp
 
 
-<h4></h4>
+<h5>
 
-{{$section->name_en}}
-
+Assessment sction: {{$section->name_en}}
+</h5>
 <br />
 
-<br />
-<br />
-<br />
+
 <div id="app">
 <takeassessment :section="{{$section}}" :service="{{$service}}" :lang="'{{$lang}}'" ></takeassessment>
 </div>

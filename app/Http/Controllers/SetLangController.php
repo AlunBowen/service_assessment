@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Crypt;
 class SetLangController extends Controller
 {
     public function setLang( Request $request)
-    {
-        error_log('setLang');
-        
+    {   
+        //Check to see whether there is a current language set in the cookie
+        //and if not set it to 'en' as default
         try {
             $currentLang = Cookie::get('lang');
         } catch (Exception $e) {
@@ -27,11 +27,10 @@ class SetLangController extends Controller
     session(['lang' => $newLang]);
 
     // Set the cookie with the new language
-    Cookie::queue(Cookie::make('lang', $newLang, 360, null, null, false, false, false, 'Lax'));
+    Cookie::queue(Cookie::make('lang', $newLang, 360, null, null, 
+        false, false, false, 'Lax'));
         app()->setLocale($newLang);
-    $redirectRoute = $request->input('redirect', '/');
+        $redirectRoute = $request->input('redirect', '/');
         return redirect($redirectRoute);
     }
-    
-    
 }

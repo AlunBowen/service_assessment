@@ -17,7 +17,7 @@ class OrganisationControllerTest extends TestCase
     
 
     /** @test */
-    public function it_displays_organisations_index_when_user_has_permission()
+    public function index()
     {
         Permission::create(['name' => 'manage organisations']);
         $organisation = Organisation::factory()->create();
@@ -31,7 +31,7 @@ class OrganisationControllerTest extends TestCase
     }
 
     /** @test */
-    public function it_displays_create_form_when_user_has_permission()
+    public function create()
     {
         Permission::create(['name' => 'manage organisations']);
         $organisation = Organisation::factory()->create();
@@ -47,7 +47,7 @@ class OrganisationControllerTest extends TestCase
    
 
     /** @test */
-    public function it_stores_organisation_when_user_has_permission()
+    public function store()
     {
         Permission::create(['name' => 'manage organisations']);
         $organisation = Organisation::factory()->create();
@@ -68,7 +68,7 @@ class OrganisationControllerTest extends TestCase
     
 
     /** @test */
-    public function it_displays_organisation_when_user_has_permission_or_belongs_to_organisation()
+    public function show()
 {
     $organisation = Organisation::factory()->create();
     Permission::create(['name' => 'manage organisations']);
@@ -83,7 +83,7 @@ class OrganisationControllerTest extends TestCase
 }
 
 /** @test */
-public function it_displays_edit_form_when_user_has_permission()
+public function edit()
 {
     $organisation = Organisation::factory()->create();
     Permission::create(['name' => 'manage organisations']);
@@ -98,7 +98,7 @@ public function it_displays_edit_form_when_user_has_permission()
 }
 
 /** @test */
-public function it_updates_organisation_and_redirects_when_user_has_permission()
+public function update()
 {
     $organisation = Organisation::factory()->create();
     Permission::create(['name' => 'manage organisations']);
@@ -118,7 +118,7 @@ public function it_updates_organisation_and_redirects_when_user_has_permission()
 }
 
 /** @test */
-public function it_deletes_organisation_and_redirects_when_user_has_permission()
+public function destroy()
 {
     $organisation = Organisation::factory()->create();
     Permission::create(['name' => 'delete organisations']);

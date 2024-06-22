@@ -2,15 +2,15 @@
     
 <nav class="navbar navbar-expand-lg bg-body-tertiary p-1" data-bs-theme="dark" style="padding: 0;">
   <div class="container-fluid col-md-10"  >
-    @if(auth()->user())
+    <!-- @if(auth()->user())
     <a class="navbar-brand text-white" href="/" >{{ auth()->user()->getRoleNames() }}</a>
   
-    @endif
+    @endif -->
     @if (Cookie::get('lang') == 'en')
-    <a class="navbar-brand text-white" href="/" >{{ __('messages.english')}}</a>
+    <a class="navbar-brand text-white fs-4" href="/" >{{ __('messages.product')}}</a>
     @endif
     @if (Cookie::get('lang') == 'cym')
-    <a class="navbar-brand text-white" href="/" >{{ __('messages.welsh')}}</a>
+    <a class="navbar-brand text-white fs-4" href="/" >{{ __('messages.product')}}</a>
     @endif
       
       <ul class="navbar-nav me-auto mb-2 mb-lg-0" >

@@ -28,7 +28,7 @@ import Chart from 'primevue/chart';
 import Slider from 'primevue/slider';
 import Card from 'primevue/card';
 import UpdateQuestionComponent from "./components/UpdateQuestionComponent.vue";
-
+import CuratedResourcesContainer from "./components/CuratedResourcesContainer.vue";
 
 const app = createApp({});
 app.use(VueCookies);
@@ -58,6 +58,7 @@ app.component("resourcescontainer", ResourcesContainer)
 .component('addquestion', AddQuestionComponent)
 .component('overallresults', OverallResultsComponent)
 .component('timebasedchart', TimeBasedChart)
+.component('curatedresourcescontainer', CuratedResourcesContainer)
 .component('updatequestion', UpdateQuestionComponent);
 
 const mountedApp = app.mount("#app"); 

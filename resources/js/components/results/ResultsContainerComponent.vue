@@ -12,6 +12,11 @@
             </div>
         </div>
     </div>
+    
+    <div>
+     
+        <curatedresourcescontainer v-if="section" :section="section"></curatedresourcescontainer>
+    </div>
 </template>
 <script>
 import axios from 'axios';
@@ -21,10 +26,16 @@ export default {
     data() {
         return {
             sections: [],
+            results: [],
+            lowestScore: 0,
+            section: 0,
         };
     },
     created() {
         this.fetchSections();
+        this.getResults();
+        
+        
     },
     methods: {
      
@@ -36,6 +47,31 @@ export default {
                 .then(data => {
                     this.sections = data;
                 });
+        },
+        getResults() {
+            axios.get(`/api/answer/results/${this.assessment}/${this.service}`)
+                .then(response => {
+                    this.results = response.data;
+                })
+                .then(() => {
+                    this.calculateLowestPerformingSection();
+                })
+        },
+
+    
+
+        calculateLowestPerformingSection() {
+            let lowest = 300;
+            this.results.forEach((result, i) => { 
+                let totalSum = 0; 
+                for (let j = 1; j < result.length; j++) { 
+                    totalSum += result[j];
+                }
+                if (totalSum < lowest) {
+                    lowest = totalSum;
+                    this.section = i+1; 
+                }
+            });
         },
     },
 };

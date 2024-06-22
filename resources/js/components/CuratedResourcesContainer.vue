@@ -7,6 +7,11 @@ export default {
       type: String,
       default: "en",
     },
+    
+    section: {
+      type: Number,
+      default: 1,
+    },
   },
 
   data() {
@@ -14,7 +19,6 @@ export default {
       count: 0,
       resources: [],
         searchTerm: "",
-      
     };
   },
 
@@ -23,25 +27,27 @@ export default {
   mounted() {
     // get all resources and assign to a variable
     axios
-      .get("/api/resources")
+      .get(`/api/resources/${this.section}`)
       .then((response) => {
         this.resources = response.data;
-        console.log(this.resources);
+        
       })
       .catch((error) => {
         console.error(error);
       });
-
-      
-     
+   
     
   },
 
   computed: {
+    // Use a computed property to filter resources based on the search term
     filteredAssessments() {
       const lowerCaseSearchTerm = this.searchTerm.toLowerCase();
       return this.resources.filter((resources) => {
-        return ( 
+        // Modify the condition based on the properties you want to search
+        return (
+          // resources.name_en.toLowerCase().includes(lowerCaseSearchTerm) ||
+          // resources.name_cym.toLowerCase().includes(lowerCaseSearchTerm)
           resources.name_en.toLowerCase().includes(lowerCaseSearchTerm) ||
           resources.name_cym.toLowerCase().includes(lowerCaseSearchTerm)
         );
@@ -54,16 +60,7 @@ export default {
 <template>
     
     
-        <div class="mb-3 p-2 rounded bg-custom" >
-          <h2>Search for resources</h2>
-      <!-- Add a search input field -->
-      <input
-        v-model="searchTerm"
-        type="text"
-        class="form-control" 
-        placeholder="Search by name..."
-      />
-    </div>
+      <h1>Curated resources</h1>
       <div class="row">
         <div v-for="(resources, index) in filteredAssessments" :key="index" class="col-xl-3 col-lg-4 col-md-6 mb-4">
           <div class="card">

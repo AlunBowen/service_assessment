@@ -22,7 +22,7 @@
 @foreach($organisation->services as $service)
     <p>{{ $service->name }}</p>
     <p>{{ $service->description }}</p>
-    <a href="{{ route('services.show', $service->id) }}" class="btn btn-primary">View Service</a>
+    <hr>
 @endforeach
 
 <div class="accordion accordion-flush" id="createUserAccordion">
@@ -76,5 +76,33 @@
     </div>
   </div>
 
+
+  <div class="accordion accordion-flush" id="createServiceAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        <h2>Add a new service</h2>
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse  {{ $errors->any() ? 'show' : '' }}" data-bs-parent="#createUserAccordion">
+      <div class="accordion-body">
+      <x-createService :organisation="$organisation" />
+      </div>
+    </div>
+  </div>
+@if (session('error'))
+    <div class="alert alert-danger" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
+
+
+@if (session('Service success') )
+    <div class="alert alert-success" role="alert">
+        {{ session('Service success') }}
+    </div>
+@endif
+</div>
+<hr />
 
 @endsection

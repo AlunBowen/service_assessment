@@ -46,13 +46,11 @@ export default {
   },
 
   computed: {
-    // Use a computed property to filter assessments based on the search term
+    
     filteredServices() {
       const lowerCaseSearchTerm = this.searchTerm.toLowerCase();
       return this.services.filter((services) => {
-        // Modify the condition based on the properties you want to search
         return (
-          services.name.toLowerCase().includes(lowerCaseSearchTerm) ||
           services.name.toLowerCase().includes(lowerCaseSearchTerm)
         );
       });
@@ -65,7 +63,7 @@ export default {
 <div class="container">
 <div class="mb-3 p-2 rounded bg-custom" >
           <h2>{{localizationData.findServices}}</h2>
-      <!-- Add a search input field -->
+      
       <input
         v-model="searchTerm"
         type="text"

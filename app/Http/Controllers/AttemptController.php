@@ -67,24 +67,5 @@ class AttemptController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Service $service)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Service $service)
-    {
-        //
-    }
+   
 }

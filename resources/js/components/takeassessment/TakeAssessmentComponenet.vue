@@ -1,12 +1,13 @@
 <template>
    
-    
+    <br />
+    <button class="btn btn-secondary" @click="goBack">Back</button>
     <div class="d-flex justify-content-center align-items-center pb-3" >
         <h2>{{ section.name }}</h2>
         <h2>Question {{ currentQuestionIndex+1 }} / {{ questions.length }} </h2>
     </div>
     <div class="d-flex justify-content-center align-items-center pb-3" >
-        <h3>{{ questions[currentQuestionIndex] && questions[currentQuestionIndex]['question_' + lang] }}</h3> 
+        <h3 class="text-center">{{ questions[currentQuestionIndex] && questions[currentQuestionIndex]['question_' + lang] }}</h3> 
         
     </div>
         <div class="justify-content-center align-items-center " v-if="questions && questions[currentQuestionIndex]">
@@ -14,10 +15,12 @@
             <div class="col-12 d-flex justify-content-center align-items-center">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="form-check-label pe-2">
-                        <input type="radio" name="options" id="option1" autocomplete="off" @change="addAnswer('Yes')" > Yes
+                        <input type="radio" name="options" id="option1" autocomplete="off" 
+                        v-model="selectedAnswer" value="Yes" @change="addAnswer('Yes')" > Yes
                     </label>
                     <label class="form-check-label ps-2">
-                        <input type="radio" name="options" id="option2" autocomplete="off" @change="addAnswer('No')"> No
+                        <input type="radio" name="options" id="option2" autocomplete="off" 
+                        v-model="selectedAnswer" value="No" @change="addAnswer('No')"> No
                     </label>
                 </div>
                 
@@ -28,6 +31,7 @@
             <div class="col-12 d-flex justify-content-center align-items-center">
                 <button class="btn btn-primary" @click="goToPreviousQuestion" :disabled="currentQuestionIndex === 0">Back</button>
                 <button class="btn btn-primary" @click="goToNextQuestion" :disabled="currentQuestionIndex === questions.length - 1">Next</button>
+                <button class="btn btn-secondary" @click="goBack" v-if="currentQuestionIndex === questions.length - 1">Submit</button>
             </div>
         </div>
        
@@ -63,6 +67,7 @@ export default {
             questions: [],
             answers: [],
             currentQuestionIndex: 0,
+            selectedAnswer: null,
             
         };
     },
@@ -91,11 +96,16 @@ export default {
             if (this.currentQuestionIndex > 0) {
                 this.currentQuestionIndex--;
             }
+            this.selectedAnswer = null;
         },
         goToNextQuestion() {
             if (this.currentQuestionIndex < this.questions.length - 1) {
                 this.currentQuestionIndex++;
             }
+            this.selectedAnswer = null;
+        },
+        goBack() {
+            window.location.href = `/services/${this.service.id}`;
         },
         
     },

@@ -10,22 +10,7 @@ use function Laravel\Prompts\error;
 
 class QuestionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
+   
     /**
      * Store a newly created resource in storage.
      */
@@ -61,21 +46,7 @@ class QuestionController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+   
 
     /**
      * Update the specified resource in storage.
@@ -120,23 +91,23 @@ class QuestionController extends Controller
         }
     }
 
-    public function getQuesionsForSection($id){
+    public function getQuestionsForSection($id){
 
         $assessmentSectionQuestions = AssessmentSection::find($id)->questions;
         error_log($assessmentSectionQuestions);
         return response()->json($assessmentSectionQuestions);
     }
 
-    public function getQuestionsForSection($id){
-        error_log('in getQuestionsForSection');
-        if (auth()->user()->hasPermissionTo('manage assessments')) {
-            error_log('in getQuestionsForSection');
-            return view('questions.index', [
-                'section' => AssessmentSection::find($id),
-            ]);
+    // public function getQuestionsForSection($id){
+    //     error_log('in getQuestionsForSection');
+    //     if (auth()->user()->hasPermissionTo('manage assessments')) {
+    //         error_log('in getQuestionsForSection');
+    //         return view('questions.index', [
+    //             'section' => AssessmentSection::find($id),
+    //         ]);
 
-        } else {
-            return redirect()->route('home');
-        }
-    }
+    //     } else {
+    //         return redirect()->route('home');
+    //     }
+    // }
 }

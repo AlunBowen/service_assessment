@@ -24,10 +24,8 @@ class AnswerController extends Controller
     public function store( $assessment,  $service,  $section,  $question, $answer)
     {
 
-        
         if ((auth()->user()->hasPermissionTo('complete assessments'))){
 
-        
         $a = new Answer();
         $a->answer = $answer;
         $a->question()->associate(\App\Models\Question::find($question));
@@ -75,25 +73,103 @@ class AnswerController extends Controller
     }
     }
 
+    public function calculateWorsePerformingSection($id, $service){
+
+        if ((auth()->user()->hasPermissionTo('complete assessments'))){
+            
+            $q = AssessmentSection::where('assessment_id', $id)->get();
+
+            // $a[] = [];
+            // $c = count($q);
+            $answers = [];
+            $yes [] = [];
+            $response = [];
+            
+            $questions['mustQuestions'] = Question::where('level', 1)->get();
+            $questions['shouldQuestions'] = Question::where('level', 2)->get();
+            $questions['couldQuestions'] = Question::where('level', 3)->get();
+
+
+            for ($i = 0; $i < count($q); $i++) {
+                $controller = new AnswerController();
+                
+                // Get the answers and decode the JSON response
+                $answer = json_decode($controller->getAnswersForAssessment($id, $service, $q[$i]->id)->getContent(), true);
+
+                // Add the answer to the $answers array
+                array_push($answers, $answer);
+                
+            }
+
+            for ($i = 0; $i < count($answers); $i++) {
+                $yesCount1 = 0;
+                $yesCount2 = 0;
+                $yesCount3 = 0;
+                for ($j = 0; $j < count($answers[$i]); $j++) {
+                    if ($answers[$i][$j]['answer'] == 'Yes' && $answers[$i][$j]['question']['level'] == 1) {
+                        $yesCount1++;
+                    }
+                    if ($answers[$i][$j]['answer'] == 'Yes' && $answers[$i][$j]['question']['level'] == 2) {
+                        $yesCount2++;
+                    }
+                    if ($answers[$i][$j]['answer'] == 'Yes' && $answers[$i][$j]['question']['level'] == 3) {
+                        $yesCount3++;
+                    }
+                    
+                    $yesCount1Percentage = ($yesCount1 / count($questions['mustQuestions'])) * 100;
+                    $yesCount2Percentage = ($yesCount2 / count($questions['shouldQuestions'])) * 100;
+                    $yesCount3Percentage = ($yesCount3 / count($questions['couldQuestions'])) * 100;
+                }
+
+                if ($yesCount1 == 0){
+                    $yesCount1Percentage = 0;
+                }
+                if ($yesCount2 == 0){
+                    $yesCount2Percentage = 0;
+                }
+                if ($yesCount3 == 0){
+                    $yesCount3Percentage = 0;
+                }
+
+                $worst = min($yesCount1Percentage, $yesCount2Percentage, $yesCount3Percentage);
+                
+                $sectionResults = [$q[$i]['name_en'], $yesCount1Percentage, $yesCount2Percentage, $yesCount3Percentage];
+                array_push($response, $sectionResults);
+               
+
+                  }
+                  //find the lowest percentage and return the level and section
+                    // $lowest = min($response);
+                    // $response = array_search($lowest, $response);
+                    // error_log($response);
+
+    }   
+    return ($response); ;
+    }
+   
+
+
     public function getAllAnswers($id, $assessment, $date = null)
     {
     if ((auth()->user()->hasPermissionTo('complete assessments'))){
 
+    //get all services for the organisation
     $services = Service::where('organisation_id', $id)->get();
     
+    //response array
     $response = [];
+    //variables to hold the number of yes answers for each level
     $must = 0;
     $should = 0;
     $could = 0;
     
-    //set assessment sections for the assessment being requested
-    $section = AssessmentSection::where('assessment_id', $assessment)->get();
- 
-        $questions['mustQuestions'] = Question::where('level', 1)->get();
-        $questions['shouldQuestions'] = Question::where('level', 2)->get();
-        $questions['couldQuestions'] = Question::where('level', 3)->get();
+    //get questions for the assessment based on level
+    $questions['mustQuestions'] = Question::where('level', 1)->get();
+    $questions['shouldQuestions'] = Question::where('level', 2)->get();
+    $questions['couldQuestions'] = Question::where('level', 3)->get();
 
-        $response['questions'][] = $questions;
+    //add the questions to the response
+    $response['questions'][] = $questions;
 
     //for each service 
     foreach ($services as $service) {
@@ -158,8 +234,6 @@ class AnswerController extends Controller
     $response['shouldLength'] = count($questions['shouldQuestions']);
     $response['couldLength'] = count($questions['couldQuestions']);
 
-
-
     return response()->json($response);
     } else {
         return 0;
@@ -189,6 +263,9 @@ public function completionRate($id, $assessment){
         }
     }
 
+    if ($numberOfServices == 0) {
+        return response()->json(0);
+    }
     $completionRate = ($servicesWithAnswers / $numberOfServices) * 100;
 
     error_log(count($questions));
@@ -196,6 +273,57 @@ public function completionRate($id, $assessment){
     return response()->json($completionRate);
 
 }
+
+public function getDateOfLastAnswer($id, $assessment){
+    //get all services for the organisation
+    $services = Service::where('organisation_id', $id)->get();
+    //get the last answer for each service
+    $response = [];
+    foreach ($services as $service) {
+        $subQuery = Answer::select('question_id', DB::raw('MAX(id) as max_id'))
+            ->where('service_id', $service->id)
+            ->where('assessment_id', $assessment)
+            ->groupBy('question_id');
+        
+        $query = Answer::joinSub($subQuery, 'latest_answers', function ($join) {
+            $join->on('answers.id', '=', 'latest_answers.max_id');
+        })->get();
+
+        foreach ($query as $answer) {
+            $answer->created_at;
+        }
+        
+
+        $response[] = $query;
+        //find the most recent created at date
+        $latest = "";
+        for ($i = 0; $i < count($response); $i++) {
+            for ($j = 0; $j < count($response[$i]); $j++) {
+                if ($response[$i][$j]->created_at > $latest) {
+                    $latest = $response[$i][$j]->created_at;
+                }
+            }
+        }
+    }
+    //format the date
+    $latest = Carbon::parse($latest)->format('d/m/Y');
+
+    return response()->json($latest);
+}
+
+
+public function getCountOfServices($id){
+    //get all services for the organisation
+    error_log("in get count of services");
+    $services = Service::where('organisation_id', $id)->get();
+    //get the count of services
+    $countOfServices = count($services);
+    error_log($countOfServices);
+    return response()->json($countOfServices);
+   
+
+}
+
 
 public function getTimeBasedResults($id, $assessment){
 
@@ -205,24 +333,28 @@ public function getTimeBasedResults($id, $assessment){
     $could = [];
     //todays month using carbon
     $today = Carbon::now();
-    
 
-    for ($i = 0; $i < 12; $i++) {
-        
+    //for each month in the last year counting back from the most recent month
+    for ($i = 0; $i < 12; $i++) {   
+
+        //initialise the answer controller
         $answerController = new AnswerController();
+        //get the most recent answers for the assessment before date 
         $ansers = $answerController->getAllAnswers($id, $assessment, $today)->getData(true);
+        //get the count of services
         $countOfServices = count($ansers['services']);
+        //calculate the percentage of yes answers for each level
         $mustPercentage = ($ansers['must'] / $ansers['mustLength'] * 100) / $countOfServices;
         $shouldPercentage = ($ansers['should'] / $ansers['shouldLength'] * 100) / $countOfServices;
         $couldPercentage = ($ansers['could'] / $ansers['couldLength'] * 100) / $countOfServices;
-
+        //add the percentages to the arrays
         array_push($must, $mustPercentage);
         array_push($should, $shouldPercentage);
         array_push($could, $couldPercentage);
+        //substract a month from the date
         $today = Carbon::now()->subMonth($i);
     }
-//    
-    
+
 
     $response['must'] = $must;
     $response['should'] = $should;

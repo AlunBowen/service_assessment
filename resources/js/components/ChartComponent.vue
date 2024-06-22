@@ -46,7 +46,7 @@ const setChartOptions = () => {
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
     
     return {
-        responsive: true, // chart will resize when window size changes
+        responsive: true, 
         maintainAspectRatio: false,
         plugins: {
             legend: {

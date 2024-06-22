@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Section;
 use App\Models\Service;
 use App\Models\AssessmentSection;
+use Illuminate\Http\Request;
 
 use function Laravel\Prompts\error;
 
@@ -17,10 +18,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->can('viewAny', Service::class) ) {
-            return view('services.index', [
-                'services' => Service::all(),
-            ]);
+        if (auth()->user()->hasPermissionTo('manage organisations')) {
+            return view('pages.home');
 
         } else {
            return redirect()->route('home');
@@ -32,26 +31,31 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        if (auth()->user()->can('create', Service::class) ) {
-            return view('services.create');
+        if (auth()->user()->hasPermissionTo('manage organisations')) {
+            return view('pages.home');
 
         } else {
-            return redirect()->route('home');
+            return redirect()->route('pages.home');
         }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreServiceRequest $request)
+    public function store(Request $request)
     {
-        if (auth()->user()->can('create', Service::class) ) {
-            $validated = $request->validated();
-            $service = Service::create($validated);
-            return redirect()->route('services.index')->with('success', 'Service created successfully.');
+        error_log('store service');
+        if  (auth()->user()->hasPermissionTo('manage organisations')) {
+            
+            $service = new Service();
+            $service->name = $request->name;
+            $service->description = $request->description;
+            $service->organisation_id = $request->organisation_id;
+            $service->save();
+            return redirect()->back()->with('Service success', 'Service created successfully');
 
         } else {
-            return redirect()->route('home');
+            return redirect()->route('pages.home');
         }
     }
 
@@ -66,33 +70,11 @@ class ServiceController extends Controller
             ]);
 
         } else {
-            return redirect()->route('home');
+            return redirect()->route('pages.home');
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Service $service)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateServiceRequest $request, Service $service)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Service $service)
-    {
-        //
-    }
+  
 
     public function getServices()
     {

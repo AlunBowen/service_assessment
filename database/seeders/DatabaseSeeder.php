@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
         
         $this->call(OrganisationSeeder::class);
         $this->call(UsersSeeder::class);
-        $this->call(DepartmentSeeder::class);
+        // $this->call(DepartmentSeeder::class);
         $this->call(ServiceSeeder::class);
        
         $this->call(AssessmentSeeder::class);
@@ -64,5 +64,6 @@ class DatabaseSeeder extends Seeder
         $this->call(QuestionSeeder::class);
         $this->call(AttemptSeeder::class);
         $this->call(AnswersSeeder::class);
+        $this->call(ResourceSeeder::class);
     }
 }

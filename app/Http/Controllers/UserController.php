@@ -12,26 +12,12 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        if (auth()->user()->can('viewAny', User::class) ) {
-            return view('users.index', [
-                'users' => User::all(),
-            ]);
-
-        } else {
-           return redirect()->route('home');
-        }
-        
-    }
+    
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view("user.create");
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -39,60 +25,21 @@ class UserController extends Controller
     public function store(Request $request)
     {
        
-        // $validatedData = $request->validate([
-        //     'name' => 'required|max:255',
-        //     'email' => 'required|email|unique:users,email',
-        //     'organisation_id' => 'required|exists:organisations,id',
-        //     'password' => ['required', 'string', 'min:8', 'confirmed'], 
-        // ]);
-        
+        if (auth()->user()->hasRole('super-admin') ) {
+            
         $user = new CreateNewUser();
         $user->create($request->all());
-        // $user->name = $validatedData['name'];
-      
-        // $user->email = $validatedData['email'];
-        // $user->password = bcrypt($validatedData['password']);
-        // $user->organisation()->associate(Organisation::find($validatedData['organisation_id']));
-        // $user->save();
-
+     
         
 
         return redirect()->back()->with('success', 'User created successfully');
+        } else {
+            return redirect()->route('home');
+        }
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-
+    //Get the users for a specific organisation
     public function apiIndex($id)
     {
 

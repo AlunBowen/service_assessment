@@ -30,7 +30,7 @@ export default {
                     this.questions = data;
                     
                 });
-                console.log("UPDATED");
+                
         },
         updateSections(newSection) {
     // Add the new section to the list
@@ -42,7 +42,7 @@ export default {
             this.questions = this.questions.filter(s => s.id !== section.id);
         },
         updateQuestion(newQuestion) {
-            console.log("UPDATE123D");
+            
             // Find the index of the question
             const index = this.questions.findIndex(q => q.id === newQuestion.id);
             // Create a new object with the updated properties

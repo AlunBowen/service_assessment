@@ -34,10 +34,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/assessmentsection/{id}', [App\Http\Controllers\AssessmentSectionController::class,'getAssessmentSections'])->name('assessmentsections.getAssessmentSections');
     Route::delete('/assessmentsection/{id}', [App\Http\Controllers\AssessmentSectionController::class,'destroy'])->name('assessmentsections.destroy');
     Route::post('/assessmentsection', [App\Http\Controllers\AssessmentSectionController::class,'store'])->name('assessmentsections.store');
-
-    Route::get('/question/{id}', [App\Http\Controllers\QuestionController::class,'getQuesionsForSection'])->name('assessmentsections.getQuesionsForSection');
+    Route::get('/question/{id}', [App\Http\Controllers\QuestionController::class,'getQuestionsForSection'])->name('assessmentsections.getQuestionsForSection');
     Route::get('/services', [App\Http\Controllers\ServiceController::class,'getServices'])->name('services.getServices');
-
+    Route::post('/service', [App\Http\Controllers\ServiceController::class,'store'])->name('services.store');
     Route::post('/question', [App\Http\Controllers\QuestionController::class,'store'])->name('questions.store');
     Route::delete('/question/{id}', [App\Http\Controllers\QuestionController::class,'destroy'])->name('questions.destroy');
     Route::patch('/question/{id}', [App\Http\Controllers\QuestionController::class,'update'])->name('questions.update');
@@ -46,7 +45,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/answers/{id}/{assessment}', [App\Http\Controllers\AnswerController::class,'getAllAnswers'])->name('answers.getAllAnswers');
     Route::get('/answersTime/{id}/{assessment}', [App\Http\Controllers\AnswerController::class,'getTimeBasedResults'])->name('answers.getTimeBasedResults');
     Route::post('/answer/{assessment}/{service}/{section}/{question}/{answer}', [App\Http\Controllers\AnswerController::class,'store'])->name('answers.store');
-});
+    Route::get('/answer/results/{id}/{assessment}', [App\Http\Controllers\AnswerController::class,'calculateWorsePerformingSection'])->name('answers.calculateWorsePerformingSection');
+    Route::get('/resources', [App\Http\Controllers\ResourceController::class,'getResources'])->name('resources.getResources');
+    Route::get('/resources/{section}', [App\Http\Controllers\ResourceController::class,'getCuratedResources'])->name('resources.getCuratedResources');
+    Route::get('/results/lastupdate/{id}/{assessment}', [App\Http\Controllers\AnswerController::class,'getDateOfLastAnswer'])->name('answers.getDateOfLastAnswer');
+    Route::get('/countofservices/{id}', [App\Http\Controllers\AnswerController::class,'getCountOfServices'])->name('answers.getCountOfServices');
+}); 
 
 
 Route::get('/organisations', [App\Http\Controllers\OrganisationController::class, 'index'])->name('organisations.index');

@@ -21,19 +21,6 @@ class AssessmentController extends Controller
         }
     }
 
-  //a function that returns all the assessments in the database and returns as JSON
-    // public function getAssessments()
-    // {
-    //     //if use it authenticated
-    //     if (auth()->user()) {
-    //         $assessments = Assessment::all();
-    //         return response()->json($assessments);
-    //     } else {
-    //         return redirect()->route('home');
-    //     }
-        
-    // }
- 
 
     /**
      * Store a newly created resource in storage.
@@ -46,7 +33,6 @@ class AssessmentController extends Controller
             $assessment->name_cym = $request->name_cym;
             $assessment->description_en = $request->description_en;
             $assessment->description_cym = $request->description_cym;
-            $assessment->service_id = $request->service_id;
             $assessment->save();
 
             return redirect()->route('assessments.index');

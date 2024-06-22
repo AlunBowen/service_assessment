@@ -1,7 +1,7 @@
 
 <template>
     <div >
-        <Chart type="line" :data="chartData" :options="chartOptions" class="h-30rem" />
+        <Chart type="line" :data="chartData" :options="chartOptions"  />
     </div>
 </template>
 
@@ -18,18 +18,18 @@ export default {
             answers: [],
             questions: [],
             showModal: false,
-            must: [],
+            mustPercentage: [],
             mustLength: 0,
-            should: 0,
+            shouldPercentage: 0,
             shouldLength: 0,
-            could: 0,
+            couldPercentage: 0,
             couldLength: 0,
         };
     },
     async mounted() {
         
         await this.fetchAnswers();
-        console.log(this.must);
+        console.log(this.mustPercentage);
         this.chartData = this.setChartData();
         this.chartOptions = this.setChartOptions();
     },
@@ -39,11 +39,11 @@ export default {
             try {
                 const response = await axios.get(`/api/answersTime/${this.organisation}/${this.assessment}`);
                 this.answers = response.data;
-                this.must = this.answers.must || 0;
+                this.mustPercentage = this.answers.must || 0;
                 this.mustLength = this.answers.mustLength || 0;
-                this.should = this.answers.should || 0;
+                this.shouldPercentage = this.answers.should || 0;
                 this.shouldLength = this.answers.shouldLength || 0;
-                this.could = this.answers.could || 0;
+                this.couldPercentage = this.answers.could || 0;
                 this.couldLength = this.answers.couldLength || 0;
                 console.log(response.data);
             } catch (error) {
@@ -56,38 +56,41 @@ export default {
             const documentStyle = getComputedStyle(document.documentElement);
             
             const now = new Date();
-            
             const months = [];
-            for (let i = 0; i < 12; i++) {
-                
+            for (let i = 0; i < 12; i++) { 
                 months[i] = now.toLocaleString('default', { month: 'long' });
+                now.setDate(1);
                 now.setMonth(now.getMonth() - 1);
             }
-            
-            
-            
+        
             return {
-                
-
-                labels: [months[11], months[10], months[9], months[8], months[7], months[6], months[5], months[4], months[3], months[2], months[1], months[0]],
+                labels: [months[11], months[10], months[9], months[8], months[7], months[6], 
+                        months[5], months[4], months[3], months[2], months[1], months[0]],
                 datasets: [
                     {
                         label: 'Must',
-                        data: [this.must[11], this.must[10], this.must[9], this.must[8], this.must[7], this.must[6], this.must[5], this.must[4], this.must[3], this.must[2], this.must[1], this.must[0]],
+                        data: [this.mustPercentage[11], this.mustPercentage[10], this.mustPercentage[9], this.mustPercentage[8], 
+                        this.mustPercentage[7], this.mustPercentage[6], this.mustPercentage[5], this.mustPercentage[4], 
+                        this.mustPercentage[3], this.mustPercentage[2], this.mustPercentage[1], this.mustPercentage[0]],
                         fill: false,
                         borderColor: documentStyle.getPropertyValue('--cyan-500'),
                         tension: 0.4
                     },
                     {
                         label: 'Should',
-                        data: [this.should[11], this.should[10], this.should[9], this.should[8], this.should[7], this.should[6], this.should[5], this.should[4], this.should[3], this.should[2], this.should[1], this.should[0]],
+                        data: [this.shouldPercentage[11], this.shouldPercentage[10], this.shouldPercentage[9], 
+                        this.shouldPercentage[8], this.shouldPercentage[7], this.shouldPercentage[6], this.shouldPercentage[5], 
+                        this.shouldPercentage[4], this.shouldPercentage[3], this.shouldPercentage[2], this.shouldPercentage[1], 
+                        this.shouldPercentage[0]],
                         fill: false,
                         borderColor: documentStyle.getPropertyValue('--gray-500'),
                         tension: 0.4
                     },
                     {
                         label: 'Could',
-                        data: [this.could[11], this.could[10], this.could[9], this.could[8], this.could[7], this.could[6], this.could[5], this.could[4], this.could[3], this.could[2], this.could[1], this.could[0]],
+                        data: [this.couldPercentage[11], this.couldPercentage[10], this.couldPercentage[9], this.couldPercentage[8], 
+                        this.couldPercentage[7], this.couldPercentage[6], this.couldPercentage[5], this.couldPercentage[4], 
+                        this.couldPercentage[3], this.couldPercentage[2], this.couldPercentage[1], this.couldPercentage[0]],
                         fill: false,
                         borderColor: documentStyle.getPropertyValue('--red-500'),
                         tension: 0.4
