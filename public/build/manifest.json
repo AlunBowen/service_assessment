@@ -15,7 +15,7 @@
     "dynamicImports": [
       "node_modules/chart.js/auto/auto.js"
     ],
-    "file": "assets/app-28d3b38c.js",
+    "file": "assets/app-689ca16b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
