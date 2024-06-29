@@ -7,6 +7,9 @@ export default {
       type: String,
       default: "en",
     },
+    localization: {
+      
+    },
   },
 
   data() {
@@ -14,8 +17,11 @@ export default {
       count: 0,
       resources: [],
         searchTerm: "",
+      localizationData: {},
+      placeholder: "Search by name...",
       
     };
+    
   },
 
   //a function to get the data from the API
@@ -32,9 +38,14 @@ export default {
         console.error(error);
       });
 
-      
-     
     
+  },
+
+  created() {
+    this.localizationData = JSON.parse(this.localization);
+    if (this.lang == "cym") {
+      this.placeholder = "Chwilio yn ôl enw...";
+    }
   },
 
   computed: {
@@ -55,13 +66,13 @@ export default {
     
     
         <div class="mb-3 p-2 rounded bg-custom" >
-          <h2>Search for resources</h2>
-      <!-- Add a search input field -->
+          <h2>{{localizationData.Searchforresources}}</h2>
+    
       <input
         v-model="searchTerm"
         type="text"
         class="form-control" 
-        placeholder="Search by name..."
+        :placeholder="placeholder"
       />
     </div>
       <div class="row">
@@ -70,7 +81,8 @@ export default {
             <img
               src="https://www.ringcentral.com/us/en/blog/wp-content/uploads/2020/07/Effective-teamwork.png.webp"
               class="card-img-top"
-              alt="..."
+              alt="Resource image"
+              
             />
             <div class="card-body">
               <div v-if="lang == 'cym'">
@@ -82,7 +94,7 @@ export default {
                 {{ resources.name_en}}<br>
                 {{ resources.description_en}}
               </div>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="#" class="btn btn-primary">{{ localizationData.GoSomewhere }}</a>
             </div>
           </div>
         </div>

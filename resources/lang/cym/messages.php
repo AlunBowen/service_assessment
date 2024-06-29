@@ -14,8 +14,11 @@ return[
     'homepage' => 'Aseswch eich gwasanaeth',
     'assessTheService' => 'Asesu y Gwasanaeth',
     'findServices' => 'Dod o hyd ich gwasanaeth',
-    'product' => 'Self-assessment',
+    'product' => 'Offeryn asesu gwasanaeth',
     'manage' => 'Rheoli',
+    'Assessment Dashboard' => 'Dangosydd Asesiadau',
+    'Searchforresources' => 'Chwilio am adnoddau',
+    'GoSomewhere' => 'Mynd i rywle',
     ];
 
     ?>

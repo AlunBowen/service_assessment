@@ -17,8 +17,12 @@ class ResourceController extends Controller
 
     public function getCuratedResources($section)
     {
+        if ($section == 123){
+            $resources = \App\Models\Resource::where('level', 3)->get();
+        } else {
+            
         $resources = \App\Models\Resource::where('section', $section)->get();
-       
+        }
         return response()->json($resources);
     }
 }

@@ -37,7 +37,7 @@ class ResourceControllerTest extends TestCase
         $user = User::find(1);
         $this->assertDatabaseHas('users', ['id' => 1]);
 
-        $response = $this->actingAs($user)->get('/api/resources/1/1');
+        $response = $this->actingAs($user)->get('/api/resources/1');
 
         $response->assertStatus(200);
         

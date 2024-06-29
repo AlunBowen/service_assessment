@@ -11,16 +11,14 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Role</th>
-                <th>Organization</th>
+                
             </tr>
         </thead>
         <tbody>
           <tr v-for="user in filteredUsers" :key="user.id">
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
-            <td>{{ user.role }}</td>
-            <td>{{ user.organization }}</td>
+           
           </tr>
         </tbody>
       </table>

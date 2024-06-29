@@ -18,13 +18,14 @@ export default {
       services: [],
         searchTerm: "",
       localizationData: {},
+      placeholder: "Search by name...",
     };
   },
 
-  //a function to get the data from the API
+  
 
   mounted() {
-    // get all services and assign to a variable
+    
     axios
       .get("/api/services")
       
@@ -35,14 +36,15 @@ export default {
       .catch((error) => {
         console.error(error);
       });
-    //get the session lang and assign to a variable
-   
-      console.log(this.localization);
+    
     
   },
 
   created() {
     this.localizationData = JSON.parse(this.localization);
+    if (this.lang == "cym") {
+      this.placeholder = "Chwilio yn ôl enw...";
+    }
   },
 
   computed: {
@@ -51,7 +53,7 @@ export default {
       const lowerCaseSearchTerm = this.searchTerm.toLowerCase();
       return this.services.filter((services) => {
         return (
-          services.name.toLowerCase().includes(lowerCaseSearchTerm)
+          services.name_en.toLowerCase().includes(lowerCaseSearchTerm) || services.name_cym.toLowerCase().includes(lowerCaseSearchTerm)
         );
       });
     },
@@ -68,24 +70,17 @@ export default {
         v-model="searchTerm"
         type="text"
         class="form-control" 
-        placeholder="Search by name..."
+        :placeholder="placeholder"
       />
     </div>
     
     <ul class="list-group list-group">
       <li class="list-group-item d-flex justify-content-between align-items-start" v-for="(services, index) in filteredServices" :key="index">
         <div class="ms-2 me-auto">
-          <div v-if="lang == 'cym'">
-            <h2>{{ services.name }}</h2> 
-            {{ services.description  }}
+          
+            <h2>{{ services['name_' + lang] }}</h2> 
+            <p>{{ services['description_' + lang]  }}</p>
            
-            
-          </div>
-          <div v-else>
-            <h2>{{ services.name }}</h2> 
-            {{ services.description}}<br>
-            
-          </div>
           
           <div class="justify-content-end">
             <a class="btn btn-primary" :href="'/services/' + services.id">{{ localizationData.assessTheService }}</a>

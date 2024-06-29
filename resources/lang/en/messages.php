@@ -13,8 +13,12 @@ return[
     'homepage' => 'Assess your service',
     'assessTheService' => 'Assess the Service',
     'findServices' => 'Find your Service',
-    'product' => 'Self-assessment',
+    'product' => 'Service assessment tool ',
     'manage' => 'Manage',
+    'Assessment Dashboard' => 'Assessment Dashboard',
+    'Searchforresources' => 'Search for resources',
+    'GoSomewhere' => 'Go Somewhere',
+
     ];
 
     ?>

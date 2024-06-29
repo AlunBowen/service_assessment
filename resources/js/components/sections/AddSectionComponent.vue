@@ -2,7 +2,7 @@
     <div>
         <h2>{{ assessment.name_en }}</h2>
         <form @submit.prevent="addSection">
-            <input type="hidden" name="_token" :value="csrf"> <!-- CSRF token -->
+            <input type="hidden" name="_token" :value="csrf"> 
            
 
             <div class="form-group">

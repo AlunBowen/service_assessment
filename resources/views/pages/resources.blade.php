@@ -12,13 +12,13 @@
         $lang = Cookie::get('lang');
         //get the auth user
         $user = Auth::user();
-
+        $localization = json_encode(__('messages'));
     @endphp
    
     <div id="app">
     
 
-        <ResourcesContainer lang={{$lang}} />
+        <ResourcesContainer :lang="'{{$lang}}'" :localization="'{{$localization}}'"></ResourcesContainer>
     
         
    

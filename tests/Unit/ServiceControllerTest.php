@@ -53,8 +53,10 @@ class ServiceControllerTest extends TestCase
         $this->assertDatabaseHas('users', ['id' => 1]);
 
         $response = $this->actingAs($user)->post('/services', [
-            'name' => 'Test Service',
-            'description' => 'This is a test service',
+            'name_en' => 'Test Service',
+            'name_cym' => 'Gwasanaeth Profi',
+            'description_en' => 'This is a test service',
+            'description_cym' => 'Dyma wasanaeth prawf',
             'organisation_id' => 1
         ]);
 

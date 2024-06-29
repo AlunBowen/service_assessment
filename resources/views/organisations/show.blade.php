@@ -55,9 +55,9 @@
 
 
 <div class="accordion accordion-flush" id="searchForAUser">
-  <div class="accordion-item">
+  <div class="accordion-item border-0">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
       <h2>Search for a user</h2> 
       </button>
     </h2>
@@ -69,13 +69,13 @@
 <div id="app">
 
 
-
 <UserList :organisation_id="{{(int)$org}}" />
 </div>
 </div>
     </div>
   </div>
 
+  <hr />
 
   <div class="accordion accordion-flush" id="createServiceAccordion">
   <div class="accordion-item">

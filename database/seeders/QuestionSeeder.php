@@ -89,6 +89,85 @@ $i->level = 3;
 $i->assessmentSection()->associate(\App\Models\AssessmentSection::find(1));
 $i->assessment()->associate(\App\Models\Assessment::find(1));
 $i->save();
+
+
+
+//Section 2
+
+$j = new Question();
+$j->question_en = "Is all content available in both Welsh and English from the outset?";
+$j->question_cym = "A yw'r holl gynnwys ar gael yn Gymraeg a Saesneg o'r cychwyn cyntaf?";
+$j->level = 1;
+$j->assessmentSection()->associate(\App\Models\AssessmentSection::find(2));
+$j->assessment()->associate(\App\Models\Assessment::find(1));
+$j->save();
+
+$k = new Question();
+$k->question_en = "Do Welsh and English versions of the service offer the same functionalities and information?";
+$k->question_cym = "A yw fersiynau Cymraeg a Saesneg o'r gwasanaeth yn cynnig yr un swyddogaethau a gwybodaeth?";
+$k->level = 1;
+$k->assessmentSection()->associate(\App\Models\AssessmentSection::find(2));
+$k->assessment()->associate(\App\Models\Assessment::find(1));
+$k->save();
+
+$l = new Question();
+$l->question_en = "Is the Welsh language option easy to find and select on the service’s homepage?";
+$l->question_cym = "A yw'r dewis iaith Gymraeg yn hawdd ei ganfod a'i dewis ar dudalen gartref y gwasanaeth?";
+$l->level = 1;
+$l->assessmentSection()->associate(\App\Models\AssessmentSection::find(2));
+$l->assessment()->associate(\App\Models\Assessment::find(1));
+$l->save();
+
+$m = new Question();
+$m->question_en = "Has Welsh language content been tested with native Welsh speakers during the development process?";
+$m->question_cym = "A gafodd cynnwys Cymraeg ei brofi gyda siaradwyr Cymraeg brodorol yn ystod y broses ddatblygu?";
+$m->level = 2;
+$m->assessmentSection()->associate(\App\Models\AssessmentSection::find(2));
+$m->assessment()->associate(\App\Models\Assessment::find(1));
+$m->save();
+
+$n = new Question();
+$n->question_en = "Does the service include a feedback mechanism for users to report issues with Welsh language content or navigation?";
+$n->question_cym = "A yw'r gwasanaeth yn cynnwys mecanwaith adborth i ddefnyddwyr adrodd problemau gyda chynnwys neu llywio Cymraeg?";
+$n->level = 2;
+$n->assessmentSection()->associate(\App\Models\AssessmentSection::find(2));
+$n->assessment()->associate(\App\Models\Assessment::find(1));
+$n->save();
+
+$o = new Question();
+$o->question_en = "Are Welsh language requirements considered when purchasing third-party software or services?";
+$o->question_cym = "A yw gofynion iaith Gymraeg yn cael eu hystyried wrth brynu meddalwedd neu wasanaethau trydydd parti?";
+$o->level = 2;
+$o->assessmentSection()->associate(\App\Models\AssessmentSection::find(2));
+$o->assessment()->associate(\App\Models\Assessment::find(1));
+$o->save();
+
+$p = new Question();
+$p->question_en = "Does the service promote the use of Welsh language actively, such as by defaulting to Welsh for users in Wales?";
+$p->question_cym = "A yw'r gwasanaeth yn hybu defnydd o'r Gymraeg yn weithredol, megis drwy ddewis Cymraeg fel y ddewis diofyn i ddefnyddwyr yng Nghymru?";
+$p->level = 3;
+$p->assessmentSection()->associate(\App\Models\AssessmentSection::find(2));
+$p->assessment()->associate(\App\Models\Assessment::find(1));
+$p->save();
+
+$q = new Question();
+$q->question_en = "Are there regular reviews and updates to Welsh content to ensure it stays current and accurate?";
+$q->question_cym = "A oes adolygiadau a diweddariadau rheolaidd i gynnwys Cymraeg i sicrhau ei fod yn parhau'n gyfredol ac yn gywir?";
+$q->level = 3;
+$q->assessmentSection()->associate(\App\Models\AssessmentSection::find(2));
+$q->assessment()->associate(\App\Models\Assessment::find(1));
+$q->save();
+
+
+$q = new Question();
+$q->question_en = "Is there a dedicated team or personnel responsible for maintaining and enhancing the Welsh language aspect of the service? ";
+$q->question_cym = "A oes tîm neu bersonél penodol yn gyfrifol am gynnal a gwella agwedd iaith Gymraeg y gwasanaeth?";
+$q->level = 3;
+$q->assessmentSection()->associate(\App\Models\AssessmentSection::find(2));
+$q->assessment()->associate(\App\Models\Assessment::find(1));
+$q->save();
+
+
     }
 
 }

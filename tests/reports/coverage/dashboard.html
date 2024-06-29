@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/alunbowen/Documents/GitHub/service_assessment/app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=10.1.11" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=10.1.11" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=10.1.11" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/Users/alunbowen/Documents/GitHub/service_assessment/app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Actions/Fortify/ResetUserPassword.php.html#10">App\Actions\Fortify\ResetUserPassword</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Actions/Fortify/UpdateUserPassword.php.html#10">App\Actions\Fortify\UpdateUserPassword</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Actions/Fortify/UpdateUserProfileInformation.php.html#11">App\Actions\Fortify\UpdateUserProfileInformation</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthenticatedSessionController.php.html#13">App\Http\Controllers\Auth\AuthenticatedSessionController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmablePasswordController.php.html#13">App\Http\Controllers\Auth\ConfirmablePasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#10">App\Http\Controllers\Auth\EmailVerificationNotificationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#11">App\Http\Controllers\Auth\EmailVerificationPromptController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/NewPasswordController.php.html#15">App\Http\Controllers\Auth\NewPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordController.php.html#11">App\Http\Controllers\Auth\PasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordResetLinkController.php.html#11">App\Http\Controllers\Auth\PasswordResetLinkController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisteredUserController.php.html#16">App\Http\Controllers\Auth\RegisteredUserController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#11">App\Http\Controllers\Auth\VerifyEmailController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/AttemptController.php.html#7">App\Http\Controllers\AttemptController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/DepartmentController.php.html#7">App\Http\Controllers\DepartmentController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/ProfileController.php.html#12">App\Http\Controllers\ProfileController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#8">App\Http\Middleware\Authenticate</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#11">App\Http\Middleware\RedirectIfAuthenticated</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/TrustHosts.php.html#7">App\Http\Middleware\TrustHosts</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#12">App\Http\Requests\Auth\LoginRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ProfileUpdateRequest.php.html#9">App\Http\Requests\ProfileUpdateRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreOrganisationRequest.php.html#7">App\Http\Requests\StoreOrganisationRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreServiceRequest.php.html#7">App\Http\Requests\StoreServiceRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateOrganisationRequest.php.html#7">App\Http\Requests\UpdateOrganisationRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateServiceRequest.php.html#7">App\Http\Requests\UpdateServiceRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Department.php.html#8">App\Models\Department</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/BroadcastServiceProvider.php.html#8">App\Providers\BroadcastServiceProvider</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/AppLayout.php.html#8">App\View\Components\AppLayout</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/GuestLayout.php.html#8">App\View\Components\GuestLayout</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="appendLang.php.html#3">App\appendLang</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Assessment.php.html#11">App\Models\Assessment</a></td><td class="text-right">20%</td></tr>
+       <tr><td><a href="Models/Organisation.php.html#10">App\Models\Organisation</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Models/User.php.html#13">App\Models\User</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Http/Controllers/ServiceController.php.html#14">App\Http\Controllers\ServiceController</a></td><td class="text-right">54%</td></tr>
+       <tr><td><a href="Providers/FortifyServiceProvider.php.html#18">App\Providers\FortifyServiceProvider</a></td><td class="text-right">56%</td></tr>
+       <tr><td><a href="Models/Service.php.html#11">App\Models\Service</a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Console/Kernel.php.html#8">App\Console\Kernel</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Models/AssessmentSection.php.html#8">App\Models\AssessmentSection</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Models/Question.php.html#8">App\Models\Question</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Models/Scopes/OrganisationScope.php.html#9">App\Models\Scopes\OrganisationScope</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Models/Scopes/ServiceScope.php.html#9">App\Models\Scopes\ServiceScope</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Models/Scopes/AssessmentScope.php.html#9">App\Models\Scopes\AssessmentScope</a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Http/Controllers/SetLangController.php.html#11">App\Http\Controllers\SetLangController</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/ResourceController.php.html#9">App\Http\Controllers\ResourceController</a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#13">App\Http\Controllers\OrganisationController</a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Http/Controllers/AssessmentController.php.html#7">App\Http\Controllers\AssessmentController</a></td><td class="text-right">84%</td></tr>
+       <tr><td><a href="Http/Controllers/UserController.php.html#10">App\Http\Controllers\UserController</a></td><td class="text-right">85%</td></tr>
+       <tr><td><a href="Http/Middleware/SetLanguage.php.html#10">App\Http\Middleware\SetLanguage</a></td><td class="text-right">87%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/unused/AttemptController.php.html#7">App\Http\Controllers\AttemptController</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#12">App\Http\Requests\Auth\LoginRequest</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Http/Controllers/ServiceController.php.html#14">App\Http\Controllers\ServiceController</a></td><td class="text-right">22</td></tr>
+       <tr><td><a href="Actions/Fortify/UpdateUserProfileInformation.php.html#11">App\Actions\Fortify\UpdateUserProfileInformation</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Controllers/unused/ProfileController.php.html#12">App\Http\Controllers\ProfileController</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#11">App\Http\Middleware\RedirectIfAuthenticated</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#13">App\Http\Controllers\OrganisationController</a></td><td class="text-right">18</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmablePasswordController.php.html#13">App\Http\Controllers\Auth\ConfirmablePasswordController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/NewPasswordController.php.html#15">App\Http\Controllers\Auth\NewPasswordController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordResetLinkController.php.html#11">App\Http\Controllers\Auth\PasswordResetLinkController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#11">App\Http\Controllers\Auth\VerifyEmailController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/AssessmentController.php.html#7">App\Http\Controllers\AssessmentController</a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#10">App\Http\Controllers\Auth\EmailVerificationNotificationController</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#11">App\Http\Controllers\Auth\EmailVerificationPromptController</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#8">App\Http\Middleware\Authenticate</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="appendLang.php.html#3">App\appendLang</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Providers/FortifyServiceProvider.php.html#18">App\Providers\FortifyServiceProvider</a></td><td class="text-right">5</td></tr>
+       <tr><td><a href="Models/Scopes/OrganisationScope.php.html#9">App\Models\Scopes\OrganisationScope</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Models/Scopes/ServiceScope.php.html#9">App\Models\Scopes\ServiceScope</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Models/Scopes/AssessmentScope.php.html#9">App\Models\Scopes\AssessmentScope</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/SetLangController.php.html#11">App\Http\Controllers\SetLangController</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/ResourceController.php.html#9">App\Http\Controllers\ResourceController</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/UserController.php.html#10">App\Http\Controllers\UserController</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Middleware/SetLanguage.php.html#10">App\Http\Middleware\SetLanguage</a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Actions/Fortify/ResetUserPassword.php.html#19"><abbr title="App\Actions\Fortify\ResetUserPassword::reset">reset</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Actions/Fortify/UpdateUserPassword.php.html#19"><abbr title="App\Actions\Fortify\UpdateUserPassword::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Actions/Fortify/UpdateUserProfileInformation.php.html#18"><abbr title="App\Actions\Fortify\UpdateUserProfileInformation::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Actions/Fortify/UpdateUserProfileInformation.php.html#48"><abbr title="App\Actions\Fortify\UpdateUserProfileInformation::updateVerifiedUser">updateVerifiedUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Kernel.php.html#13"><abbr title="App\Console\Kernel::schedule">schedule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AnswerController.php.html#350"><abbr title="App\Http\Controllers\AnswerController::getCountOfServices">getCountOfServices</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthenticatedSessionController.php.html#18"><abbr title="App\Http\Controllers\Auth\AuthenticatedSessionController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthenticatedSessionController.php.html#26"><abbr title="App\Http\Controllers\Auth\AuthenticatedSessionController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthenticatedSessionController.php.html#38"><abbr title="App\Http\Controllers\Auth\AuthenticatedSessionController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmablePasswordController.php.html#18"><abbr title="App\Http\Controllers\Auth\ConfirmablePasswordController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmablePasswordController.php.html#26"><abbr title="App\Http\Controllers\Auth\ConfirmablePasswordController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#15"><abbr title="App\Http\Controllers\Auth\EmailVerificationNotificationController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#16"><abbr title="App\Http\Controllers\Auth\EmailVerificationPromptController::__invoke">__invoke</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/NewPasswordController.php.html#20"><abbr title="App\Http\Controllers\Auth\NewPasswordController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/NewPasswordController.php.html#30"><abbr title="App\Http\Controllers\Auth\NewPasswordController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordController.php.html#16"><abbr title="App\Http\Controllers\Auth\PasswordController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordResetLinkController.php.html#16"><abbr title="App\Http\Controllers\Auth\PasswordResetLinkController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordResetLinkController.php.html#26"><abbr title="App\Http\Controllers\Auth\PasswordResetLinkController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisteredUserController.php.html#21"><abbr title="App\Http\Controllers\Auth\RegisteredUserController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisteredUserController.php.html#31"><abbr title="App\Http\Controllers\Auth\RegisteredUserController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#16"><abbr title="App\Http\Controllers\Auth\VerifyEmailController::__invoke">__invoke</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ServiceController.php.html#67"><abbr title="App\Http\Controllers\ServiceController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ServiceController.php.html#92"><abbr title="App\Http\Controllers\ServiceController::answerSection">answerSection</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/AttemptController.php.html#12"><abbr title="App\Http\Controllers\AttemptController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/AttemptController.php.html#27"><abbr title="App\Http\Controllers\AttemptController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/AttemptController.php.html#40"><abbr title="App\Http\Controllers\AttemptController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/AttemptController.php.html#55"><abbr title="App\Http\Controllers\AttemptController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/DepartmentController.php.html#12"><abbr title="App\Http\Controllers\DepartmentController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/DepartmentController.php.html#20"><abbr title="App\Http\Controllers\DepartmentController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/DepartmentController.php.html#28"><abbr title="App\Http\Controllers\DepartmentController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/DepartmentController.php.html#36"><abbr title="App\Http\Controllers\DepartmentController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/DepartmentController.php.html#44"><abbr title="App\Http\Controllers\DepartmentController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/DepartmentController.php.html#52"><abbr title="App\Http\Controllers\DepartmentController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/DepartmentController.php.html#60"><abbr title="App\Http\Controllers\DepartmentController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/ProfileController.php.html#17"><abbr title="App\Http\Controllers\ProfileController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/ProfileController.php.html#27"><abbr title="App\Http\Controllers\ProfileController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/unused/ProfileController.php.html#43"><abbr title="App\Http\Controllers\ProfileController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#13"><abbr title="App\Http\Middleware\Authenticate::redirectTo">redirectTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#18"><abbr title="App\Http\Middleware\RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/TrustHosts.php.html#14"><abbr title="App\Http\Middleware\TrustHosts::hosts">hosts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#17"><abbr title="App\Http\Requests\Auth\LoginRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#27"><abbr title="App\Http\Requests\Auth\LoginRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#40"><abbr title="App\Http\Requests\Auth\LoginRequest::authenticate">authenticate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#60"><abbr title="App\Http\Requests\Auth\LoginRequest::ensureIsNotRateLimited">ensureIsNotRateLimited</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#81"><abbr title="App\Http\Requests\Auth\LoginRequest::throttleKey">throttleKey</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ProfileUpdateRequest.php.html#16"><abbr title="App\Http\Requests\ProfileUpdateRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreOrganisationRequest.php.html#12"><abbr title="App\Http\Requests\StoreOrganisationRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreOrganisationRequest.php.html#22"><abbr title="App\Http\Requests\StoreOrganisationRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreServiceRequest.php.html#12"><abbr title="App\Http\Requests\StoreServiceRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreServiceRequest.php.html#22"><abbr title="App\Http\Requests\StoreServiceRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateOrganisationRequest.php.html#12"><abbr title="App\Http\Requests\UpdateOrganisationRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateOrganisationRequest.php.html#22"><abbr title="App\Http\Requests\UpdateOrganisationRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateServiceRequest.php.html#12"><abbr title="App\Http\Requests\UpdateServiceRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateServiceRequest.php.html#22"><abbr title="App\Http\Requests\UpdateServiceRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Assessment.php.html#20"><abbr title="App\Models\Assessment::attempts">attempts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Assessment.php.html#25"><abbr title="App\Models\Assessment::sections">sections</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Assessment.php.html#30"><abbr title="App\Models\Assessment::answers">answers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Assessment.php.html#34"><abbr title="App\Models\Assessment::questions">questions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AssessmentSection.php.html#22"><abbr title="App\Models\AssessmentSection::answers">answers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Department.php.html#12"><abbr title="App\Models\Department::organisation">organisation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Department.php.html#17"><abbr title="App\Models\Department::services">services</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Organisation.php.html#24"><abbr title="App\Models\Organisation::users">users</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Organisation.php.html#33"><abbr title="App\Models\Organisation::assessments">assessments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Question.php.html#17"><abbr title="App\Models\Question::answers">answers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Service.php.html#30"><abbr title="App\Models\Service::attempt">attempt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Service.php.html#35"><abbr title="App\Models\Service::answers">answers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#53"><abbr title="App\Models\User::answers">answers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/BroadcastServiceProvider.php.html#13"><abbr title="App\Providers\BroadcastServiceProvider::boot">boot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/AppLayout.php.html#13"><abbr title="App\View\Components\AppLayout::render">render</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/GuestLayout.php.html#13"><abbr title="App\View\Components\GuestLayout::render">render</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="appendLang.php.html#10"><abbr title="App\appendLang::append">append</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/FortifyServiceProvider.php.html#31"><abbr title="App\Providers\FortifyServiceProvider::boot">boot</abbr></a></td><td class="text-right">54%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#33"><abbr title="App\Http\Controllers\OrganisationController::create">create</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Http/Controllers/ServiceController.php.html#19"><abbr title="App\Http\Controllers\ServiceController::index">index</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Http/Controllers/ServiceController.php.html#32"><abbr title="App\Http\Controllers\ServiceController::create">create</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Models/Scopes/OrganisationScope.php.html#14"><abbr title="App\Models\Scopes\OrganisationScope::apply">apply</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Models/Scopes/ServiceScope.php.html#14"><abbr title="App\Models\Scopes\ServiceScope::apply">apply</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#121"><abbr title="App\Http\Controllers\OrganisationController::destroy">destroy</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Http/Controllers/ResourceController.php.html#18"><abbr title="App\Http\Controllers\ResourceController::getCuratedResources">getCuratedResources</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Models/Scopes/AssessmentScope.php.html#14"><abbr title="App\Models\Scopes\AssessmentScope::apply">apply</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Http/Controllers/AssessmentController.php.html#12"><abbr title="App\Http\Controllers\AssessmentController::index">index</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/AssessmentController.php.html#48"><abbr title="App\Http\Controllers\AssessmentController::show">show</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#18"><abbr title="App\Http\Controllers\OrganisationController::index">index</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#71"><abbr title="App\Http\Controllers\OrganisationController::show">show</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#86"><abbr title="App\Http\Controllers\OrganisationController::edit">edit</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/SetLangController.php.html#13"><abbr title="App\Http\Controllers\SetLangController::setLang">setLang</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/UserController.php.html#25"><abbr title="App\Http\Controllers\UserController::store">store</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Controllers/QuestionController.php.html#82"><abbr title="App\Http\Controllers\QuestionController::destroy">destroy</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Http/Middleware/SetLanguage.php.html#12"><abbr title="App\Http\Middleware\SetLanguage::handle">handle</abbr></a></td><td class="text-right">87%</td></tr>
+       <tr><td><a href="Http/Controllers/AssessmentController.php.html#28"><abbr title="App\Http\Controllers\AssessmentController::store">store</abbr></a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#18"><abbr title="App\Http\Middleware\RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Actions/Fortify/UpdateUserProfileInformation.php.html#18"><abbr title="App\Actions\Fortify\UpdateUserProfileInformation::update">update</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#16"><abbr title="App\Http\Controllers\Auth\VerifyEmailController::__invoke">__invoke</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmablePasswordController.php.html#26"><abbr title="App\Http\Controllers\Auth\ConfirmablePasswordController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#15"><abbr title="App\Http\Controllers\Auth\EmailVerificationNotificationController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#16"><abbr title="App\Http\Controllers\Auth\EmailVerificationPromptController::__invoke">__invoke</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/NewPasswordController.php.html#30"><abbr title="App\Http\Controllers\Auth\NewPasswordController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordResetLinkController.php.html#26"><abbr title="App\Http\Controllers\Auth\PasswordResetLinkController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/ServiceController.php.html#67"><abbr title="App\Http\Controllers\ServiceController::show">show</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/ServiceController.php.html#92"><abbr title="App\Http\Controllers\ServiceController::answerSection">answerSection</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/unused/AttemptController.php.html#12"><abbr title="App\Http\Controllers\AttemptController::index">index</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/unused/AttemptController.php.html#27"><abbr title="App\Http\Controllers\AttemptController::create">create</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/unused/AttemptController.php.html#40"><abbr title="App\Http\Controllers\AttemptController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/unused/AttemptController.php.html#55"><abbr title="App\Http\Controllers\AttemptController::show">show</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/unused/ProfileController.php.html#27"><abbr title="App\Http\Controllers\ProfileController::update">update</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#13"><abbr title="App\Http\Middleware\Authenticate::redirectTo">redirectTo</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#40"><abbr title="App\Http\Requests\Auth\LoginRequest::authenticate">authenticate</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#60"><abbr title="App\Http\Requests\Auth\LoginRequest::ensureIsNotRateLimited">ensureIsNotRateLimited</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="appendLang.php.html#10"><abbr title="App\appendLang::append">append</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Providers/FortifyServiceProvider.php.html#31"><abbr title="App\Providers\FortifyServiceProvider::boot">boot</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Models/Scopes/OrganisationScope.php.html#14"><abbr title="App\Models\Scopes\OrganisationScope::apply">apply</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Models/Scopes/ServiceScope.php.html#14"><abbr title="App\Models\Scopes\ServiceScope::apply">apply</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Models/Scopes/AssessmentScope.php.html#14"><abbr title="App\Models\Scopes\AssessmentScope::apply">apply</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/AssessmentController.php.html#48"><abbr title="App\Http\Controllers\AssessmentController::show">show</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#71"><abbr title="App\Http\Controllers\OrganisationController::show">show</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#86"><abbr title="App\Http\Controllers\OrganisationController::edit">edit</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/SetLangController.php.html#13"><abbr title="App\Http\Controllers\SetLangController::setLang">setLang</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Middleware/SetLanguage.php.html#12"><abbr title="App\Http\Middleware\SetLanguage::handle">handle</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#33"><abbr title="App\Http\Controllers\OrganisationController::create">create</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/ServiceController.php.html#19"><abbr title="App\Http\Controllers\ServiceController::index">index</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/ServiceController.php.html#32"><abbr title="App\Http\Controllers\ServiceController::create">create</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#121"><abbr title="App\Http\Controllers\OrganisationController::destroy">destroy</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/ResourceController.php.html#18"><abbr title="App\Http\Controllers\ResourceController::getCuratedResources">getCuratedResources</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/AssessmentController.php.html#12"><abbr title="App\Http\Controllers\AssessmentController::index">index</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/OrganisationController.php.html#18"><abbr title="App\Http\Controllers\OrganisationController::index">index</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/UserController.php.html#25"><abbr title="App\Http\Controllers\UserController::store">store</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/QuestionController.php.html#82"><abbr title="App\Http\Controllers\QuestionController::destroy">destroy</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/AssessmentController.php.html#28"><abbr title="App\Http\Controllers\AssessmentController::store">store</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 10.1.11</a> using <a href="https://www.php.net/" target="_top">PHP 8.3.8</a> and <a href="https://phpunit.de/">PHPUnit 10.5.3</a> at Fri Jun 28 9:59:27 UTC 2024.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=10.1.11" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=10.1.11" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=10.1.11" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([29,0,0,1,0,0,4,6,1,6,2,20], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([71,0,0,0,0,0,1,5,3,10,8,40], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Actions\/Fortify\/CreateNewUser.php.html#13\">App\\Actions\\Fortify\\CreateNewUser<\/a>"],[0,1,"<a href=\"Actions\/Fortify\/ResetUserPassword.php.html#10\">App\\Actions\\Fortify\\ResetUserPassword<\/a>"],[0,1,"<a href=\"Actions\/Fortify\/UpdateUserPassword.php.html#10\">App\\Actions\\Fortify\\UpdateUserPassword<\/a>"],[0,4,"<a href=\"Actions\/Fortify\/UpdateUserProfileInformation.php.html#11\">App\\Actions\\Fortify\\UpdateUserProfileInformation<\/a>"],[66.66666666666666,2,"<a href=\"Console\/Kernel.php.html#8\">App\\Console\\Kernel<\/a>"],[100,1,"<a href=\"Exceptions\/Handler.php.html#8\">App\\Exceptions\\Handler<\/a>"],[95.18072289156626,49,"<a href=\"Http\/Controllers\/AnswerController.php.html#17\">App\\Http\\Controllers\\AnswerController<\/a>"],[84.21052631578947,7,"<a href=\"Http\/Controllers\/AssessmentController.php.html#7\">App\\Http\\Controllers\\AssessmentController<\/a>"],[100,3,"<a href=\"Http\/Controllers\/AssessmentSectionController.php.html#11\">App\\Http\\Controllers\\AssessmentSectionController<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#13\">App\\Http\\Controllers\\Auth\\AuthenticatedSessionController<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/ConfirmablePasswordController.php.html#13\">App\\Http\\Controllers\\Auth\\ConfirmablePasswordController<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/EmailVerificationNotificationController.php.html#10\">App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/EmailVerificationPromptController.php.html#11\">App\\Http\\Controllers\\Auth\\EmailVerificationPromptController<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/NewPasswordController.php.html#15\">App\\Http\\Controllers\\Auth\\NewPasswordController<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/PasswordController.php.html#11\">App\\Http\\Controllers\\Auth\\PasswordController<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/PasswordResetLinkController.php.html#11\">App\\Http\\Controllers\\Auth\\PasswordResetLinkController<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/RegisteredUserController.php.html#16\">App\\Http\\Controllers\\Auth\\RegisteredUserController<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/VerifyEmailController.php.html#11\">App\\Http\\Controllers\\Auth\\VerifyEmailController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Controller.php.html#9\">App\\Http\\Controllers\\Controller<\/a>"],[83.72093023255815,17,"<a href=\"Http\/Controllers\/OrganisationController.php.html#13\">App\\Http\\Controllers\\OrganisationController<\/a>"],[93.18181818181817,7,"<a href=\"Http\/Controllers\/QuestionController.php.html#11\">App\\Http\\Controllers\\QuestionController<\/a>"],[83.33333333333334,3,"<a href=\"Http\/Controllers\/ResourceController.php.html#9\">App\\Http\\Controllers\\ResourceController<\/a>"],[54.83870967741935,11,"<a href=\"Http\/Controllers\/ServiceController.php.html#14\">App\\Http\\Controllers\\ServiceController<\/a>"],[80,3,"<a href=\"Http\/Controllers\/SetLangController.php.html#11\">App\\Http\\Controllers\\SetLangController<\/a>"],[85.71428571428571,3,"<a href=\"Http\/Controllers\/UserController.php.html#10\">App\\Http\\Controllers\\UserController<\/a>"],[0,8,"<a href=\"Http\/Controllers\/unused\/AttemptController.php.html#7\">App\\Http\\Controllers\\AttemptController<\/a>"],[0,7,"<a href=\"Http\/Controllers\/unused\/DepartmentController.php.html#7\">App\\Http\\Controllers\\DepartmentController<\/a>"],[0,4,"<a href=\"Http\/Controllers\/unused\/ProfileController.php.html#12\">App\\Http\\Controllers\\ProfileController<\/a>"],[100,0,"<a href=\"Http\/Kernel.php.html#7\">App\\Http\\Kernel<\/a>"],[0,2,"<a href=\"Http\/Middleware\/Authenticate.php.html#8\">App\\Http\\Middleware\\Authenticate<\/a>"],[100,0,"<a href=\"Http\/Middleware\/EncryptCookies.php.html#7\">App\\Http\\Middleware\\EncryptCookies<\/a>"],[100,0,"<a href=\"Http\/Middleware\/PreventRequestsDuringMaintenance.php.html#7\">App\\Http\\Middleware\\PreventRequestsDuringMaintenance<\/a>"],[0,4,"<a href=\"Http\/Middleware\/RedirectIfAuthenticated.php.html#11\">App\\Http\\Middleware\\RedirectIfAuthenticated<\/a>"],[87.5,3,"<a href=\"Http\/Middleware\/SetLanguage.php.html#10\">App\\Http\\Middleware\\SetLanguage<\/a>"],[100,0,"<a href=\"Http\/Middleware\/TrimStrings.php.html#7\">App\\Http\\Middleware\\TrimStrings<\/a>"],[0,1,"<a href=\"Http\/Middleware\/TrustHosts.php.html#7\">App\\Http\\Middleware\\TrustHosts<\/a>"],[100,0,"<a href=\"Http\/Middleware\/TrustProxies.php.html#8\">App\\Http\\Middleware\\TrustProxies<\/a>"],[100,0,"<a href=\"Http\/Middleware\/ValidateSignature.php.html#7\">App\\Http\\Middleware\\ValidateSignature<\/a>"],[100,0,"<a href=\"Http\/Middleware\/VerifyCsrfToken.php.html#7\">App\\Http\\Middleware\\VerifyCsrfToken<\/a>"],[0,7,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#12\">App\\Http\\Requests\\Auth\\LoginRequest<\/a>"],[0,1,"<a href=\"Http\/Requests\/ProfileUpdateRequest.php.html#9\">App\\Http\\Requests\\ProfileUpdateRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/StoreOrganisationRequest.php.html#7\">App\\Http\\Requests\\StoreOrganisationRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/StoreServiceRequest.php.html#7\">App\\Http\\Requests\\StoreServiceRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/UpdateOrganisationRequest.php.html#7\">App\\Http\\Requests\\UpdateOrganisationRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/UpdateServiceRequest.php.html#7\">App\\Http\\Requests\\UpdateServiceRequest<\/a>"],[100,5,"<a href=\"Models\/Answer.php.html#8\">App\\Models\\Answer<\/a>"],[20,5,"<a href=\"Models\/Assessment.php.html#11\">App\\Models\\Assessment<\/a>"],[66.66666666666666,3,"<a href=\"Models\/AssessmentSection.php.html#8\">App\\Models\\AssessmentSection<\/a>"],[100,2,"<a href=\"Models\/Attempt.php.html#8\">App\\Models\\Attempt<\/a>"],[0,2,"<a href=\"Models\/Department.php.html#8\">App\\Models\\Department<\/a>"],[50,4,"<a href=\"Models\/Organisation.php.html#10\">App\\Models\\Organisation<\/a>"],[66.66666666666666,3,"<a href=\"Models\/Question.php.html#8\">App\\Models\\Question<\/a>"],[100,0,"<a href=\"Models\/Resource.php.html#8\">App\\Models\\Resource<\/a>"],[75,3,"<a href=\"Models\/Scopes\/AssessmentScope.php.html#9\">App\\Models\\Scopes\\AssessmentScope<\/a>"],[66.66666666666666,3,"<a href=\"Models\/Scopes\/OrganisationScope.php.html#9\">App\\Models\\Scopes\\OrganisationScope<\/a>"],[66.66666666666666,3,"<a href=\"Models\/Scopes\/ServiceScope.php.html#9\">App\\Models\\Scopes\\ServiceScope<\/a>"],[100,0,"<a href=\"Models\/Section.php.html#8\">App\\Models\\Section<\/a>"],[60,5,"<a href=\"Models\/Service.php.html#11\">App\\Models\\Service<\/a>"],[50,2,"<a href=\"Models\/User.php.html#13\">App\\Models\\User<\/a>"],[100,2,"<a href=\"Providers\/AppServiceProvider.php.html#7\">App\\Providers\\AppServiceProvider<\/a>"],[100,1,"<a href=\"Providers\/AuthServiceProvider.php.html#10\">App\\Providers\\AuthServiceProvider<\/a>"],[0,1,"<a href=\"Providers\/BroadcastServiceProvider.php.html#8\">App\\Providers\\BroadcastServiceProvider<\/a>"],[100,2,"<a href=\"Providers\/EventServiceProvider.php.html#10\">App\\Providers\\EventServiceProvider<\/a>"],[56.52173913043478,4,"<a href=\"Providers\/FortifyServiceProvider.php.html#18\">App\\Providers\\FortifyServiceProvider<\/a>"],[100,2,"<a href=\"Providers\/RouteServiceProvider.php.html#11\">App\\Providers\\RouteServiceProvider<\/a>"],[0,1,"<a href=\"View\/Components\/AppLayout.php.html#8\">App\\View\\Components\\AppLayout<\/a>"],[0,1,"<a href=\"View\/Components\/GuestLayout.php.html#8\">App\\View\\Components\\GuestLayout<\/a>"],[0,2,"<a href=\"appendLang.php.html#3\">App\\appendLang<\/a>"],[100,1,"<a href=\"Actions\/Fortify\/PasswordValidationRules.php.html#7\">App\\Actions\\Fortify\\PasswordValidationRules<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Actions\/Fortify\/CreateNewUser.php.html#22\">App\\Actions\\Fortify\\CreateNewUser::create<\/a>"],[0,1,"<a href=\"Actions\/Fortify\/ResetUserPassword.php.html#19\">App\\Actions\\Fortify\\ResetUserPassword::reset<\/a>"],[0,1,"<a href=\"Actions\/Fortify\/UpdateUserPassword.php.html#19\">App\\Actions\\Fortify\\UpdateUserPassword::update<\/a>"],[0,3,"<a href=\"Actions\/Fortify\/UpdateUserProfileInformation.php.html#18\">App\\Actions\\Fortify\\UpdateUserProfileInformation::update<\/a>"],[0,1,"<a href=\"Actions\/Fortify\/UpdateUserProfileInformation.php.html#48\">App\\Actions\\Fortify\\UpdateUserProfileInformation::updateVerifiedUser<\/a>"],[0,1,"<a href=\"Console\/Kernel.php.html#13\">App\\Console\\Kernel::schedule<\/a>"],[100,1,"<a href=\"Console\/Kernel.php.html#21\">App\\Console\\Kernel::commands<\/a>"],[100,1,"<a href=\"Exceptions\/Handler.php.html#24\">App\\Exceptions\\Handler::register<\/a>"],[90.9090909090909,2,"<a href=\"Http\/Controllers\/AnswerController.php.html#24\">App\\Http\\Controllers\\AnswerController::store<\/a>"],[92.3076923076923,3,"<a href=\"Http\/Controllers\/AnswerController.php.html#47\">App\\Http\\Controllers\\AnswerController::getAnswersForAssessment<\/a>"],[100,14,"<a href=\"Http\/Controllers\/AnswerController.php.html#76\">App\\Http\\Controllers\\AnswerController::calculateWorsePerformingSection<\/a>"],[97.91666666666666,17,"<a href=\"Http\/Controllers\/AnswerController.php.html#152\">App\\Http\\Controllers\\AnswerController::getAllAnswers<\/a>"],[100,2,"<a href=\"Http\/Controllers\/AnswerController.php.html#242\">App\\Http\\Controllers\\AnswerController::getTimeBasedResults<\/a>"],[100,4,"<a href=\"Http\/Controllers\/AnswerController.php.html#279\">App\\Http\\Controllers\\AnswerController::completionRate<\/a>"],[100,6,"<a href=\"Http\/Controllers\/AnswerController.php.html#312\">App\\Http\\Controllers\\AnswerController::getDateOfLastAnswer<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AnswerController.php.html#350\">App\\Http\\Controllers\\AnswerController::getCountOfServices<\/a>"],[80,2,"<a href=\"Http\/Controllers\/AssessmentController.php.html#12\">App\\Http\\Controllers\\AssessmentController::index<\/a>"],[88.88888888888889,2,"<a href=\"Http\/Controllers\/AssessmentController.php.html#28\">App\\Http\\Controllers\\AssessmentController::store<\/a>"],[80,3,"<a href=\"Http\/Controllers\/AssessmentController.php.html#48\">App\\Http\\Controllers\\AssessmentController::show<\/a>"],[100,1,"<a href=\"Http\/Controllers\/AssessmentSectionController.php.html#17\">App\\Http\\Controllers\\AssessmentSectionController::store<\/a>"],[100,1,"<a href=\"Http\/Controllers\/AssessmentSectionController.php.html#47\">App\\Http\\Controllers\\AssessmentSectionController::destroy<\/a>"],[100,1,"<a href=\"Http\/Controllers\/AssessmentSectionController.php.html#57\">App\\Http\\Controllers\\AssessmentSectionController::getAssessmentSections<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#18\">App\\Http\\Controllers\\Auth\\AuthenticatedSessionController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#26\">App\\Http\\Controllers\\Auth\\AuthenticatedSessionController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#38\">App\\Http\\Controllers\\Auth\\AuthenticatedSessionController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/ConfirmablePasswordController.php.html#18\">App\\Http\\Controllers\\Auth\\ConfirmablePasswordController::show<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/ConfirmablePasswordController.php.html#26\">App\\Http\\Controllers\\Auth\\ConfirmablePasswordController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/EmailVerificationNotificationController.php.html#15\">App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/EmailVerificationPromptController.php.html#16\">App\\Http\\Controllers\\Auth\\EmailVerificationPromptController::__invoke<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/NewPasswordController.php.html#20\">App\\Http\\Controllers\\Auth\\NewPasswordController::create<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/NewPasswordController.php.html#30\">App\\Http\\Controllers\\Auth\\NewPasswordController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/PasswordController.php.html#16\">App\\Http\\Controllers\\Auth\\PasswordController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/PasswordResetLinkController.php.html#16\">App\\Http\\Controllers\\Auth\\PasswordResetLinkController::create<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/PasswordResetLinkController.php.html#26\">App\\Http\\Controllers\\Auth\\PasswordResetLinkController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/RegisteredUserController.php.html#21\">App\\Http\\Controllers\\Auth\\RegisteredUserController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/RegisteredUserController.php.html#31\">App\\Http\\Controllers\\Auth\\RegisteredUserController::store<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/VerifyEmailController.php.html#16\">App\\Http\\Controllers\\Auth\\VerifyEmailController::__invoke<\/a>"],[80,2,"<a href=\"Http\/Controllers\/OrganisationController.php.html#18\">App\\Http\\Controllers\\OrganisationController::index<\/a>"],[66.66666666666666,2,"<a href=\"Http\/Controllers\/OrganisationController.php.html#33\">App\\Http\\Controllers\\OrganisationController::create<\/a>"],[90.9090909090909,2,"<a href=\"Http\/Controllers\/OrganisationController.php.html#47\">App\\Http\\Controllers\\OrganisationController::store<\/a>"],[80,3,"<a href=\"Http\/Controllers\/OrganisationController.php.html#71\">App\\Http\\Controllers\\OrganisationController::show<\/a>"],[80,3,"<a href=\"Http\/Controllers\/OrganisationController.php.html#86\">App\\Http\\Controllers\\OrganisationController::edit<\/a>"],[90,3,"<a href=\"Http\/Controllers\/OrganisationController.php.html#101\">App\\Http\\Controllers\\OrganisationController::update<\/a>"],[75,2,"<a href=\"Http\/Controllers\/OrganisationController.php.html#121\">App\\Http\\Controllers\\OrganisationController::destroy<\/a>"],[94.11764705882352,2,"<a href=\"Http\/Controllers\/QuestionController.php.html#17\">App\\Http\\Controllers\\QuestionController::store<\/a>"],[94.44444444444444,2,"<a href=\"Http\/Controllers\/QuestionController.php.html#54\">App\\Http\\Controllers\\QuestionController::update<\/a>"],[83.33333333333334,2,"<a href=\"Http\/Controllers\/QuestionController.php.html#82\">App\\Http\\Controllers\\QuestionController::destroy<\/a>"],[100,1,"<a href=\"Http\/Controllers\/QuestionController.php.html#94\">App\\Http\\Controllers\\QuestionController::getQuestionsForSection<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ResourceController.php.html#11\">App\\Http\\Controllers\\ResourceController::getResources<\/a>"],[75,2,"<a href=\"Http\/Controllers\/ResourceController.php.html#18\">App\\Http\\Controllers\\ResourceController::getCuratedResources<\/a>"],[66.66666666666666,2,"<a href=\"Http\/Controllers\/ServiceController.php.html#19\">App\\Http\\Controllers\\ServiceController::index<\/a>"],[66.66666666666666,2,"<a href=\"Http\/Controllers\/ServiceController.php.html#32\">App\\Http\\Controllers\\ServiceController::create<\/a>"],[90.9090909090909,2,"<a href=\"Http\/Controllers\/ServiceController.php.html#45\">App\\Http\\Controllers\\ServiceController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/ServiceController.php.html#67\">App\\Http\\Controllers\\ServiceController::show<\/a>"],[100,1,"<a href=\"Http\/Controllers\/ServiceController.php.html#81\">App\\Http\\Controllers\\ServiceController::getServices<\/a>"],[0,2,"<a href=\"Http\/Controllers\/ServiceController.php.html#92\">App\\Http\\Controllers\\ServiceController::answerSection<\/a>"],[80,3,"<a href=\"Http\/Controllers\/SetLangController.php.html#13\">App\\Http\\Controllers\\SetLangController::setLang<\/a>"],[80,2,"<a href=\"Http\/Controllers\/UserController.php.html#25\">App\\Http\\Controllers\\UserController::store<\/a>"],[100,1,"<a href=\"Http\/Controllers\/UserController.php.html#43\">App\\Http\\Controllers\\UserController::apiIndex<\/a>"],[0,2,"<a href=\"Http\/Controllers\/unused\/AttemptController.php.html#12\">App\\Http\\Controllers\\AttemptController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/unused\/AttemptController.php.html#27\">App\\Http\\Controllers\\AttemptController::create<\/a>"],[0,2,"<a href=\"Http\/Controllers\/unused\/AttemptController.php.html#40\">App\\Http\\Controllers\\AttemptController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/unused\/AttemptController.php.html#55\">App\\Http\\Controllers\\AttemptController::show<\/a>"],[0,1,"<a href=\"Http\/Controllers\/unused\/DepartmentController.php.html#12\">App\\Http\\Controllers\\DepartmentController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/unused\/DepartmentController.php.html#20\">App\\Http\\Controllers\\DepartmentController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/unused\/DepartmentController.php.html#28\">App\\Http\\Controllers\\DepartmentController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/unused\/DepartmentController.php.html#36\">App\\Http\\Controllers\\DepartmentController::show<\/a>"],[0,1,"<a href=\"Http\/Controllers\/unused\/DepartmentController.php.html#44\">App\\Http\\Controllers\\DepartmentController::edit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/unused\/DepartmentController.php.html#52\">App\\Http\\Controllers\\DepartmentController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/unused\/DepartmentController.php.html#60\">App\\Http\\Controllers\\DepartmentController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/unused\/ProfileController.php.html#17\">App\\Http\\Controllers\\ProfileController::edit<\/a>"],[0,2,"<a href=\"Http\/Controllers\/unused\/ProfileController.php.html#27\">App\\Http\\Controllers\\ProfileController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/unused\/ProfileController.php.html#43\">App\\Http\\Controllers\\ProfileController::destroy<\/a>"],[0,2,"<a href=\"Http\/Middleware\/Authenticate.php.html#13\">App\\Http\\Middleware\\Authenticate::redirectTo<\/a>"],[0,4,"<a href=\"Http\/Middleware\/RedirectIfAuthenticated.php.html#18\">App\\Http\\Middleware\\RedirectIfAuthenticated::handle<\/a>"],[87.5,3,"<a href=\"Http\/Middleware\/SetLanguage.php.html#12\">App\\Http\\Middleware\\SetLanguage::handle<\/a>"],[0,1,"<a href=\"Http\/Middleware\/TrustHosts.php.html#14\">App\\Http\\Middleware\\TrustHosts::hosts<\/a>"],[0,1,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#17\">App\\Http\\Requests\\Auth\\LoginRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#27\">App\\Http\\Requests\\Auth\\LoginRequest::rules<\/a>"],[0,2,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#40\">App\\Http\\Requests\\Auth\\LoginRequest::authenticate<\/a>"],[0,2,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#60\">App\\Http\\Requests\\Auth\\LoginRequest::ensureIsNotRateLimited<\/a>"],[0,1,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#81\">App\\Http\\Requests\\Auth\\LoginRequest::throttleKey<\/a>"],[0,1,"<a href=\"Http\/Requests\/ProfileUpdateRequest.php.html#16\">App\\Http\\Requests\\ProfileUpdateRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreOrganisationRequest.php.html#12\">App\\Http\\Requests\\StoreOrganisationRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreOrganisationRequest.php.html#22\">App\\Http\\Requests\\StoreOrganisationRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreServiceRequest.php.html#12\">App\\Http\\Requests\\StoreServiceRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreServiceRequest.php.html#22\">App\\Http\\Requests\\StoreServiceRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateOrganisationRequest.php.html#12\">App\\Http\\Requests\\UpdateOrganisationRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateOrganisationRequest.php.html#22\">App\\Http\\Requests\\UpdateOrganisationRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateServiceRequest.php.html#12\">App\\Http\\Requests\\UpdateServiceRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateServiceRequest.php.html#22\">App\\Http\\Requests\\UpdateServiceRequest::rules<\/a>"],[100,1,"<a href=\"Models\/Answer.php.html#13\">App\\Models\\Answer::question<\/a>"],[100,1,"<a href=\"Models\/Answer.php.html#18\">App\\Models\\Answer::assessment<\/a>"],[100,1,"<a href=\"Models\/Answer.php.html#23\">App\\Models\\Answer::service<\/a>"],[100,1,"<a href=\"Models\/Answer.php.html#28\">App\\Models\\Answer::section<\/a>"],[100,1,"<a href=\"Models\/Answer.php.html#33\">App\\Models\\Answer::user<\/a>"],[100,1,"<a href=\"Models\/Assessment.php.html#15\">App\\Models\\Assessment::booted<\/a>"],[0,1,"<a href=\"Models\/Assessment.php.html#20\">App\\Models\\Assessment::attempts<\/a>"],[0,1,"<a href=\"Models\/Assessment.php.html#25\">App\\Models\\Assessment::sections<\/a>"],[0,1,"<a href=\"Models\/Assessment.php.html#30\">App\\Models\\Assessment::answers<\/a>"],[0,1,"<a href=\"Models\/Assessment.php.html#34\">App\\Models\\Assessment::questions<\/a>"],[100,1,"<a href=\"Models\/AssessmentSection.php.html#12\">App\\Models\\AssessmentSection::questions<\/a>"],[100,1,"<a href=\"Models\/AssessmentSection.php.html#17\">App\\Models\\AssessmentSection::assessment<\/a>"],[0,1,"<a href=\"Models\/AssessmentSection.php.html#22\">App\\Models\\AssessmentSection::answers<\/a>"],[100,1,"<a href=\"Models\/Attempt.php.html#12\">App\\Models\\Attempt::assessment<\/a>"],[100,1,"<a href=\"Models\/Attempt.php.html#16\">App\\Models\\Attempt::service<\/a>"],[0,1,"<a href=\"Models\/Department.php.html#12\">App\\Models\\Department::organisation<\/a>"],[0,1,"<a href=\"Models\/Department.php.html#17\">App\\Models\\Department::services<\/a>"],[100,1,"<a href=\"Models\/Organisation.php.html#19\">App\\Models\\Organisation::booted<\/a>"],[0,1,"<a href=\"Models\/Organisation.php.html#24\">App\\Models\\Organisation::users<\/a>"],[100,1,"<a href=\"Models\/Organisation.php.html#29\">App\\Models\\Organisation::services<\/a>"],[0,1,"<a href=\"Models\/Organisation.php.html#33\">App\\Models\\Organisation::assessments<\/a>"],[100,1,"<a href=\"Models\/Question.php.html#12\">App\\Models\\Question::assessmentSection<\/a>"],[0,1,"<a href=\"Models\/Question.php.html#17\">App\\Models\\Question::answers<\/a>"],[100,1,"<a href=\"Models\/Question.php.html#22\">App\\Models\\Question::assessment<\/a>"],[75,3,"<a href=\"Models\/Scopes\/AssessmentScope.php.html#14\">App\\Models\\Scopes\\AssessmentScope::apply<\/a>"],[66.66666666666666,3,"<a href=\"Models\/Scopes\/OrganisationScope.php.html#14\">App\\Models\\Scopes\\OrganisationScope::apply<\/a>"],[66.66666666666666,3,"<a href=\"Models\/Scopes\/ServiceScope.php.html#14\">App\\Models\\Scopes\\ServiceScope::apply<\/a>"],[100,1,"<a href=\"Models\/Service.php.html#15\">App\\Models\\Service::booted<\/a>"],[100,1,"<a href=\"Models\/Service.php.html#20\">App\\Models\\Service::organisation<\/a>"],[100,1,"<a href=\"Models\/Service.php.html#25\">App\\Models\\Service::department<\/a>"],[0,1,"<a href=\"Models\/Service.php.html#30\">App\\Models\\Service::attempt<\/a>"],[0,1,"<a href=\"Models\/Service.php.html#35\">App\\Models\\Service::answers<\/a>"],[100,1,"<a href=\"Models\/User.php.html#48\">App\\Models\\User::organisation<\/a>"],[0,1,"<a href=\"Models\/User.php.html#53\">App\\Models\\User::answers<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#12\">App\\Providers\\AppServiceProvider::register<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#20\">App\\Providers\\AppServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/AuthServiceProvider.php.html#24\">App\\Providers\\AuthServiceProvider::boot<\/a>"],[0,1,"<a href=\"Providers\/BroadcastServiceProvider.php.html#13\">App\\Providers\\BroadcastServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/EventServiceProvider.php.html#26\">App\\Providers\\EventServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/EventServiceProvider.php.html#34\">App\\Providers\\EventServiceProvider::shouldDiscoverEvents<\/a>"],[100,1,"<a href=\"Providers\/FortifyServiceProvider.php.html#23\">App\\Providers\\FortifyServiceProvider::register<\/a>"],[54.54545454545454,3,"<a href=\"Providers\/FortifyServiceProvider.php.html#31\">App\\Providers\\FortifyServiceProvider::boot<\/a>"],[100,2,"<a href=\"Providers\/RouteServiceProvider.php.html#25\">App\\Providers\\RouteServiceProvider::boot<\/a>"],[0,1,"<a href=\"View\/Components\/AppLayout.php.html#13\">App\\View\\Components\\AppLayout::render<\/a>"],[0,1,"<a href=\"View\/Components\/GuestLayout.php.html#13\">App\\View\\Components\\GuestLayout::render<\/a>"],[0,2,"<a href=\"appendLang.php.html#10\">App\\appendLang::append<\/a>"],[100,1,"<a href=\"Actions\/Fortify\/PasswordValidationRules.php.html#14\">App\\Actions\\Fortify\\PasswordValidationRules::passwordRules<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

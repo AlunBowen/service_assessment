@@ -10,17 +10,13 @@
         //get all the services for the organisation
         $services = App\Models\Service::where('organisation_id', $organisation->id)->get();
         $localization = json_encode(__('messages'));
+        $lang = Cookie::get('lang');  
     @endphp
   
-    <h5 class="text-secondary">Assessment Dashboard: {{ $user->organisation->name }}<h5>
+    <h5 class="text-secondary">{{__('messages.Assessment Dashboard')}}: {{ $user->organisation->name }}<h5>
     
-    @php
-        $lang = Cookie::get('lang');  
-    @endphp 
-     
-
-
-
+  
+  
 @if (session('success'))
     <div class="alert alert-success" role="alert">
         {{ session('success') }}

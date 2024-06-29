@@ -69,11 +69,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
     Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('users.show');
 
-    //Attempt
-    // Route::get('/attempts', [App\Http\Controllers\AttemptController::class, 'index'])->name('attempts.index');
-    // Route::get('/attempts/create', [App\Http\Controllers\AttemptController::class, 'create'])->name('attempts.create');
-    // Route::post('/attempts', [App\Http\Controllers\AttemptController::class, 'store'])->name('attempts.store');
-    // Route::get('/attempts/{attempt}', [App\Http\Controllers\AttemptController::class, 'show'])->name('attempts.show');
     
     //Assessments
     Route::get('/assessments', [App\Http\Controllers\AssessmentController::class, 'index'])->name('assessments.index');
@@ -84,13 +79,9 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::get('/set-lang', [App\Http\Controllers\SetLangController::class, 'setLang'])->name('setLang');
+    //Set Language
+    Route::get('/set-lang', [App\Http\Controllers\SetLangController::class, 'setLang'])->name('setLang');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
 
 
 require __DIR__ . '/auth.php';

@@ -23,10 +23,10 @@ class AssessmentSectionSeeder extends Seeder
         $a->save();
 
         $a = new AssessmentSection();
-        $a->name_en = "Design";
-        $a->name_cym = "Dylunio";
-        $a->description_en = "This is the second assessment section";
-        $a->description_cym = "Dyma ail asesiad adran";
+        $a->name_en = "Design services in Welsh and English";
+        $a->name_cym = "Dylunio gwasanaethau yn Gymraeg a Saesneg";
+        $a->description_en = "Services in Wales must meet the needs of people who use the Welsh language in their everyday lives. You need to design and build services that promote and ease the use of Welsh and treat those who speak it equally with those who speak English.";
+        $a->description_cym = "Mae’n rhaid i wasanaethau yng Nghymru fodloni anghenion pobl sy’n defnyddio’r Gymraeg yn eu bywydau pob dydd. Mae angen i chi ddylunio a chreu gwasanaethau sy’n hybu a hwyluso defnydd o’r Gymraeg ac yn trin pobl sy’n ei siarad yn gydradd â phobl sy’n siarad Saesneg.";
         $a->assessment()->associate(\App\Models\Assessment::find(1));
         $a->save();
     }

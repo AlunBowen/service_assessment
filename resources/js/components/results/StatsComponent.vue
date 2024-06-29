@@ -4,11 +4,11 @@
         <div class="row">
         <div class="col-md-4 ">
             <Card class="card p-2 ">
-                <template #title><h2 class="text-center">Completion rate</h2><hr /></template>
+                <template #title><h2 class="text-center">Start rate</h2><hr /></template>
                 
                 <template #content>
                 <p class="m-0 fs-6 text-center">
-                    The completion rate is the percentage of services that have completed the whole assessment.
+                    The start rate is the percentage of your services that have started the assessment. 
                 </p>
                 <hr />
                 <h1 class="fs-1 text-center"><p>{{ completionRate }}%</p></h1>
@@ -20,7 +20,7 @@
                 <template #title><h2 class="text-center">Latest update</h2><hr /></template>
                 <template #content>
                 <p class="m-0 fs-6 text-center">
-                    The completion rate is the percentage of services that have been completed.
+                    The date of the last update to the system.
                 </p>
                 <hr />
                 <h1 class="fs-1 text-center"><p>{{ dateOfLastUpdate }}</p></h1>
@@ -32,7 +32,7 @@
                 <template #title><h2 class="text-center">Service count</h2><hr /></template>
                 <template #content>
                 <p class="m-0 fs-6 text-center">
-                    The completion rate is the percentage of services that have been completed.
+                    The number of services that have been added to the system.
                 </p>
                 <hr />
                 <h1 class="fs-1 text-center"><p>{{ countOfServices }}</p></h1>

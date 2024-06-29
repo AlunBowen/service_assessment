@@ -239,7 +239,42 @@ class AnswerController extends Controller
         return 0;
     }
 }
+public function getTimeBasedResults($id, $assessment){
 
+    //An array to hold the results
+    $must = [];
+    $should = [];
+    $could = [];
+    //todays month using carbon
+    $today = Carbon::now();
+
+    //for each month in the last year counting back from the most recent month
+    for ($i = 0; $i < 12; $i++) {   
+
+        //initialise the answer controller
+        $answerController = new AnswerController();
+        //get the most recent answers for the assessment before date 
+        $ansers = $answerController->getAllAnswers($id, $assessment, $today)->getData(true);
+        //get the count of services
+        $countOfServices = count($ansers['services']);
+        //calculate the percentage of yes answers for each level
+        $mustPercentage = ($ansers['must'] / $ansers['mustLength'] * 100) / $countOfServices;
+        $shouldPercentage = ($ansers['should'] / $ansers['shouldLength'] * 100) / $countOfServices;
+        $couldPercentage = ($ansers['could'] / $ansers['couldLength'] * 100) / $countOfServices;
+        //add the percentages to the arrays
+        array_push($must, $mustPercentage);
+        array_push($should, $shouldPercentage);
+        array_push($could, $couldPercentage);
+        //substract a month from the date
+        $today = Carbon::now()->subMonth($i);
+    }
+
+
+    $response['must'] = $must;
+    $response['should'] = $should;
+    $response['could'] = $could;
+    return response()->json($response);
+}
 
 public function completionRate($id, $assessment){
     error_log($id, $assessment);    //get all services for the organisation
@@ -325,42 +360,7 @@ public function getCountOfServices($id){
 }
 
 
-public function getTimeBasedResults($id, $assessment){
 
-    //An array to hold the results
-    $must = [];
-    $should = [];
-    $could = [];
-    //todays month using carbon
-    $today = Carbon::now();
-
-    //for each month in the last year counting back from the most recent month
-    for ($i = 0; $i < 12; $i++) {   
-
-        //initialise the answer controller
-        $answerController = new AnswerController();
-        //get the most recent answers for the assessment before date 
-        $ansers = $answerController->getAllAnswers($id, $assessment, $today)->getData(true);
-        //get the count of services
-        $countOfServices = count($ansers['services']);
-        //calculate the percentage of yes answers for each level
-        $mustPercentage = ($ansers['must'] / $ansers['mustLength'] * 100) / $countOfServices;
-        $shouldPercentage = ($ansers['should'] / $ansers['shouldLength'] * 100) / $countOfServices;
-        $couldPercentage = ($ansers['could'] / $ansers['couldLength'] * 100) / $countOfServices;
-        //add the percentages to the arrays
-        array_push($must, $mustPercentage);
-        array_push($should, $shouldPercentage);
-        array_push($could, $couldPercentage);
-        //substract a month from the date
-        $today = Carbon::now()->subMonth($i);
-    }
-
-
-    $response['must'] = $must;
-    $response['should'] = $should;
-    $response['could'] = $could;
-    return response()->json($response);
-}
 
 
 }

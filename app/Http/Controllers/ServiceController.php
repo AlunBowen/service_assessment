@@ -48,8 +48,10 @@ class ServiceController extends Controller
         if  (auth()->user()->hasPermissionTo('manage organisations')) {
             
             $service = new Service();
-            $service->name = $request->name;
-            $service->description = $request->description;
+            $service->name_en = $request->name_en;
+            $service->name_cym = $request->name_cym;
+            $service->description_en = $request->description_en;
+            $service->description_cym = $request->description_cym;
             $service->organisation_id = $request->organisation_id;
             $service->save();
             return redirect()->back()->with('Service success', 'Service created successfully');

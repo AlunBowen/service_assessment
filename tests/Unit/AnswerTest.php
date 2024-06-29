@@ -98,10 +98,10 @@ class AnswerTest extends TestCase
     /** @test */
     public function getTimeBasedResults(){
 
-        //seed the database
+       
         $this->seed(DatabaseSeeder::class);
 
-        //find user 
+        
         $user = User::find(1);
         $this->assertDatabaseHas('users', ['id' => 1]);
 

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description_en');
             $table->string('description_cym');
             
-        }); // This closing brace was missing
+        }); 
     }
 
     /**
